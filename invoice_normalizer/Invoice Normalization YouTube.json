@@ -1,0 +1,256 @@
+{
+  "version": "2.0.0",
+  "exportedAt": "2026-03-19T20:27:30.240Z",
+  "pipeline": {
+    "id": "pipeline-1773952016540",
+    "name": "Invoice Normalization YouTube",
+    "label": "Invoice Normalization YouTube",
+    "version": "1.0.0",
+    "changeVersion": 25,
+    "variables": {},
+    "nodes": [
+      {
+        "id": "pipeline-1773952016540_node_1",
+        "type": "drive:file-read",
+        "label": "Sharepoint Invoice",
+        "position": {
+          "x": -58,
+          "y": 287
+        },
+        "config": {
+          "source": "sharepoint",
+          "siteUrl": "https://yoursharepoint.sharepoint.com/sites/test",
+          "filePath": "/invoices/invoices_data.csv",
+          "shareUrl": ""
+        }
+      },
+      {
+        "id": "pipeline-1773952016540_node_2",
+        "type": "credentials",
+        "dependencies": [],
+        "position": {
+          "x": -382,
+          "y": 236
+        },
+        "config": {
+          "authType": "interactive",
+          "headerName": "Authorization",
+          "headerPrefix": "Bearer ",
+          "clientId": "4dc2b681-f357-4a88-8cc1-059c66b457b2",
+          "tenantId": "common"
+        }
+      },
+      {
+        "id": "pipeline-1773952016540_node_3",
+        "type": "drive:file-read",
+        "label": "Sharepoint Fx rates",
+        "position": {
+          "x": -60,
+          "y": 434
+        },
+        "config": {
+          "source": "sharepoint",
+          "siteUrl": "https://yoursharepoint.sharepoint.com/sites/test",
+          "filePath": "/invoices/invoices_data.csv",
+          "shareUrl": ""
+        }
+      },
+      {
+        "id": "pipeline-1773952016540_node_4",
+        "type": "transform:python",
+        "dependencies": [],
+        "position": {
+          "x": 271,
+          "y": 349
+        },
+        "config": {
+          "code": "import pandas as pd\nimport io\nfrom datetime import datetime\n\n# Parse inputs\ndf = pd.read_csv(io.StringIO(input_0))\nfx = pd.read_csv(io.StringIO(input_1))\n\n# Parse dates\ndf['Date'] = pd.to_datetime(df['Date'])\nfx['Date'] = pd.to_datetime(fx['Date'])\n\n# ── Unit conversions to (kg, liter, metric_ton) ──────────────────────────────\nUNIT_MAP = {\n    # already normalised\n    'kg':          ('kg',          1.0),\n    'liter':       ('liter',       1.0),\n    'metric_ton':  ('metric_ton',  1.0),\n    # mass → kg\n    'lb':          ('kg',          0.45359237),\n    # volume → liter\n    'gallon':      ('liter',       3.78541),\n    # mass → metric_ton\n    'short_ton':   ('metric_ton',  0.907185),\n    # UoM already metric_ton-equivalent (none here, but safe fallback)\n}\n\ndef normalise_unit(row):\n    uom = row['UoM']\n    if uom not in UNIT_MAP:\n        return pd.Series({'Qty_Normalized': row['Quantity'], 'UoM_Normalized': uom})\n    target_uom, factor = UNIT_MAP[uom]\n    return pd.Series({'Qty_Normalized': round(row['Quantity'] * factor, 6),\n                      'UoM_Normalized': target_uom})\n\ndf[['Qty_Normalized', 'UoM_Normalized']] = df.apply(normalise_unit, axis=1)\n\n# ── FX: nearest date lookup ───────────────────────────────────────────────────\n# Build a tidy currency→date→rate dict  (rates are USD per 1 USD = X foreign)\n# Column names: USD_EUR means 1 USD = X EUR  →  to get USD we divide by rate\nfx_sorted = fx.sort_values('Date').set_index('Date')\n\ndef get_rate(invoice_date, currency):\n    \"\"\"Return USD rate for invoice_date/currency.\n    Rate columns: USD_XXX  → 1 USD = rate XXX\n    So  amount_USD = amount_foreign / rate\n    For USD invoices rate = 1.\n    \"\"\"\n    if currency == 'USD':\n        return 1.0\n    col = f'USD_{currency}'\n    if col not in fx_sorted.columns:\n        return None\n    # nearest date\n    idx = fx_sorted.index.get_indexer([invoice_date], method='nearest')[0]\n    return fx_sorted[col].iloc[idx]\n\ndf['Rate'] = df.apply(lambda r: get_rate(r['Date'], r['Currency']), axis=1)\n\ndf['UnitPrice_USD'] = (df['UnitPrice'] / df['Rate']).round(6)\ndf['TotalAmount_USD'] = (df['TotalAmount'] / df['Rate']).round(2)\n\nres = df.to_csv(index=False)\nres",
+          "enableCache": false,
+          "cacheTTL": 60,
+          "packages": [
+            "pandas"
+          ]
+        },
+        "label": "Norm. UoM and to USD"
+      },
+      {
+        "id": "pipeline-1773952016540_node_5",
+        "type": "table:write",
+        "dependencies": [],
+        "position": {
+          "x": 127,
+          "y": 597
+        },
+        "config": {
+          "writeMode": "overwrite",
+          "createIfMissing": true,
+          "sheetName": "Sheet1",
+          "startCell": "A1",
+          "tableName": "normalized"
+        }
+      },
+      {
+        "id": "pipeline-1773952016540_node_6",
+        "type": "presentation:present",
+        "dependencies": [],
+        "position": {
+          "x": 465,
+          "y": 605
+        },
+        "config": {
+          "sheetName": "Dashboard",
+          "updateMode": "full",
+          "description": "Executive invoice summary dashboard. Show: total spend in USD, breakdown by vendor (bar chart), breakdown by currency (pie), spend by product category, spend by vendor country and top 10 line items by value",
+          "presentationSpec": "{\n  \"layout\": { \"columns\": 12, \"startColumn\": \"B\" },\n  \"theme\": {\n    \"primaryColor\": \"#1B3A5C\",\n    \"accentColor\": \"#2E86DE\",\n    \"backgroundColor\": \"#EAF0F6\",\n    \"fontFamily\": \"Segoe UI\"\n  },\n  \"components\": [\n    {\n      \"type\": \"text\",\n      \"position\": { \"row\": 0, \"col\": 0, \"rowSpan\": 1, \"colSpan\": 9 },\n      \"content\": \"Executive Invoice Summary Dashboard\",\n      \"style\": \"title\",\n      \"bold\": true,\n      \"fontSize\": 20,\n      \"color\": \"#1B3A5C\"\n    },\n    {\n      \"type\": \"text\",\n      \"position\": { \"row\": 0, \"col\": 9, \"rowSpan\": 1, \"colSpan\": 3 },\n      \"content\": \"Spend Analytics · 2026\",\n      \"style\": \"subtitle\",\n      \"color\": \"#2E86DE\",\n      \"align\": \"right\"\n    },\n    {\n      \"type\": \"metric\",\n      \"position\": { \"row\": 1, \"col\": 0, \"rowSpan\": 1, \"colSpan\": 3 },\n      \"label\": \"Total Spend (USD)\",\n      \"formula\": \"=SUM(${input_0.TotalAmount_USD})\",\n      \"format\": \"$#,##0\",\n      \"style\": \"card\",\n      \"valueFontSize\": 26,\n      \"valueColor\": \"#2E86DE\"\n    },\n    {\n      \"type\": \"metric\",\n      \"position\": { \"row\": 1, \"col\": 3, \"rowSpan\": 1, \"colSpan\": 3 },\n      \"label\": \"Total Invoices\",\n      \"formula\": \"=COUNTA(${input_0.InvoiceID})\",\n      \"format\": \"#,##0\",\n      \"style\": \"card\",\n      \"valueFontSize\": 26,\n      \"valueColor\": \"#2E86DE\"\n    },\n    {\n      \"type\": \"metric\",\n      \"position\": { \"row\": 1, \"col\": 6, \"rowSpan\": 1, \"colSpan\": 3 },\n      \"label\": \"Avg Invoice Value (USD)\",\n      \"formula\": \"=AVERAGE(${input_0.TotalAmount_USD})\",\n      \"format\": \"$#,##0\",\n      \"deltaFormula\": \"=MAX(${input_0.TotalAmount_USD})-AVERAGE(${input_0.TotalAmount_USD})\",\n      \"deltaFormat\": \"+$#,##0;-$#,##0\",\n      \"style\": \"card\",\n      \"valueFontSize\": 26,\n      \"valueColor\": \"#2E86DE\"\n    },\n    {\n      \"type\": \"metric\",\n      \"position\": { \"row\": 1, \"col\": 9, \"rowSpan\": 1, \"colSpan\": 3 },\n      \"label\": \"Unique Vendors\",\n      \"formula\": \"=SUMPRODUCT(1/COUNTIF(${input_0.Vendor},${input_0.Vendor}))\",\n      \"format\": \"#,##0\",\n      \"style\": \"card\",\n      \"valueFontSize\": 26,\n      \"valueColor\": \"#2E86DE\"\n    },\n    {\n      \"type\": \"separator\",\n      \"position\": { \"row\": 2, \"col\": 0, \"rowSpan\": 1, \"colSpan\": 12 },\n      \"style\": \"line\",\n      \"color\": \"#2E86DE\",\n      \"thickness\": 1\n    },\n    {\n      \"type\": \"chart\",\n      \"position\": { \"row\": 3, \"col\": 0, \"rowSpan\": 1, \"colSpan\": 6 },\n      \"chartType\": \"Bar\",\n      \"dataSource\": \"input_0\",\n      \"categories\": \"Vendor\",\n      \"series\": [{ \"column\": \"TotalAmount_USD\", \"label\": \"Total Spend (USD)\" }],\n      \"title\": \"Total Spend by Vendor (USD)\",\n      \"showLegend\": false,\n      \"showDataLabels\": false,\n      \"colors\": [\"#2E86DE\"],\n      \"axisLabels\": { \"x\": \"USD Amount\", \"y\": \"Vendor\" },\n      \"aggregation\": { \"groupBy\": \"Vendor\", \"method\": \"sum\" }\n    },\n    {\n      \"type\": \"chart\",\n      \"position\": { \"row\": 3, \"col\": 6, \"rowSpan\": 1, \"colSpan\": 6 },\n      \"chartType\": \"Pie\",\n      \"dataSource\": \"input_0\",\n      \"categories\": \"Currency\",\n      \"series\": [{ \"column\": \"TotalAmount_USD\", \"label\": \"Spend Share\" }],\n      \"title\": \"Spend by Original Currency (USD equivalent)\",\n      \"showLegend\": true,\n      \"legendPosition\": \"right\",\n      \"showDataLabels\": true,\n      \"colors\": [\"#2E86DE\", \"#1B3A5C\", \"#27AE60\", \"#E67E22\", \"#8E44AD\", \"#C0392B\", \"#16A085\"],\n      \"aggregation\": { \"groupBy\": \"Currency\", \"method\": \"sum\" }\n    },\n    {\n      \"type\": \"separator\",\n      \"position\": { \"row\": 4, \"col\": 0, \"rowSpan\": 1, \"colSpan\": 12 },\n      \"style\": \"space\"\n    },\n    {\n      \"type\": \"chart\",\n      \"position\": { \"row\": 5, \"col\": 0, \"rowSpan\": 1, \"colSpan\": 6 },\n      \"chartType\": \"Column\",\n      \"dataSource\": \"input_0\",\n      \"categories\": \"Description\",\n      \"series\": [{ \"column\": \"TotalAmount_USD\", \"label\": \"Total Spend (USD)\" }],\n      \"title\": \"Spend by Product Category (USD)\",\n      \"showLegend\": false,\n      \"showDataLabels\": false,\n      \"colors\": [\"#1B3A5C\"],\n      \"axisLabels\": { \"x\": \"Product Category\", \"y\": \"USD Amount\" },\n      \"aggregation\": { \"groupBy\": \"Description\", \"method\": \"sum\" },\n      \"axisOptions\": { \"xLabelRotation\": 30, \"xLabelFontSize\": 9 }\n    },\n    {\n      \"type\": \"chart\",\n      \"position\": { \"row\": 5, \"col\": 6, \"rowSpan\": 1, \"colSpan\": 6 },\n      \"chartType\": \"Column\",\n      \"dataSource\": \"input_0\",\n      \"categories\": \"Country\",\n      \"series\": [{ \"column\": \"TotalAmount_USD\", \"label\": \"Total Spend (USD)\" }],\n      \"title\": \"Spend by Vendor Country (USD)\",\n      \"showLegend\": false,\n      \"showDataLabels\": false,\n      \"colors\": [\"#27AE60\"],\n      \"axisLabels\": { \"x\": \"Country\", \"y\": \"USD Amount\" },\n      \"aggregation\": { \"groupBy\": \"Country\", \"method\": \"sum\" },\n      \"axisOptions\": { \"xLabelRotation\": 0, \"xLabelFontSize\": 9 }\n    },\n    {\n      \"type\": \"separator\",\n      \"position\": { \"row\": 6, \"col\": 0, \"rowSpan\": 1, \"colSpan\": 12 },\n      \"style\": \"space\"\n    },\n    {\n      \"type\": \"text\",\n      \"position\": { \"row\": 7, \"col\": 0, \"rowSpan\": 1, \"colSpan\": 12 },\n      \"content\": \"Top 10 Line Items by Value\",\n      \"style\": \"heading\",\n      \"bold\": true,\n      \"fontSize\": 13,\n      \"color\": \"#1B3A5C\"\n    },\n    {\n      \"type\": \"table\",\n      \"position\": { \"row\": 8, \"col\": 0, \"rowSpan\": 1, \"colSpan\": 12 },\n      \"dataSource\": \"input_0\",\n      \"columns\": [\"InvoiceID\", \"Date\", \"Vendor\", \"Country\", \"Description\", \"Quantity\", \"UoM\", \"Currency\", \"TotalAmount\", \"Rate\", \"TotalAmount_USD\"],\n      \"columnLabels\": {\n        \"InvoiceID\": \"Invoice ID\",\n        \"TotalAmount\": \"Orig. Amount\",\n        \"TotalAmount_USD\": \"Amount (USD)\",\n        \"Rate\": \"FX Rate\"\n      },\n      \"headerStyle\": {\n        \"bold\": true,\n        \"fillColor\": \"#1B3A5C\",\n        \"fontColor\": \"#FFFFFF\",\n        \"fontSize\": 10\n      },\n      \"alternateRowColor\": \"#D6E4F0\",\n      \"conditionalFormats\": [\n        {\n          \"type\": \"colorScale\",\n          \"column\": \"TotalAmount_USD\"\n        }\n      ],\n      \"sortBy\": \"TotalAmount_USD\",\n      \"sortOrder\": \"desc\",\n      \"maxRows\": 10\n    }\n  ]\n}"
+        },
+        "label": "Executive dashboard"
+      },
+      {
+        "id": "pipeline-1773952016540_node_7",
+        "type": "drive:file-write",
+        "dependencies": [],
+        "position": {
+          "x": 743,
+          "y": 592
+        },
+        "config": {
+          "source": "sharepoint",
+          "driveMode": "personal",
+          "inputFormat": "text",
+          "overwrite": true,
+          "siteUrl": "https://yoursharepoint.sharepoint.com/sites/test",
+          "filePath": "/invoices/invoice_normalized.csv"
+        },
+        "label": "Upload normalized"
+      }
+    ],
+    "triggers": [
+      {
+        "id": "pipeline-1773952016540_trigger_1",
+        "label": "Manual",
+        "type": "manual",
+        "enabled": true,
+        "description": "Executes when \"Run Pipeline\" button is pressed"
+      },
+      {
+        "id": "pipeline-1773952016540_trigger_2",
+        "label": "On Startup",
+        "type": "startup",
+        "enabled": false,
+        "description": "Executes when the workbook is opened"
+      },
+      {
+        "id": "pipeline-1773952016540_trigger_3",
+        "label": "Default Timer",
+        "type": "cron",
+        "enabled": false,
+        "cron": "0 */5 * * * *",
+        "description": "Executes every 5 minutes (customizable)"
+      }
+    ],
+    "edges": [
+      {
+        "id": "pipeline-1773952016540_edge_1",
+        "source": "pipeline-1773952016540_node_2",
+        "sourceHandle": "credentials",
+        "target": "pipeline-1773952016540_node_1",
+        "targetHandle": "credentials",
+        "type": "credential",
+        "required": true
+      },
+      {
+        "id": "pipeline-1773952016540_edge_2",
+        "source": "pipeline-1773952016540_node_2",
+        "sourceHandle": "credentials",
+        "target": "pipeline-1773952016540_node_3",
+        "targetHandle": "credentials",
+        "type": "credential",
+        "required": true
+      },
+      {
+        "source": "pipeline-1773952016540_node_1",
+        "target": "pipeline-1773952016540_node_4",
+        "sourceHandle": "data-out",
+        "targetHandle": "input-0",
+        "id": "pipeline-1773952016540_edge_3",
+        "type": "orderedInput",
+        "inputIndex": 0
+      },
+      {
+        "source": "pipeline-1773952016540_node_3",
+        "target": "pipeline-1773952016540_node_4",
+        "sourceHandle": "data-out",
+        "targetHandle": "input-1",
+        "id": "pipeline-1773952016540_edge_4",
+        "type": "orderedInput",
+        "inputIndex": 1
+      },
+      {
+        "source": "pipeline-1773952016540_trigger_1",
+        "target": "pipeline-1773952016540_node_4",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in",
+        "id": "pipeline-1773952016540_edge_5",
+        "type": "execution"
+      },
+      {
+        "source": "pipeline-1773952016540_node_4",
+        "target": "pipeline-1773952016540_node_5",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in",
+        "id": "pipeline-1773952016540_edge_6",
+        "type": "execution"
+      },
+      {
+        "source": "pipeline-1773952016540_node_4",
+        "target": "pipeline-1773952016540_node_5",
+        "sourceHandle": "data-out",
+        "targetHandle": "data-in",
+        "id": "pipeline-1773952016540_edge_7",
+        "type": "data"
+      },
+      {
+        "source": "pipeline-1773952016540_node_4",
+        "target": "pipeline-1773952016540_node_6",
+        "sourceHandle": "data-out",
+        "targetHandle": "input-0",
+        "id": "pipeline-1773952016540_edge_8",
+        "type": "orderedInput",
+        "inputIndex": 0
+      },
+      {
+        "source": "pipeline-1773952016540_node_4",
+        "target": "pipeline-1773952016540_node_6",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in",
+        "id": "pipeline-1773952016540_edge_9",
+        "type": "execution"
+      },
+      {
+        "id": "pipeline-1773952016540_edge_10",
+        "source": "pipeline-1773952016540_node_2",
+        "sourceHandle": "credentials",
+        "target": "pipeline-1773952016540_node_7",
+        "targetHandle": "credentials",
+        "type": "credential",
+        "required": true
+      },
+      {
+        "source": "pipeline-1773952016540_node_4",
+        "target": "pipeline-1773952016540_node_7",
+        "sourceHandle": "data-out",
+        "targetHandle": "data-in",
+        "id": "pipeline-1773952016540_edge_11",
+        "type": "data"
+      },
+      {
+        "source": "pipeline-1773952016540_node_4",
+        "target": "pipeline-1773952016540_node_7",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in",
+        "id": "pipeline-1773952016540_edge_12",
+        "type": "execution"
+      }
+    ]
+  }
+}

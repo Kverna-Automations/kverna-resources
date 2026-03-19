@@ -1,0 +1,1001 @@
+InvoiceID,Date,Vendor,Country,Description,Quantity,UoM,UnitPrice,Currency,TotalAmount
+INV-10001,2026-01-18,Müller GmbH,DE,Cleaning Agent,3845.9,kg,9.0,NOK,34613.1
+INV-10002,2026-02-07,Müller GmbH,DE,Rubber Gaskets,1707.3,lb,25.01,USD,42699.57
+INV-10003,2026-02-04,Rossi Industriale,IT,Copper Wire,13.3,kg,7.49,USD,99.62
+INV-10004,2026-03-09,Eriksson Metall AB,SE,Steel Fasteners,1580.7,metric_ton,1427.65,CHF,2256686.35
+INV-10005,2026-02-12,Nordic Supplies AS,NO,Lubricant Oil,1462.5,liter,32.23,EUR,47136.37
+INV-10006,2026-02-02,Müller GmbH,DE,Cleaning Agent,2610.7,lb,12.24,NOK,31954.97
+INV-10007,2026-01-30,Fontaine SA,FR,Aluminium Sheet,1994.2,metric_ton,3038.56,EUR,6059496.35
+INV-10008,2026-03-03,Fontaine SA,FR,Hydraulic Fluid,1875.7,gallon,19.5,JPY,36576.15
+INV-10009,2026-03-10,Yamamoto Trading Co.,JP,Hydraulic Fluid,854.8,gallon,33.84,EUR,28926.43
+INV-10010,2026-02-19,Delta Corp,US,Rubber Gaskets,86.5,lb,56.0,NOK,4844.0
+INV-10011,2026-03-11,Müller GmbH,DE,Aluminium Sheet,2031.6,metric_ton,2502.02,NOK,5083103.83
+INV-10012,2026-02-08,Alpine Chemicals AG,CH,Hydraulic Fluid,2723.1,liter,64.09,USD,174523.48
+INV-10013,2026-02-26,Delta Corp,US,Rubber Gaskets,225.4,lb,29.81,USD,6719.17
+INV-10014,2026-02-10,Rossi Industriale,IT,Cleaning Agent,3173.2,lb,5.01,GBP,15897.73
+INV-10015,2026-03-10,Rossi Industriale,IT,Steel Fasteners,2168.8,metric_ton,811.99,EUR,1761043.91
+INV-10016,2026-01-25,Fontaine SA,FR,Rubber Gaskets,4926.8,kg,37.23,EUR,183424.76
+INV-10017,2026-01-17,Fontaine SA,FR,Aluminium Sheet,1745.1,short_ton,2778.26,SEK,4848341.53
+INV-10018,2026-01-17,Eriksson Metall AB,SE,Steel Fasteners,1863.7,metric_ton,1128.95,USD,2104024.12
+INV-10019,2026-01-24,Müller GmbH,DE,Rubber Gaskets,735.0,lb,60.04,CHF,44129.4
+INV-10020,2026-03-04,Eriksson Metall AB,SE,Aluminium Sheet,2676.9,metric_ton,2175.45,USD,5823462.1
+INV-10021,2026-02-20,Hansen & Co,DK,Rubber Gaskets,315.0,lb,29.89,GBP,9415.35
+INV-10022,2026-02-22,Delta Corp,US,Hydraulic Fluid,2147.9,gallon,54.39,USD,116824.28
+INV-10023,2026-01-16,Fontaine SA,FR,Lubricant Oil,2503.1,gallon,36.82,EUR,92164.14
+INV-10024,2026-02-22,Hansen & Co,DK,Aluminium Sheet,1362.4,metric_ton,2512.6,USD,3423166.24
+INV-10025,2026-03-02,Alpine Chemicals AG,CH,Rubber Gaskets,4691.6,kg,26.66,USD,125078.06
+INV-10026,2026-02-21,Müller GmbH,DE,Copper Wire,2825.3,lb,4.68,EUR,13222.4
+INV-10027,2026-01-24,Fontaine SA,FR,Lubricant Oil,3931.5,liter,34.36,JPY,135086.34
+INV-10028,2026-01-14,Müller GmbH,DE,Cleaning Agent,1705.9,lb,18.72,NOK,31934.45
+INV-10029,2026-02-19,Nordic Supplies AS,NO,Industrial Solvent,1720.3,gallon,29.63,GBP,50972.49
+INV-10030,2026-01-22,Delta Corp,US,Aluminium Sheet,1581.0,short_ton,1933.19,EUR,3056373.39
+INV-10031,2026-02-10,Smith & Bradley Ltd,GB,Lubricant Oil,4886.3,gallon,17.5,EUR,85510.25
+INV-10032,2026-02-26,Alpine Chemicals AG,CH,Lubricant Oil,1845.7,gallon,51.87,USD,95736.46
+INV-10033,2026-03-08,Fontaine SA,FR,Aluminium Sheet,4721.4,metric_ton,1603.21,EUR,7569395.69
+INV-10034,2026-02-06,Delta Corp,US,Aluminium Sheet,3235.9,metric_ton,2031.83,EUR,6574798.7
+INV-10035,2026-03-11,Rossi Industriale,IT,Copper Wire,2507.5,lb,11.24,USD,28184.3
+INV-10036,2026-02-08,Nordic Supplies AS,NO,Steel Fasteners,2143.5,metric_ton,1495.04,USD,3204618.24
+INV-10037,2026-02-04,Müller GmbH,DE,Hydraulic Fluid,1632.6,liter,35.38,CHF,57761.39
+INV-10038,2026-01-27,Müller GmbH,DE,Hydraulic Fluid,3530.2,gallon,60.34,USD,213012.27
+INV-10039,2026-02-20,Eriksson Metall AB,SE,Copper Wire,4358.6,kg,6.28,SEK,27372.01
+INV-10040,2026-02-09,Eriksson Metall AB,SE,Industrial Solvent,2486.6,liter,14.1,USD,35061.06
+INV-10041,2026-02-09,Nordic Supplies AS,NO,Copper Wire,2501.7,lb,11.01,USD,27543.72
+INV-10042,2026-02-09,Yamamoto Trading Co.,JP,Steel Fasteners,3066.2,short_ton,1580.36,NOK,4845699.83
+INV-10043,2026-02-15,Yamamoto Trading Co.,JP,Rubber Gaskets,3989.9,lb,48.02,USD,191595.0
+INV-10044,2026-02-27,Eriksson Metall AB,SE,Aluminium Sheet,2468.6,metric_ton,1888.92,USD,4662987.91
+INV-10045,2026-02-01,Müller GmbH,DE,Copper Wire,371.8,kg,11.42,USD,4245.96
+INV-10046,2026-01-19,Rossi Industriale,IT,Industrial Solvent,4623.7,liter,17.12,CHF,79157.74
+INV-10047,2026-02-22,Eriksson Metall AB,SE,Cleaning Agent,1524.4,kg,9.24,GBP,14085.46
+INV-10048,2026-02-10,Smith & Bradley Ltd,GB,Industrial Solvent,3931.5,gallon,25.24,EUR,99231.06
+INV-10049,2026-03-12,Eriksson Metall AB,SE,Rubber Gaskets,1953.5,kg,79.05,EUR,154424.17
+INV-10050,2026-02-13,Alpine Chemicals AG,CH,Lubricant Oil,3657.4,gallon,51.51,USD,188392.67
+INV-10051,2026-01-14,Rossi Industriale,IT,Industrial Solvent,2606.8,gallon,18.68,USD,48695.02
+INV-10052,2026-01-31,Müller GmbH,DE,Steel Fasteners,2966.2,metric_ton,1254.81,USD,3722017.42
+INV-10053,2026-01-18,Smith & Bradley Ltd,GB,Rubber Gaskets,2096.9,kg,72.83,USD,152717.23
+INV-10054,2026-02-15,Müller GmbH,DE,Lubricant Oil,1658.5,liter,18.93,USD,31395.4
+INV-10055,2026-03-06,Smith & Bradley Ltd,GB,Rubber Gaskets,286.6,kg,28.63,GBP,8205.36
+INV-10056,2026-02-27,Müller GmbH,DE,Aluminium Sheet,4780.6,short_ton,3139.4,NOK,15008215.64
+INV-10057,2026-02-17,Eriksson Metall AB,SE,Aluminium Sheet,451.6,metric_ton,1519.08,EUR,686016.53
+INV-10058,2026-02-24,Rossi Industriale,IT,Copper Wire,294.5,kg,4.52,CHF,1331.14
+INV-10059,2026-01-18,Smith & Bradley Ltd,GB,Lubricant Oil,3926.0,liter,39.19,JPY,153859.94
+INV-10060,2026-03-06,Fontaine SA,FR,Cleaning Agent,4882.7,lb,13.33,EUR,65086.39
+INV-10061,2026-02-20,Eriksson Metall AB,SE,Industrial Solvent,1752.5,gallon,33.54,USD,58778.85
+INV-10062,2026-02-14,Fontaine SA,FR,Industrial Solvent,404.0,gallon,34.63,GBP,13990.52
+INV-10063,2026-02-20,Yamamoto Trading Co.,JP,Copper Wire,3176.4,lb,4.56,USD,14484.38
+INV-10064,2026-02-18,Eriksson Metall AB,SE,Hydraulic Fluid,3269.2,gallon,43.98,EUR,143779.42
+INV-10065,2026-01-24,Müller GmbH,DE,Cleaning Agent,3823.0,kg,18.51,GBP,70763.73
+INV-10066,2026-02-25,Smith & Bradley Ltd,GB,Aluminium Sheet,508.6,metric_ton,3499.83,GBP,1780013.54
+INV-10067,2026-02-16,Yamamoto Trading Co.,JP,Steel Fasteners,288.6,short_ton,1156.79,USD,333849.59
+INV-10068,2026-02-24,Yamamoto Trading Co.,JP,Cleaning Agent,3332.8,kg,6.81,CHF,22696.37
+INV-10069,2026-01-14,Alpine Chemicals AG,CH,Hydraulic Fluid,31.7,liter,57.42,GBP,1820.21
+INV-10070,2026-02-18,Delta Corp,US,Rubber Gaskets,4715.2,lb,32.46,CHF,153055.39
+INV-10071,2026-01-22,Müller GmbH,DE,Rubber Gaskets,1203.7,kg,22.25,EUR,26782.33
+INV-10072,2026-02-23,Yamamoto Trading Co.,JP,Lubricant Oil,2109.4,gallon,46.1,EUR,97243.34
+INV-10073,2026-02-02,Yamamoto Trading Co.,JP,Industrial Solvent,3957.2,liter,22.57,GBP,89314.0
+INV-10074,2026-03-13,Fontaine SA,FR,Copper Wire,1560.5,lb,8.38,GBP,13076.99
+INV-10075,2026-03-12,Nordic Supplies AS,NO,Cleaning Agent,4401.7,lb,8.0,USD,35213.6
+INV-10076,2026-01-20,Eriksson Metall AB,SE,Steel Fasteners,854.9,metric_ton,866.28,USD,740582.77
+INV-10077,2026-01-28,Yamamoto Trading Co.,JP,Hydraulic Fluid,2006.6,liter,51.76,NOK,103861.62
+INV-10078,2026-03-12,Fontaine SA,FR,Aluminium Sheet,4724.4,metric_ton,3224.82,USD,15235339.61
+INV-10079,2026-02-09,Fontaine SA,FR,Cleaning Agent,1045.1,kg,5.53,NOK,5779.4
+INV-10080,2026-02-21,Yamamoto Trading Co.,JP,Industrial Solvent,3986.9,gallon,40.67,GBP,162147.22
+INV-10081,2026-03-05,Nordic Supplies AS,NO,Rubber Gaskets,3292.1,lb,28.03,USD,92277.56
+INV-10082,2026-01-19,Nordic Supplies AS,NO,Cleaning Agent,2553.0,lb,15.59,USD,39801.27
+INV-10083,2026-01-25,Nordic Supplies AS,NO,Steel Fasteners,4452.0,metric_ton,1645.47,USD,7325632.44
+INV-10084,2026-02-07,Hansen & Co,DK,Steel Fasteners,4552.2,short_ton,1144.81,JPY,5211404.08
+INV-10085,2026-01-26,Delta Corp,US,Industrial Solvent,1484.8,gallon,35.86,EUR,53244.93
+INV-10086,2026-02-11,Alpine Chemicals AG,CH,Aluminium Sheet,850.1,metric_ton,2249.79,GBP,1912546.48
+INV-10087,2026-02-28,Rossi Industriale,IT,Rubber Gaskets,4521.9,kg,78.66,GBP,355692.65
+INV-10088,2026-02-11,Hansen & Co,DK,Rubber Gaskets,2534.9,kg,63.34,JPY,160560.57
+INV-10089,2026-02-16,Fontaine SA,FR,Copper Wire,1679.6,lb,11.5,GBP,19315.4
+INV-10090,2026-03-11,Alpine Chemicals AG,CH,Aluminium Sheet,886.4,short_ton,1704.23,JPY,1510629.47
+INV-10091,2026-03-04,Fontaine SA,FR,Lubricant Oil,4666.8,gallon,20.61,NOK,96182.75
+INV-10092,2026-02-11,Eriksson Metall AB,SE,Lubricant Oil,2545.6,liter,41.16,JPY,104776.9
+INV-10093,2026-02-02,Fontaine SA,FR,Industrial Solvent,783.1,gallon,20.96,GBP,16413.78
+INV-10094,2026-02-22,Delta Corp,US,Copper Wire,2137.3,kg,10.79,EUR,23061.47
+INV-10095,2026-03-14,Müller GmbH,DE,Rubber Gaskets,3487.6,lb,78.86,EUR,275032.14
+INV-10096,2026-02-07,Yamamoto Trading Co.,JP,Industrial Solvent,1828.9,gallon,36.8,SEK,67303.52
+INV-10097,2026-02-14,Fontaine SA,FR,Hydraulic Fluid,3329.5,gallon,19.54,USD,65058.43
+INV-10098,2026-01-14,Smith & Bradley Ltd,GB,Hydraulic Fluid,3198.6,gallon,18.67,CHF,59717.86
+INV-10099,2026-01-23,Nordic Supplies AS,NO,Cleaning Agent,2724.2,lb,15.11,EUR,41162.66
+INV-10100,2026-02-16,Müller GmbH,DE,Steel Fasteners,4884.0,metric_ton,814.07,EUR,3975917.88
+INV-10101,2026-01-29,Eriksson Metall AB,SE,Hydraulic Fluid,3993.9,liter,26.62,USD,106317.62
+INV-10102,2026-03-08,Eriksson Metall AB,SE,Hydraulic Fluid,1982.6,liter,34.88,CHF,69153.09
+INV-10103,2026-01-18,Smith & Bradley Ltd,GB,Cleaning Agent,3463.6,kg,10.52,USD,36437.07
+INV-10104,2026-03-12,Yamamoto Trading Co.,JP,Rubber Gaskets,4645.8,lb,47.33,EUR,219885.71
+INV-10105,2026-01-20,Eriksson Metall AB,SE,Industrial Solvent,4681.2,liter,43.03,EUR,201432.04
+INV-10106,2026-02-14,Rossi Industriale,IT,Aluminium Sheet,320.2,short_ton,2711.38,USD,868183.88
+INV-10107,2026-02-24,Eriksson Metall AB,SE,Aluminium Sheet,4127.0,metric_ton,3107.74,EUR,12825642.98
+INV-10108,2026-02-03,Nordic Supplies AS,NO,Aluminium Sheet,1806.7,short_ton,2568.79,NOK,4641032.89
+INV-10109,2026-01-19,Delta Corp,US,Lubricant Oil,1654.2,liter,43.01,GBP,71147.14
+INV-10110,2026-02-14,Alpine Chemicals AG,CH,Lubricant Oil,2320.4,liter,46.56,EUR,108037.82
+INV-10111,2026-01-18,Delta Corp,US,Cleaning Agent,3599.8,lb,9.4,GBP,33838.12
+INV-10112,2026-02-28,Delta Corp,US,Steel Fasteners,1916.9,short_ton,1589.32,EUR,3046567.51
+INV-10113,2026-02-04,Müller GmbH,DE,Lubricant Oil,3950.8,gallon,32.77,GBP,129467.72
+INV-10114,2026-01-22,Smith & Bradley Ltd,GB,Cleaning Agent,4542.9,kg,8.56,GBP,38887.22
+INV-10115,2026-03-04,Yamamoto Trading Co.,JP,Rubber Gaskets,1844.4,kg,62.26,CHF,114832.34
+INV-10116,2026-03-04,Rossi Industriale,IT,Lubricant Oil,4823.5,liter,46.94,EUR,226415.09
+INV-10117,2026-02-04,Delta Corp,US,Cleaning Agent,3068.2,kg,7.94,USD,24361.51
+INV-10118,2026-02-21,Müller GmbH,DE,Cleaning Agent,3057.5,kg,5.39,USD,16479.92
+INV-10119,2026-03-09,Hansen & Co,DK,Lubricant Oil,202.4,gallon,24.74,EUR,5007.38
+INV-10120,2026-02-04,Nordic Supplies AS,NO,Hydraulic Fluid,864.3,gallon,64.11,EUR,55410.27
+INV-10121,2026-02-14,Smith & Bradley Ltd,GB,Steel Fasteners,4455.2,short_ton,1132.52,EUR,5045603.1
+INV-10122,2026-02-15,Nordic Supplies AS,NO,Aluminium Sheet,4785.6,short_ton,2730.97,EUR,13069330.03
+INV-10123,2026-02-14,Hansen & Co,DK,Lubricant Oil,966.2,liter,26.97,GBP,26058.41
+INV-10124,2026-01-26,Fontaine SA,FR,Lubricant Oil,798.5,liter,21.75,EUR,17367.38
+INV-10125,2026-01-24,Yamamoto Trading Co.,JP,Steel Fasteners,3142.6,short_ton,1781.11,EUR,5597316.29
+INV-10126,2026-01-18,Eriksson Metall AB,SE,Copper Wire,3965.6,kg,7.45,JPY,29543.72
+INV-10127,2026-02-03,Yamamoto Trading Co.,JP,Cleaning Agent,2810.5,lb,8.99,SEK,25266.4
+INV-10128,2026-02-23,Smith & Bradley Ltd,GB,Copper Wire,3302.6,kg,11.17,EUR,36890.04
+INV-10129,2026-02-23,Delta Corp,US,Steel Fasteners,2327.3,metric_ton,1506.66,EUR,3506449.82
+INV-10130,2026-01-26,Yamamoto Trading Co.,JP,Hydraulic Fluid,711.4,liter,33.7,EUR,23974.18
+INV-10131,2026-01-19,Delta Corp,US,Cleaning Agent,3484.4,kg,12.2,EUR,42509.68
+INV-10132,2026-02-09,Yamamoto Trading Co.,JP,Copper Wire,4800.2,lb,9.62,USD,46177.92
+INV-10133,2026-02-14,Yamamoto Trading Co.,JP,Steel Fasteners,3221.4,metric_ton,1285.46,NOK,4140980.84
+INV-10134,2026-01-27,Eriksson Metall AB,SE,Lubricant Oil,1205.2,liter,40.95,EUR,49352.94
+INV-10135,2026-02-26,Delta Corp,US,Lubricant Oil,3685.4,liter,32.13,EUR,118411.9
+INV-10136,2026-01-28,Hansen & Co,DK,Aluminium Sheet,2675.2,short_ton,2365.64,GBP,6328560.13
+INV-10137,2026-02-20,Smith & Bradley Ltd,GB,Hydraulic Fluid,3371.1,liter,28.79,SEK,97053.97
+INV-10138,2026-03-11,Delta Corp,US,Aluminium Sheet,3264.7,metric_ton,2173.55,SEK,7095988.69
+INV-10139,2026-01-31,Smith & Bradley Ltd,GB,Industrial Solvent,670.7,gallon,18.02,EUR,12086.01
+INV-10140,2026-02-12,Nordic Supplies AS,NO,Copper Wire,869.5,kg,6.21,EUR,5399.6
+INV-10141,2026-01-23,Müller GmbH,DE,Rubber Gaskets,1301.9,lb,67.32,GBP,87643.91
+INV-10142,2026-01-16,Nordic Supplies AS,NO,Steel Fasteners,3704.2,metric_ton,1413.42,GBP,5235590.36
+INV-10143,2026-02-08,Yamamoto Trading Co.,JP,Aluminium Sheet,4822.5,metric_ton,2055.54,JPY,9912841.65
+INV-10144,2026-03-08,Delta Corp,US,Industrial Solvent,1199.7,liter,25.18,EUR,30208.45
+INV-10145,2026-01-23,Fontaine SA,FR,Hydraulic Fluid,4548.0,liter,47.2,GBP,214665.6
+INV-10146,2026-02-10,Rossi Industriale,IT,Lubricant Oil,1114.5,liter,42.54,USD,47410.83
+INV-10147,2026-02-17,Fontaine SA,FR,Hydraulic Fluid,1458.8,gallon,61.83,EUR,90197.6
+INV-10148,2026-02-02,Smith & Bradley Ltd,GB,Copper Wire,179.4,kg,9.42,CHF,1689.95
+INV-10149,2026-03-06,Alpine Chemicals AG,CH,Cleaning Agent,1438.2,lb,13.08,EUR,18811.66
+INV-10150,2026-03-08,Smith & Bradley Ltd,GB,Lubricant Oil,4749.2,liter,40.35,SEK,191630.22
+INV-10151,2026-01-19,Hansen & Co,DK,Hydraulic Fluid,3563.5,liter,18.97,GBP,67599.6
+INV-10152,2026-03-08,Hansen & Co,DK,Industrial Solvent,4777.5,gallon,36.62,EUR,174952.05
+INV-10153,2026-02-23,Nordic Supplies AS,NO,Copper Wire,3211.3,lb,5.97,GBP,19171.46
+INV-10154,2026-02-26,Smith & Bradley Ltd,GB,Aluminium Sheet,4613.1,short_ton,2667.03,JPY,12303276.09
+INV-10155,2026-03-06,Delta Corp,US,Aluminium Sheet,795.2,short_ton,2494.14,USD,1983340.13
+INV-10156,2026-03-01,Nordic Supplies AS,NO,Rubber Gaskets,3334.7,kg,44.82,EUR,149461.25
+INV-10157,2026-03-06,Smith & Bradley Ltd,GB,Aluminium Sheet,1051.5,metric_ton,1956.56,NOK,2057322.84
+INV-10158,2026-01-26,Alpine Chemicals AG,CH,Copper Wire,688.3,lb,8.66,EUR,5960.68
+INV-10159,2026-02-04,Smith & Bradley Ltd,GB,Industrial Solvent,3695.1,liter,31.43,SEK,116136.99
+INV-10160,2026-01-30,Smith & Bradley Ltd,GB,Lubricant Oil,273.4,liter,34.94,EUR,9552.6
+INV-10161,2026-01-29,Eriksson Metall AB,SE,Rubber Gaskets,2690.1,kg,40.04,JPY,107711.6
+INV-10162,2026-02-05,Nordic Supplies AS,NO,Rubber Gaskets,1639.8,kg,42.75,JPY,70101.45
+INV-10163,2026-01-28,Müller GmbH,DE,Lubricant Oil,3197.7,gallon,46.09,SEK,147381.99
+INV-10164,2026-03-10,Yamamoto Trading Co.,JP,Industrial Solvent,97.1,gallon,42.57,USD,4133.55
+INV-10165,2026-03-02,Nordic Supplies AS,NO,Steel Fasteners,1682.4,metric_ton,1066.54,USD,1794346.9
+INV-10166,2026-02-07,Smith & Bradley Ltd,GB,Hydraulic Fluid,186.1,liter,41.82,EUR,7782.7
+INV-10167,2026-02-27,Nordic Supplies AS,NO,Lubricant Oil,3710.7,gallon,38.24,GBP,141897.17
+INV-10168,2026-01-18,Yamamoto Trading Co.,JP,Rubber Gaskets,2309.6,kg,60.29,EUR,139245.78
+INV-10169,2026-02-27,Yamamoto Trading Co.,JP,Lubricant Oil,2924.1,gallon,24.24,GBP,70880.18
+INV-10170,2026-02-23,Smith & Bradley Ltd,GB,Copper Wire,430.2,kg,11.76,JPY,5059.15
+INV-10171,2026-01-17,Yamamoto Trading Co.,JP,Copper Wire,25.7,kg,6.06,CHF,155.74
+INV-10172,2026-02-25,Yamamoto Trading Co.,JP,Copper Wire,75.5,lb,4.51,JPY,340.5
+INV-10173,2026-02-03,Yamamoto Trading Co.,JP,Rubber Gaskets,1841.8,kg,41.4,EUR,76250.52
+INV-10174,2026-03-08,Smith & Bradley Ltd,GB,Rubber Gaskets,198.4,lb,67.38,USD,13368.19
+INV-10175,2026-01-26,Yamamoto Trading Co.,JP,Hydraulic Fluid,988.7,gallon,57.44,EUR,56790.93
+INV-10176,2026-01-19,Müller GmbH,DE,Copper Wire,3639.8,lb,5.22,SEK,18999.76
+INV-10177,2026-02-14,Hansen & Co,DK,Lubricant Oil,4275.8,gallon,17.52,CHF,74912.02
+INV-10178,2026-01-27,Müller GmbH,DE,Steel Fasteners,4255.3,short_ton,908.12,EUR,3864323.04
+INV-10179,2026-02-03,Delta Corp,US,Aluminium Sheet,636.0,metric_ton,2837.99,JPY,1804961.64
+INV-10180,2026-02-06,Fontaine SA,FR,Cleaning Agent,4420.5,lb,14.49,NOK,64053.04
+INV-10181,2026-03-10,Alpine Chemicals AG,CH,Lubricant Oil,3890.3,liter,46.34,EUR,180276.5
+INV-10182,2026-02-22,Yamamoto Trading Co.,JP,Hydraulic Fluid,2230.3,liter,29.03,EUR,64745.61
+INV-10183,2026-03-06,Fontaine SA,FR,Cleaning Agent,3628.6,kg,6.61,GBP,23985.05
+INV-10184,2026-03-07,Delta Corp,US,Rubber Gaskets,4834.7,kg,79.12,JPY,382521.46
+INV-10185,2026-01-14,Alpine Chemicals AG,CH,Lubricant Oil,430.3,liter,39.49,NOK,16992.55
+INV-10186,2026-02-27,Alpine Chemicals AG,CH,Aluminium Sheet,1582.8,metric_ton,2873.18,USD,4547669.3
+INV-10187,2026-02-26,Hansen & Co,DK,Industrial Solvent,1857.9,gallon,36.57,GBP,67943.4
+INV-10188,2026-03-01,Smith & Bradley Ltd,GB,Cleaning Agent,3352.3,lb,8.23,USD,27589.43
+INV-10189,2026-01-21,Nordic Supplies AS,NO,Cleaning Agent,1571.3,kg,9.25,EUR,14534.52
+INV-10190,2026-03-14,Smith & Bradley Ltd,GB,Rubber Gaskets,3762.5,lb,22.45,EUR,84468.12
+INV-10191,2026-01-24,Smith & Bradley Ltd,GB,Hydraulic Fluid,859.3,gallon,31.92,USD,27428.86
+INV-10192,2026-01-20,Müller GmbH,DE,Copper Wire,1132.0,lb,10.84,EUR,12270.88
+INV-10193,2026-01-21,Nordic Supplies AS,NO,Rubber Gaskets,971.1,kg,48.66,USD,47253.73
+INV-10194,2026-02-07,Fontaine SA,FR,Lubricant Oil,730.6,liter,53.51,GBP,39094.41
+INV-10195,2026-01-31,Fontaine SA,FR,Industrial Solvent,4396.8,liter,16.96,CHF,74569.73
+INV-10196,2026-01-19,Fontaine SA,FR,Aluminium Sheet,3470.7,metric_ton,3245.49,USD,11264122.14
+INV-10197,2026-01-26,Hansen & Co,DK,Cleaning Agent,4459.9,kg,10.76,GBP,47988.52
+INV-10198,2026-02-11,Fontaine SA,FR,Industrial Solvent,870.8,liter,41.43,JPY,36077.24
+INV-10199,2026-02-08,Müller GmbH,DE,Rubber Gaskets,1571.4,kg,50.83,SEK,79874.26
+INV-10200,2026-02-12,Delta Corp,US,Cleaning Agent,4013.6,kg,16.54,NOK,66384.94
+INV-10201,2026-02-11,Rossi Industriale,IT,Steel Fasteners,1858.6,metric_ton,1810.98,USD,3365887.43
+INV-10202,2026-02-06,Eriksson Metall AB,SE,Industrial Solvent,2272.9,gallon,15.64,EUR,35548.16
+INV-10203,2026-02-09,Fontaine SA,FR,Rubber Gaskets,523.3,lb,33.03,USD,17284.6
+INV-10204,2026-01-30,Fontaine SA,FR,Copper Wire,1293.1,kg,6.29,GBP,8133.6
+INV-10205,2026-03-14,Nordic Supplies AS,NO,Steel Fasteners,1563.5,metric_ton,1164.82,GBP,1821196.07
+INV-10206,2026-02-20,Rossi Industriale,IT,Rubber Gaskets,4855.4,lb,73.53,GBP,357017.56
+INV-10207,2026-01-26,Hansen & Co,DK,Cleaning Agent,4939.3,lb,19.37,EUR,95674.24
+INV-10208,2026-03-11,Nordic Supplies AS,NO,Steel Fasteners,3361.4,short_ton,1308.24,CHF,4397517.94
+INV-10209,2026-02-23,Müller GmbH,DE,Rubber Gaskets,3036.5,kg,75.77,USD,230075.6
+INV-10210,2026-01-19,Rossi Industriale,IT,Cleaning Agent,1545.1,kg,7.53,EUR,11634.6
+INV-10211,2026-02-08,Fontaine SA,FR,Industrial Solvent,1440.1,gallon,22.4,GBP,32258.24
+INV-10212,2026-03-12,Müller GmbH,DE,Aluminium Sheet,4716.2,metric_ton,3313.89,EUR,15628968.02
+INV-10213,2026-02-16,Fontaine SA,FR,Hydraulic Fluid,641.2,liter,30.46,EUR,19530.95
+INV-10214,2026-02-16,Alpine Chemicals AG,CH,Lubricant Oil,4472.5,liter,23.6,GBP,105551.0
+INV-10215,2026-02-21,Smith & Bradley Ltd,GB,Industrial Solvent,4610.3,liter,23.37,EUR,107742.71
+INV-10216,2026-02-20,Alpine Chemicals AG,CH,Industrial Solvent,2407.0,liter,41.11,EUR,98951.77
+INV-10217,2026-02-02,Rossi Industriale,IT,Aluminium Sheet,4348.4,short_ton,3442.03,USD,14967323.25
+INV-10218,2026-01-31,Hansen & Co,DK,Lubricant Oil,1275.7,gallon,35.49,EUR,45274.59
+INV-10219,2026-02-06,Smith & Bradley Ltd,GB,Hydraulic Fluid,3540.0,gallon,53.25,GBP,188505.0
+INV-10220,2026-01-29,Smith & Bradley Ltd,GB,Aluminium Sheet,3820.4,short_ton,2195.6,JPY,8388070.24
+INV-10221,2026-01-16,Rossi Industriale,IT,Hydraulic Fluid,4270.9,gallon,45.56,GBP,194582.2
+INV-10222,2026-02-24,Eriksson Metall AB,SE,Lubricant Oil,4786.2,gallon,51.54,USD,246680.75
+INV-10223,2026-02-02,Yamamoto Trading Co.,JP,Steel Fasteners,4797.2,metric_ton,1300.21,SEK,6237367.41
+INV-10224,2026-01-31,Rossi Industriale,IT,Steel Fasteners,1784.4,metric_ton,1412.24,SEK,2520001.06
+INV-10225,2026-02-27,Eriksson Metall AB,SE,Industrial Solvent,4785.5,gallon,14.44,CHF,69102.62
+INV-10226,2026-02-07,Müller GmbH,DE,Copper Wire,901.9,kg,9.16,USD,8261.4
+INV-10227,2026-02-27,Nordic Supplies AS,NO,Steel Fasteners,1694.4,metric_ton,1552.28,NOK,2630183.23
+INV-10228,2026-02-27,Delta Corp,US,Rubber Gaskets,924.6,lb,24.76,EUR,22893.1
+INV-10229,2026-02-08,Fontaine SA,FR,Steel Fasteners,3057.4,short_ton,890.79,GBP,2723501.35
+INV-10230,2026-02-14,Yamamoto Trading Co.,JP,Industrial Solvent,1756.7,liter,33.08,JPY,58111.64
+INV-10231,2026-03-13,Fontaine SA,FR,Rubber Gaskets,276.4,lb,35.25,GBP,9743.1
+INV-10232,2026-02-24,Eriksson Metall AB,SE,Copper Wire,2589.3,kg,10.9,USD,28223.37
+INV-10233,2026-02-23,Hansen & Co,DK,Industrial Solvent,2344.6,gallon,27.95,EUR,65531.57
+INV-10234,2026-01-15,Yamamoto Trading Co.,JP,Lubricant Oil,2431.6,gallon,53.47,USD,130017.65
+INV-10235,2026-02-02,Eriksson Metall AB,SE,Aluminium Sheet,1905.4,metric_ton,2204.47,EUR,4200397.14
+INV-10236,2026-01-27,Müller GmbH,DE,Rubber Gaskets,2334.8,kg,37.76,EUR,88162.05
+INV-10237,2026-01-27,Delta Corp,US,Steel Fasteners,4493.7,short_ton,1057.94,EUR,4754064.98
+INV-10238,2026-02-10,Eriksson Metall AB,SE,Hydraulic Fluid,1546.0,gallon,54.23,CHF,83839.58
+INV-10239,2026-02-27,Delta Corp,US,Copper Wire,1683.6,lb,7.02,USD,11818.87
+INV-10240,2026-01-29,Smith & Bradley Ltd,GB,Steel Fasteners,3539.0,metric_ton,1277.87,CHF,4522381.93
+INV-10241,2026-03-14,Eriksson Metall AB,SE,Industrial Solvent,3785.9,gallon,24.58,EUR,93057.42
+INV-10242,2026-01-16,Delta Corp,US,Industrial Solvent,471.2,gallon,27.11,EUR,12774.23
+INV-10243,2026-02-19,Alpine Chemicals AG,CH,Lubricant Oil,3738.2,liter,21.09,GBP,78838.64
+INV-10244,2026-02-08,Rossi Industriale,IT,Copper Wire,4236.0,lb,7.95,CHF,33676.2
+INV-10245,2026-01-21,Yamamoto Trading Co.,JP,Cleaning Agent,706.0,lb,16.67,USD,11769.02
+INV-10246,2026-01-21,Müller GmbH,DE,Steel Fasteners,1120.0,metric_ton,1449.52,JPY,1623462.4
+INV-10247,2026-01-22,Smith & Bradley Ltd,GB,Lubricant Oil,3258.3,gallon,40.97,USD,133492.55
+INV-10248,2026-03-02,Rossi Industriale,IT,Rubber Gaskets,1452.9,kg,22.68,GBP,32951.77
+INV-10249,2026-02-03,Nordic Supplies AS,NO,Aluminium Sheet,3615.2,short_ton,2212.2,EUR,7997545.44
+INV-10250,2026-01-31,Delta Corp,US,Cleaning Agent,93.7,kg,11.35,USD,1063.49
+INV-10251,2026-03-04,Alpine Chemicals AG,CH,Rubber Gaskets,1701.5,kg,43.86,JPY,74627.79
+INV-10252,2026-02-26,Hansen & Co,DK,Aluminium Sheet,954.0,short_ton,3170.76,EUR,3024905.04
+INV-10253,2026-02-27,Fontaine SA,FR,Aluminium Sheet,4317.4,short_ton,3002.92,JPY,12964806.81
+INV-10254,2026-02-01,Müller GmbH,DE,Aluminium Sheet,878.1,metric_ton,3123.66,USD,2742885.85
+INV-10255,2026-01-22,Müller GmbH,DE,Steel Fasteners,1033.1,metric_ton,1802.01,USD,1861656.53
+INV-10256,2026-01-31,Smith & Bradley Ltd,GB,Industrial Solvent,3012.8,liter,27.12,USD,81707.14
+INV-10257,2026-01-16,Yamamoto Trading Co.,JP,Rubber Gaskets,3064.6,kg,50.79,NOK,155651.03
+INV-10258,2026-03-09,Yamamoto Trading Co.,JP,Hydraulic Fluid,4216.1,gallon,63.4,JPY,267300.74
+INV-10259,2026-03-13,Hansen & Co,DK,Rubber Gaskets,1836.3,lb,57.51,USD,105605.61
+INV-10260,2026-01-23,Fontaine SA,FR,Cleaning Agent,1338.6,lb,18.33,GBP,24536.54
+INV-10261,2026-02-26,Fontaine SA,FR,Aluminium Sheet,3662.1,short_ton,2132.09,USD,7807926.79
+INV-10262,2026-01-18,Fontaine SA,FR,Aluminium Sheet,159.5,metric_ton,2920.26,SEK,465781.47
+INV-10263,2026-01-14,Delta Corp,US,Industrial Solvent,3727.5,gallon,24.87,EUR,92702.93
+INV-10264,2026-01-21,Nordic Supplies AS,NO,Rubber Gaskets,2947.8,lb,60.16,JPY,177339.65
+INV-10265,2026-01-16,Delta Corp,US,Aluminium Sheet,1866.9,short_ton,2726.23,CHF,5089598.79
+INV-10266,2026-01-25,Rossi Industriale,IT,Aluminium Sheet,4342.2,short_ton,2817.28,JPY,12233193.22
+INV-10267,2026-02-22,Hansen & Co,DK,Lubricant Oil,3680.0,liter,22.41,GBP,82468.8
+INV-10268,2026-01-24,Yamamoto Trading Co.,JP,Hydraulic Fluid,4989.6,gallon,64.08,USD,319733.57
+INV-10269,2026-02-25,Hansen & Co,DK,Steel Fasteners,3086.8,short_ton,2013.24,JPY,6214469.23
+INV-10270,2026-02-20,Rossi Industriale,IT,Industrial Solvent,1298.7,gallon,10.38,JPY,13480.51
+INV-10271,2026-01-31,Nordic Supplies AS,NO,Rubber Gaskets,4354.5,kg,64.95,GBP,282824.78
+INV-10272,2026-02-12,Yamamoto Trading Co.,JP,Cleaning Agent,3271.5,kg,13.6,SEK,44492.4
+INV-10273,2026-02-02,Yamamoto Trading Co.,JP,Aluminium Sheet,4366.3,metric_ton,2446.03,EUR,10680100.79
+INV-10274,2026-02-02,Yamamoto Trading Co.,JP,Hydraulic Fluid,3225.4,liter,61.45,EUR,198200.83
+INV-10275,2026-03-08,Alpine Chemicals AG,CH,Rubber Gaskets,4864.3,lb,35.28,GBP,171612.5
+INV-10276,2026-02-22,Rossi Industriale,IT,Cleaning Agent,3009.5,lb,19.61,USD,59016.29
+INV-10277,2026-03-11,Yamamoto Trading Co.,JP,Lubricant Oil,3495.7,gallon,52.67,USD,184118.52
+INV-10278,2026-02-27,Hansen & Co,DK,Rubber Gaskets,2451.0,kg,59.35,JPY,145466.85
+INV-10279,2026-02-17,Delta Corp,US,Rubber Gaskets,368.2,kg,71.29,USD,26248.98
+INV-10280,2026-01-17,Yamamoto Trading Co.,JP,Copper Wire,3804.9,lb,7.89,GBP,30020.66
+INV-10281,2026-02-12,Delta Corp,US,Copper Wire,4208.9,lb,10.19,EUR,42888.69
+INV-10282,2026-02-10,Yamamoto Trading Co.,JP,Rubber Gaskets,1460.1,lb,29.28,EUR,42751.73
+INV-10283,2026-02-24,Delta Corp,US,Hydraulic Fluid,4459.7,gallon,39.56,GBP,176425.73
+INV-10284,2026-03-11,Delta Corp,US,Steel Fasteners,1889.6,short_ton,2193.09,USD,4144062.86
+INV-10285,2026-02-04,Müller GmbH,DE,Steel Fasteners,1225.0,short_ton,1545.3,USD,1892992.5
+INV-10286,2026-01-18,Fontaine SA,FR,Industrial Solvent,3669.3,liter,31.41,EUR,115252.71
+INV-10287,2026-01-16,Yamamoto Trading Co.,JP,Steel Fasteners,2206.6,short_ton,1042.99,USD,2301461.73
+INV-10288,2026-03-02,Müller GmbH,DE,Aluminium Sheet,3748.6,metric_ton,2038.63,NOK,7642008.42
+INV-10289,2026-01-31,Rossi Industriale,IT,Steel Fasteners,2488.7,short_ton,1969.38,USD,4901196.01
+INV-10290,2026-01-23,Hansen & Co,DK,Aluminium Sheet,2318.9,short_ton,2371.64,CHF,5499596.0
+INV-10291,2026-03-06,Yamamoto Trading Co.,JP,Cleaning Agent,4194.4,kg,14.17,USD,59434.65
+INV-10292,2026-03-05,Müller GmbH,DE,Rubber Gaskets,3460.9,lb,46.61,CHF,161312.55
+INV-10293,2026-02-11,Eriksson Metall AB,SE,Cleaning Agent,2007.2,lb,10.1,USD,20272.72
+INV-10294,2026-02-17,Nordic Supplies AS,NO,Hydraulic Fluid,1934.6,gallon,32.77,EUR,63396.84
+INV-10295,2026-02-27,Rossi Industriale,IT,Cleaning Agent,1987.3,lb,19.28,CHF,38315.14
+INV-10296,2026-02-05,Yamamoto Trading Co.,JP,Rubber Gaskets,697.3,kg,36.41,EUR,25388.69
+INV-10297,2026-02-14,Smith & Bradley Ltd,GB,Hydraulic Fluid,1319.1,gallon,31.09,CHF,41010.82
+INV-10298,2026-02-06,Rossi Industriale,IT,Hydraulic Fluid,1336.9,liter,57.46,USD,76818.27
+INV-10299,2026-01-27,Smith & Bradley Ltd,GB,Copper Wire,2901.2,kg,5.44,USD,15782.53
+INV-10300,2026-01-27,Eriksson Metall AB,SE,Steel Fasteners,67.4,short_ton,1927.65,EUR,129923.61
+INV-10301,2026-02-27,Rossi Industriale,IT,Lubricant Oil,2725.3,gallon,16.99,EUR,46302.85
+INV-10302,2026-03-12,Rossi Industriale,IT,Industrial Solvent,1285.9,gallon,18.21,USD,23416.24
+INV-10303,2026-01-29,Hansen & Co,DK,Cleaning Agent,716.9,kg,6.76,EUR,4846.24
+INV-10304,2026-01-16,Fontaine SA,FR,Aluminium Sheet,3229.2,metric_ton,2626.39,USD,8481138.59
+INV-10305,2026-03-01,Delta Corp,US,Industrial Solvent,4763.3,liter,43.95,GBP,209347.04
+INV-10306,2026-02-23,Hansen & Co,DK,Rubber Gaskets,1733.9,lb,30.94,USD,53646.87
+INV-10307,2026-01-30,Nordic Supplies AS,NO,Aluminium Sheet,3557.4,short_ton,1992.01,SEK,7086376.37
+INV-10308,2026-03-14,Nordic Supplies AS,NO,Copper Wire,3176.6,lb,10.33,USD,32814.28
+INV-10309,2026-01-27,Rossi Industriale,IT,Steel Fasteners,3877.3,metric_ton,2011.25,GBP,7798219.62
+INV-10310,2026-01-17,Yamamoto Trading Co.,JP,Steel Fasteners,3308.5,metric_ton,1357.63,USD,4491718.86
+INV-10311,2026-02-08,Eriksson Metall AB,SE,Cleaning Agent,4653.1,kg,10.43,EUR,48531.83
+INV-10312,2026-02-28,Alpine Chemicals AG,CH,Industrial Solvent,1860.2,liter,8.44,EUR,15700.09
+INV-10313,2026-01-22,Alpine Chemicals AG,CH,Lubricant Oil,4188.0,liter,29.2,GBP,122289.6
+INV-10314,2026-01-28,Smith & Bradley Ltd,GB,Rubber Gaskets,3629.1,kg,66.66,CHF,241915.81
+INV-10315,2026-01-30,Müller GmbH,DE,Rubber Gaskets,4847.6,kg,50.38,USD,244222.09
+INV-10316,2026-03-03,Eriksson Metall AB,SE,Copper Wire,3780.5,kg,7.56,JPY,28580.58
+INV-10317,2026-02-26,Hansen & Co,DK,Cleaning Agent,3189.2,lb,14.93,JPY,47614.76
+INV-10318,2026-01-17,Smith & Bradley Ltd,GB,Industrial Solvent,476.2,gallon,34.16,USD,16266.99
+INV-10319,2026-03-12,Yamamoto Trading Co.,JP,Industrial Solvent,2627.7,gallon,23.95,USD,62933.41
+INV-10320,2026-02-01,Nordic Supplies AS,NO,Copper Wire,3612.7,lb,5.26,EUR,19002.8
+INV-10321,2026-01-16,Nordic Supplies AS,NO,Copper Wire,655.3,kg,6.63,USD,4344.64
+INV-10322,2026-01-27,Yamamoto Trading Co.,JP,Cleaning Agent,179.0,kg,19.55,GBP,3499.45
+INV-10323,2026-02-28,Yamamoto Trading Co.,JP,Cleaning Agent,3785.8,kg,8.98,USD,33996.48
+INV-10324,2026-01-29,Delta Corp,US,Rubber Gaskets,1069.5,lb,61.76,USD,66052.32
+INV-10325,2026-02-10,Rossi Industriale,IT,Rubber Gaskets,3996.5,kg,24.58,JPY,98233.97
+INV-10326,2026-03-05,Fontaine SA,FR,Industrial Solvent,3767.2,gallon,40.82,USD,153777.1
+INV-10327,2026-02-06,Yamamoto Trading Co.,JP,Lubricant Oil,2963.1,gallon,26.77,USD,79322.19
+INV-10328,2026-03-04,Rossi Industriale,IT,Hydraulic Fluid,1071.6,liter,31.53,JPY,33787.55
+INV-10329,2026-03-13,Nordic Supplies AS,NO,Steel Fasteners,4656.6,short_ton,1834.84,EUR,8544115.94
+INV-10330,2026-01-22,Yamamoto Trading Co.,JP,Hydraulic Fluid,3604.1,liter,43.57,EUR,157030.64
+INV-10331,2026-02-17,Yamamoto Trading Co.,JP,Hydraulic Fluid,2251.1,liter,62.1,USD,139793.31
+INV-10332,2026-01-27,Müller GmbH,DE,Cleaning Agent,1203.5,kg,7.56,JPY,9098.46
+INV-10333,2026-02-27,Delta Corp,US,Lubricant Oil,1053.2,gallon,23.93,SEK,25203.08
+INV-10334,2026-03-09,Eriksson Metall AB,SE,Cleaning Agent,96.7,kg,6.43,USD,621.78
+INV-10335,2026-03-01,Yamamoto Trading Co.,JP,Industrial Solvent,3132.7,gallon,14.14,USD,44296.38
+INV-10336,2026-01-28,Hansen & Co,DK,Hydraulic Fluid,3920.4,liter,37.67,SEK,147681.47
+INV-10337,2026-02-11,Müller GmbH,DE,Industrial Solvent,384.4,liter,44.55,NOK,17125.02
+INV-10338,2026-02-07,Nordic Supplies AS,NO,Lubricant Oil,1928.0,liter,36.81,USD,70969.68
+INV-10339,2026-02-19,Nordic Supplies AS,NO,Hydraulic Fluid,4608.2,gallon,62.32,JPY,287183.02
+INV-10340,2026-01-21,Hansen & Co,DK,Industrial Solvent,2592.4,liter,26.64,CHF,69061.54
+INV-10341,2026-01-20,Smith & Bradley Ltd,GB,Rubber Gaskets,4035.8,lb,30.52,EUR,123172.62
+INV-10342,2026-02-01,Müller GmbH,DE,Copper Wire,4179.7,lb,6.4,EUR,26750.08
+INV-10343,2026-03-11,Fontaine SA,FR,Hydraulic Fluid,3431.7,liter,19.76,JPY,67810.39
+INV-10344,2026-03-05,Yamamoto Trading Co.,JP,Rubber Gaskets,422.6,lb,55.61,EUR,23500.79
+INV-10345,2026-01-20,Rossi Industriale,IT,Aluminium Sheet,1428.3,metric_ton,2440.17,USD,3485294.81
+INV-10346,2026-03-10,Alpine Chemicals AG,CH,Hydraulic Fluid,3366.9,liter,63.87,EUR,215043.9
+INV-10347,2026-01-20,Nordic Supplies AS,NO,Rubber Gaskets,3110.0,kg,69.04,JPY,214714.4
+INV-10348,2026-02-16,Alpine Chemicals AG,CH,Aluminium Sheet,2643.2,metric_ton,3369.4,GBP,8905998.08
+INV-10349,2026-01-15,Alpine Chemicals AG,CH,Rubber Gaskets,3036.8,kg,37.86,EUR,114973.25
+INV-10350,2026-03-12,Nordic Supplies AS,NO,Lubricant Oil,2117.6,gallon,35.52,GBP,75217.15
+INV-10351,2026-02-13,Alpine Chemicals AG,CH,Rubber Gaskets,2448.4,lb,75.96,EUR,185980.46
+INV-10352,2026-03-11,Rossi Industriale,IT,Rubber Gaskets,2582.7,kg,70.43,USD,181899.56
+INV-10353,2026-02-16,Müller GmbH,DE,Aluminium Sheet,263.3,metric_ton,3042.69,EUR,801140.28
+INV-10354,2026-02-27,Rossi Industriale,IT,Cleaning Agent,3747.2,lb,12.99,USD,48676.13
+INV-10355,2026-03-12,Nordic Supplies AS,NO,Lubricant Oil,2855.0,liter,37.41,NOK,106805.55
+INV-10356,2026-01-21,Nordic Supplies AS,NO,Cleaning Agent,3270.3,lb,6.32,JPY,20668.3
+INV-10357,2026-02-16,Fontaine SA,FR,Aluminium Sheet,594.3,short_ton,3184.22,JPY,1892381.95
+INV-10358,2026-02-11,Eriksson Metall AB,SE,Cleaning Agent,235.2,kg,14.4,JPY,3386.88
+INV-10359,2026-01-24,Müller GmbH,DE,Aluminium Sheet,1398.1,metric_ton,2318.26,USD,3241159.31
+INV-10360,2026-02-25,Eriksson Metall AB,SE,Aluminium Sheet,630.5,metric_ton,2393.96,CHF,1509391.78
+INV-10361,2026-01-17,Delta Corp,US,Industrial Solvent,2304.3,gallon,26.29,GBP,60580.05
+INV-10362,2026-02-23,Müller GmbH,DE,Lubricant Oil,142.8,liter,53.84,EUR,7688.35
+INV-10363,2026-03-07,Eriksson Metall AB,SE,Copper Wire,4724.3,kg,4.78,EUR,22582.15
+INV-10364,2026-03-04,Eriksson Metall AB,SE,Copper Wire,3213.5,lb,5.62,NOK,18059.87
+INV-10365,2026-01-17,Nordic Supplies AS,NO,Steel Fasteners,112.5,short_ton,2067.42,GBP,232584.75
+INV-10366,2026-01-18,Smith & Bradley Ltd,GB,Steel Fasteners,4812.9,short_ton,852.03,USD,4100735.19
+INV-10367,2026-01-15,Alpine Chemicals AG,CH,Copper Wire,4537.6,kg,8.34,EUR,37843.58
+INV-10368,2026-01-17,Alpine Chemicals AG,CH,Industrial Solvent,4622.5,liter,27.01,GBP,124853.73
+INV-10369,2026-02-07,Smith & Bradley Ltd,GB,Copper Wire,2079.8,lb,7.72,EUR,16056.06
+INV-10370,2026-01-29,Yamamoto Trading Co.,JP,Industrial Solvent,1257.6,gallon,41.91,EUR,52706.02
+INV-10371,2026-03-03,Müller GmbH,DE,Steel Fasteners,3317.2,metric_ton,1406.85,USD,4666802.82
+INV-10372,2026-02-25,Eriksson Metall AB,SE,Lubricant Oil,4452.2,liter,54.64,EUR,243268.21
+INV-10373,2026-01-14,Alpine Chemicals AG,CH,Industrial Solvent,100.3,gallon,25.54,NOK,2561.66
+INV-10374,2026-01-20,Eriksson Metall AB,SE,Rubber Gaskets,2144.6,kg,72.98,JPY,156512.91
+INV-10375,2026-02-21,Eriksson Metall AB,SE,Cleaning Agent,2549.2,kg,9.87,USD,25160.6
+INV-10376,2026-03-10,Alpine Chemicals AG,CH,Lubricant Oil,4012.1,gallon,28.22,USD,113221.46
+INV-10377,2026-02-17,Müller GmbH,DE,Rubber Gaskets,2840.3,kg,22.79,GBP,64730.44
+INV-10378,2026-01-28,Müller GmbH,DE,Rubber Gaskets,2673.8,kg,44.53,EUR,119064.31
+INV-10379,2026-02-01,Smith & Bradley Ltd,GB,Industrial Solvent,1889.8,liter,16.59,USD,31351.78
+INV-10380,2026-01-24,Alpine Chemicals AG,CH,Aluminium Sheet,3578.0,short_ton,3397.88,JPY,12157614.64
+INV-10381,2026-02-03,Smith & Bradley Ltd,GB,Rubber Gaskets,2050.2,lb,48.84,GBP,100131.77
+INV-10382,2026-02-13,Hansen & Co,DK,Hydraulic Fluid,796.0,liter,26.13,USD,20799.48
+INV-10383,2026-03-12,Yamamoto Trading Co.,JP,Cleaning Agent,2964.0,lb,19.75,USD,58539.0
+INV-10384,2026-03-02,Smith & Bradley Ltd,GB,Steel Fasteners,3199.7,metric_ton,2024.11,EUR,6476544.77
+INV-10385,2026-01-21,Smith & Bradley Ltd,GB,Hydraulic Fluid,4175.1,gallon,22.4,SEK,93522.24
+INV-10386,2026-03-12,Smith & Bradley Ltd,GB,Rubber Gaskets,3983.2,kg,50.37,USD,200633.78
+INV-10387,2026-02-13,Smith & Bradley Ltd,GB,Copper Wire,3107.7,lb,7.3,GBP,22686.21
+INV-10388,2026-02-08,Yamamoto Trading Co.,JP,Copper Wire,2756.0,lb,11.89,USD,32768.84
+INV-10389,2026-02-05,Delta Corp,US,Lubricant Oil,4959.1,gallon,51.53,USD,255542.42
+INV-10390,2026-02-13,Müller GmbH,DE,Hydraulic Fluid,2345.4,gallon,58.3,USD,136736.82
+INV-10391,2026-01-17,Müller GmbH,DE,Industrial Solvent,2720.4,liter,15.31,SEK,41649.32
+INV-10392,2026-01-28,Nordic Supplies AS,NO,Aluminium Sheet,3354.9,short_ton,1800.85,USD,6041671.67
+INV-10393,2026-01-26,Alpine Chemicals AG,CH,Aluminium Sheet,3936.8,metric_ton,2171.03,EUR,8546910.9
+INV-10394,2026-02-25,Delta Corp,US,Cleaning Agent,4996.9,lb,6.48,JPY,32379.91
+INV-10395,2026-03-12,Nordic Supplies AS,NO,Lubricant Oil,1800.7,liter,25.8,USD,46458.06
+INV-10396,2026-01-20,Eriksson Metall AB,SE,Rubber Gaskets,447.5,lb,67.21,GBP,30076.47
+INV-10397,2026-03-03,Rossi Industriale,IT,Cleaning Agent,1043.7,kg,6.21,USD,6481.38
+INV-10398,2026-03-09,Eriksson Metall AB,SE,Steel Fasteners,3481.9,short_ton,2058.24,JPY,7166585.86
+INV-10399,2026-02-07,Hansen & Co,DK,Rubber Gaskets,298.2,lb,56.61,EUR,16881.1
+INV-10400,2026-01-25,Delta Corp,US,Copper Wire,4615.3,lb,6.05,GBP,27922.56
+INV-10401,2026-03-01,Fontaine SA,FR,Copper Wire,1554.1,lb,5.28,SEK,8205.65
+INV-10402,2026-01-27,Hansen & Co,DK,Hydraulic Fluid,782.6,gallon,61.85,EUR,48403.81
+INV-10403,2026-02-01,Rossi Industriale,IT,Lubricant Oil,2098.5,gallon,33.6,USD,70509.6
+INV-10404,2026-01-14,Alpine Chemicals AG,CH,Aluminium Sheet,906.8,metric_ton,1587.35,EUR,1439408.98
+INV-10405,2026-03-10,Smith & Bradley Ltd,GB,Aluminium Sheet,776.4,metric_ton,1952.01,GBP,1515540.56
+INV-10406,2026-03-03,Yamamoto Trading Co.,JP,Rubber Gaskets,2045.8,kg,28.71,USD,58734.92
+INV-10407,2026-02-13,Hansen & Co,DK,Lubricant Oil,4385.1,gallon,50.81,USD,222806.93
+INV-10408,2026-02-24,Yamamoto Trading Co.,JP,Rubber Gaskets,4047.3,kg,38.78,GBP,156954.29
+INV-10409,2026-02-08,Alpine Chemicals AG,CH,Hydraulic Fluid,2356.4,liter,34.62,EUR,81578.57
+INV-10410,2026-03-03,Fontaine SA,FR,Steel Fasteners,83.2,short_ton,1931.55,EUR,160704.96
+INV-10411,2026-02-05,Smith & Bradley Ltd,GB,Cleaning Agent,3087.4,lb,11.82,GBP,36493.07
+INV-10412,2026-03-01,Alpine Chemicals AG,CH,Hydraulic Fluid,16.2,gallon,39.1,NOK,633.42
+INV-10413,2026-03-11,Hansen & Co,DK,Hydraulic Fluid,2796.4,liter,39.33,EUR,109982.41
+INV-10414,2026-02-19,Smith & Bradley Ltd,GB,Steel Fasteners,4944.5,metric_ton,818.54,EUR,4047271.03
+INV-10415,2026-02-18,Delta Corp,US,Cleaning Agent,3610.9,kg,15.95,JPY,57593.85
+INV-10416,2026-01-26,Hansen & Co,DK,Hydraulic Fluid,4756.7,liter,24.86,JPY,118251.56
+INV-10417,2026-01-21,Eriksson Metall AB,SE,Steel Fasteners,3758.5,short_ton,1610.5,USD,6053064.25
+INV-10418,2026-01-21,Nordic Supplies AS,NO,Cleaning Agent,3713.2,lb,7.69,USD,28554.51
+INV-10419,2026-02-15,Rossi Industriale,IT,Hydraulic Fluid,69.2,gallon,51.37,GBP,3554.8
+INV-10420,2026-02-24,Müller GmbH,DE,Industrial Solvent,2146.4,gallon,41.81,USD,89740.98
+INV-10421,2026-01-19,Yamamoto Trading Co.,JP,Copper Wire,189.5,lb,11.73,USD,2222.84
+INV-10422,2026-02-21,Yamamoto Trading Co.,JP,Industrial Solvent,3358.1,gallon,32.11,USD,107828.59
+INV-10423,2026-02-19,Delta Corp,US,Rubber Gaskets,4906.1,kg,66.87,USD,328070.91
+INV-10424,2026-03-03,Hansen & Co,DK,Industrial Solvent,3207.3,liter,36.51,EUR,117098.52
+INV-10425,2026-03-05,Fontaine SA,FR,Lubricant Oil,1752.3,liter,37.82,USD,66271.99
+INV-10426,2026-02-14,Alpine Chemicals AG,CH,Industrial Solvent,1291.3,gallon,44.32,GBP,57230.42
+INV-10427,2026-02-01,Rossi Industriale,IT,Steel Fasteners,4129.6,metric_ton,1850.78,USD,7642981.09
+INV-10428,2026-02-24,Delta Corp,US,Cleaning Agent,580.7,kg,6.56,CHF,3809.39
+INV-10429,2026-03-08,Hansen & Co,DK,Copper Wire,1097.5,kg,11.9,USD,13060.25
+INV-10430,2026-02-04,Smith & Bradley Ltd,GB,Copper Wire,2166.1,lb,8.57,USD,18563.48
+INV-10431,2026-03-14,Fontaine SA,FR,Copper Wire,831.0,kg,11.22,EUR,9323.82
+INV-10432,2026-02-06,Eriksson Metall AB,SE,Copper Wire,3319.8,lb,4.84,EUR,16067.83
+INV-10433,2026-01-26,Fontaine SA,FR,Lubricant Oil,1900.9,liter,29.16,USD,55430.24
+INV-10434,2026-02-11,Rossi Industriale,IT,Cleaning Agent,3067.4,kg,19.2,GBP,58894.08
+INV-10435,2026-02-20,Delta Corp,US,Steel Fasteners,3053.8,short_ton,816.52,EUR,2493488.78
+INV-10436,2026-02-22,Delta Corp,US,Rubber Gaskets,4336.5,lb,73.82,USD,320120.43
+INV-10437,2026-02-03,Nordic Supplies AS,NO,Hydraulic Fluid,861.2,liter,29.18,USD,25129.82
+INV-10438,2026-02-26,Delta Corp,US,Copper Wire,1542.9,lb,6.06,USD,9349.97
+INV-10439,2026-01-25,Delta Corp,US,Lubricant Oil,2847.4,liter,46.49,USD,132375.63
+INV-10440,2026-02-13,Fontaine SA,FR,Aluminium Sheet,3306.1,short_ton,3040.81,USD,10053221.94
+INV-10441,2026-01-26,Eriksson Metall AB,SE,Lubricant Oil,3198.7,gallon,30.0,USD,95961.0
+INV-10442,2026-01-30,Delta Corp,US,Steel Fasteners,185.5,short_ton,1822.49,EUR,338071.9
+INV-10443,2026-03-05,Müller GmbH,DE,Lubricant Oil,3826.3,gallon,20.39,GBP,78018.26
+INV-10444,2026-02-13,Delta Corp,US,Lubricant Oil,4957.5,liter,29.56,GBP,146543.7
+INV-10445,2026-01-25,Fontaine SA,FR,Hydraulic Fluid,463.1,gallon,61.27,NOK,28374.14
+INV-10446,2026-02-18,Nordic Supplies AS,NO,Hydraulic Fluid,3038.7,gallon,39.56,USD,120210.97
+INV-10447,2026-02-15,Smith & Bradley Ltd,GB,Hydraulic Fluid,2167.3,gallon,57.66,NOK,124966.52
+INV-10448,2026-03-10,Delta Corp,US,Cleaning Agent,3587.7,lb,15.26,JPY,54748.3
+INV-10449,2026-03-03,Fontaine SA,FR,Aluminium Sheet,3193.8,short_ton,2715.65,GBP,8673242.97
+INV-10450,2026-01-15,Fontaine SA,FR,Lubricant Oil,2621.9,liter,36.49,USD,95673.13
+INV-10451,2026-02-20,Hansen & Co,DK,Aluminium Sheet,3468.8,short_ton,3419.67,EUR,11862151.3
+INV-10452,2026-02-14,Müller GmbH,DE,Hydraulic Fluid,1510.4,liter,36.32,GBP,54857.73
+INV-10453,2026-02-17,Yamamoto Trading Co.,JP,Aluminium Sheet,951.8,metric_ton,3208.67,GBP,3054012.11
+INV-10454,2026-03-08,Eriksson Metall AB,SE,Rubber Gaskets,2712.6,kg,51.7,NOK,140241.42
+INV-10455,2026-02-12,Nordic Supplies AS,NO,Lubricant Oil,2335.7,gallon,32.89,EUR,76821.17
+INV-10456,2026-02-27,Fontaine SA,FR,Steel Fasteners,1475.3,metric_ton,1584.63,CHF,2337804.64
+INV-10457,2026-02-01,Smith & Bradley Ltd,GB,Copper Wire,2209.1,lb,7.07,EUR,15618.34
+INV-10458,2026-02-17,Delta Corp,US,Industrial Solvent,3433.9,gallon,24.53,USD,84233.57
+INV-10459,2026-03-11,Fontaine SA,FR,Rubber Gaskets,239.0,lb,55.46,EUR,13254.94
+INV-10460,2026-01-21,Eriksson Metall AB,SE,Aluminium Sheet,4237.7,short_ton,3180.87,USD,13479572.8
+INV-10461,2026-01-27,Alpine Chemicals AG,CH,Lubricant Oil,2768.0,liter,20.17,EUR,55830.56
+INV-10462,2026-02-27,Smith & Bradley Ltd,GB,Lubricant Oil,2014.5,liter,39.7,USD,79975.65
+INV-10463,2026-03-05,Yamamoto Trading Co.,JP,Lubricant Oil,2189.1,gallon,24.9,JPY,54508.59
+INV-10464,2026-02-25,Alpine Chemicals AG,CH,Cleaning Agent,3489.2,kg,13.99,EUR,48813.91
+INV-10465,2026-02-27,Eriksson Metall AB,SE,Steel Fasteners,773.0,metric_ton,921.31,USD,712172.63
+INV-10466,2026-02-26,Hansen & Co,DK,Hydraulic Fluid,4939.2,gallon,44.73,USD,220930.42
+INV-10467,2026-01-16,Yamamoto Trading Co.,JP,Lubricant Oil,3562.1,liter,22.32,CHF,79506.07
+INV-10468,2026-01-26,Yamamoto Trading Co.,JP,Steel Fasteners,4071.1,metric_ton,2101.45,NOK,8555213.09
+INV-10469,2026-02-21,Rossi Industriale,IT,Lubricant Oil,1793.4,liter,40.3,EUR,72274.02
+INV-10470,2026-01-28,Hansen & Co,DK,Rubber Gaskets,1070.2,kg,56.55,EUR,60519.81
+INV-10471,2026-01-31,Nordic Supplies AS,NO,Rubber Gaskets,3052.2,lb,47.81,USD,145925.68
+INV-10472,2026-01-17,Smith & Bradley Ltd,GB,Copper Wire,227.3,kg,10.99,GBP,2498.03
+INV-10473,2026-02-17,Smith & Bradley Ltd,GB,Rubber Gaskets,4265.6,lb,63.48,EUR,270780.29
+INV-10474,2026-02-01,Eriksson Metall AB,SE,Copper Wire,1000.2,kg,6.89,USD,6891.38
+INV-10475,2026-02-13,Rossi Industriale,IT,Steel Fasteners,4358.0,metric_ton,1306.04,USD,5691722.32
+INV-10476,2026-02-20,Eriksson Metall AB,SE,Copper Wire,2323.9,kg,6.14,USD,14268.75
+INV-10477,2026-03-08,Alpine Chemicals AG,CH,Cleaning Agent,739.3,kg,5.24,EUR,3873.93
+INV-10478,2026-02-08,Fontaine SA,FR,Industrial Solvent,1843.3,liter,34.4,GBP,63409.52
+INV-10479,2026-01-15,Rossi Industriale,IT,Aluminium Sheet,3787.5,metric_ton,3136.61,NOK,11879910.38
+INV-10480,2026-02-06,Eriksson Metall AB,SE,Aluminium Sheet,4079.3,metric_ton,3092.69,USD,12616010.32
+INV-10481,2026-01-29,Smith & Bradley Ltd,GB,Lubricant Oil,408.0,liter,27.29,GBP,11134.32
+INV-10482,2026-02-01,Eriksson Metall AB,SE,Industrial Solvent,3179.4,gallon,17.66,NOK,56148.2
+INV-10483,2026-02-07,Hansen & Co,DK,Steel Fasteners,1971.6,metric_ton,1081.13,EUR,2131555.91
+INV-10484,2026-02-19,Delta Corp,US,Hydraulic Fluid,2540.6,gallon,40.15,EUR,102005.09
+INV-10485,2026-03-01,Eriksson Metall AB,SE,Rubber Gaskets,2631.3,lb,75.82,USD,199505.17
+INV-10486,2026-01-30,Delta Corp,US,Lubricant Oil,707.2,liter,34.22,USD,24200.38
+INV-10487,2026-03-08,Rossi Industriale,IT,Cleaning Agent,4271.4,kg,18.52,CHF,79106.33
+INV-10488,2026-02-23,Rossi Industriale,IT,Steel Fasteners,4689.2,short_ton,1784.53,USD,8368018.08
+INV-10489,2026-01-24,Eriksson Metall AB,SE,Industrial Solvent,3022.9,gallon,15.68,CHF,47399.07
+INV-10490,2026-03-06,Smith & Bradley Ltd,GB,Aluminium Sheet,2364.4,short_ton,3070.82,EUR,7260646.81
+INV-10491,2026-01-28,Hansen & Co,DK,Steel Fasteners,3637.6,metric_ton,2048.94,CHF,7453224.14
+INV-10492,2026-03-10,Hansen & Co,DK,Steel Fasteners,241.9,metric_ton,946.93,EUR,229062.37
+INV-10493,2026-01-29,Müller GmbH,DE,Copper Wire,687.1,lb,9.12,USD,6266.35
+INV-10494,2026-01-16,Yamamoto Trading Co.,JP,Industrial Solvent,8.7,liter,24.49,JPY,213.06
+INV-10495,2026-01-18,Hansen & Co,DK,Steel Fasteners,1546.3,short_ton,1264.67,NOK,1955559.22
+INV-10496,2026-01-15,Delta Corp,US,Lubricant Oil,3362.1,gallon,34.15,JPY,114815.71
+INV-10497,2026-03-03,Yamamoto Trading Co.,JP,Industrial Solvent,2799.4,gallon,19.49,EUR,54560.31
+INV-10498,2026-02-18,Müller GmbH,DE,Cleaning Agent,2772.9,kg,6.79,JPY,18827.99
+INV-10499,2026-02-13,Smith & Bradley Ltd,GB,Copper Wire,2998.2,kg,8.2,JPY,24585.24
+INV-10500,2026-02-18,Yamamoto Trading Co.,JP,Lubricant Oil,172.3,gallon,30.94,EUR,5330.96
+INV-10501,2026-03-06,Alpine Chemicals AG,CH,Hydraulic Fluid,3042.7,gallon,42.81,GBP,130257.99
+INV-10502,2026-02-26,Müller GmbH,DE,Steel Fasteners,2546.0,metric_ton,1396.81,USD,3556278.26
+INV-10503,2026-02-17,Eriksson Metall AB,SE,Copper Wire,820.8,kg,7.74,GBP,6352.99
+INV-10504,2026-02-25,Delta Corp,US,Cleaning Agent,1944.5,lb,8.18,EUR,15906.01
+INV-10505,2026-02-04,Hansen & Co,DK,Rubber Gaskets,1086.0,kg,38.83,USD,42169.38
+INV-10506,2026-01-20,Müller GmbH,DE,Hydraulic Fluid,280.8,gallon,64.61,SEK,18142.49
+INV-10507,2026-02-22,Hansen & Co,DK,Industrial Solvent,3732.5,liter,37.11,EUR,138513.08
+INV-10508,2026-01-16,Alpine Chemicals AG,CH,Cleaning Agent,3588.9,lb,19.14,EUR,68691.55
+INV-10509,2026-02-16,Nordic Supplies AS,NO,Steel Fasteners,2254.9,metric_ton,1536.45,EUR,3464541.11
+INV-10510,2026-02-21,Rossi Industriale,IT,Cleaning Agent,2765.4,kg,5.15,EUR,14241.81
+INV-10511,2026-03-04,Eriksson Metall AB,SE,Copper Wire,395.0,lb,6.49,EUR,2563.55
+INV-10512,2026-03-10,Fontaine SA,FR,Aluminium Sheet,165.6,metric_ton,2512.31,EUR,416038.54
+INV-10513,2026-03-01,Yamamoto Trading Co.,JP,Copper Wire,4849.2,lb,7.59,EUR,36805.43
+INV-10514,2026-03-03,Hansen & Co,DK,Aluminium Sheet,4933.7,short_ton,3072.22,EUR,15157411.81
+INV-10515,2026-02-06,Smith & Bradley Ltd,GB,Rubber Gaskets,4148.5,lb,48.41,EUR,200828.88
+INV-10516,2026-01-23,Alpine Chemicals AG,CH,Copper Wire,3719.9,kg,6.16,NOK,22914.58
+INV-10517,2026-02-27,Yamamoto Trading Co.,JP,Aluminium Sheet,868.7,short_ton,2953.04,JPY,2565305.85
+INV-10518,2026-03-08,Rossi Industriale,IT,Industrial Solvent,4783.7,gallon,42.26,USD,202159.16
+INV-10519,2026-01-21,Eriksson Metall AB,SE,Aluminium Sheet,3269.7,metric_ton,3430.2,USD,11215724.94
+INV-10520,2026-03-01,Yamamoto Trading Co.,JP,Steel Fasteners,2482.7,metric_ton,1517.99,NOK,3768713.77
+INV-10521,2026-03-03,Delta Corp,US,Cleaning Agent,3366.8,lb,8.8,CHF,29627.84
+INV-10522,2026-01-23,Yamamoto Trading Co.,JP,Lubricant Oil,1700.6,liter,34.46,EUR,58602.68
+INV-10523,2026-03-02,Müller GmbH,DE,Industrial Solvent,1163.5,gallon,23.48,GBP,27318.98
+INV-10524,2026-01-23,Hansen & Co,DK,Industrial Solvent,4480.1,gallon,32.36,GBP,144976.04
+INV-10525,2026-02-06,Yamamoto Trading Co.,JP,Lubricant Oil,1947.8,liter,29.29,CHF,57051.06
+INV-10526,2026-02-07,Smith & Bradley Ltd,GB,Aluminium Sheet,2769.8,short_ton,1504.52,USD,4167219.5
+INV-10527,2026-03-02,Rossi Industriale,IT,Lubricant Oil,4536.5,liter,43.12,GBP,195613.88
+INV-10528,2026-02-25,Rossi Industriale,IT,Lubricant Oil,255.5,liter,15.51,EUR,3962.8
+INV-10529,2026-03-10,Fontaine SA,FR,Hydraulic Fluid,2474.5,liter,45.67,NOK,113010.42
+INV-10530,2026-02-26,Hansen & Co,DK,Hydraulic Fluid,511.3,liter,22.31,EUR,11407.1
+INV-10531,2026-02-21,Hansen & Co,DK,Industrial Solvent,470.6,gallon,13.57,USD,6386.04
+INV-10532,2026-02-19,Eriksson Metall AB,SE,Hydraulic Fluid,410.6,gallon,45.9,JPY,18846.54
+INV-10533,2026-02-12,Rossi Industriale,IT,Cleaning Agent,4590.4,kg,5.09,USD,23365.14
+INV-10534,2026-03-10,Fontaine SA,FR,Cleaning Agent,1313.1,lb,10.89,NOK,14299.66
+INV-10535,2026-02-02,Müller GmbH,DE,Aluminium Sheet,1171.6,metric_ton,2497.76,USD,2926375.62
+INV-10536,2026-03-05,Hansen & Co,DK,Lubricant Oil,785.7,gallon,19.3,CHF,15164.01
+INV-10537,2026-02-28,Fontaine SA,FR,Industrial Solvent,3535.1,liter,8.78,USD,31038.18
+INV-10538,2026-01-14,Nordic Supplies AS,NO,Steel Fasteners,4960.1,short_ton,2018.87,CHF,10013797.09
+INV-10539,2026-02-09,Müller GmbH,DE,Lubricant Oil,588.6,gallon,34.97,USD,20583.34
+INV-10540,2026-02-24,Nordic Supplies AS,NO,Industrial Solvent,3083.4,liter,39.17,NOK,120776.78
+INV-10541,2026-01-16,Alpine Chemicals AG,CH,Copper Wire,2894.9,lb,6.74,USD,19511.63
+INV-10542,2026-01-24,Rossi Industriale,IT,Aluminium Sheet,2532.0,metric_ton,1949.5,NOK,4936134.0
+INV-10543,2026-01-25,Nordic Supplies AS,NO,Hydraulic Fluid,1790.2,liter,21.18,USD,37916.44
+INV-10544,2026-02-17,Alpine Chemicals AG,CH,Hydraulic Fluid,1939.6,liter,58.18,USD,112845.93
+INV-10545,2026-01-15,Rossi Industriale,IT,Copper Wire,3168.2,lb,5.04,EUR,15967.73
+INV-10546,2026-02-07,Nordic Supplies AS,NO,Aluminium Sheet,4659.1,short_ton,3017.87,USD,14060558.12
+INV-10547,2026-02-19,Hansen & Co,DK,Copper Wire,3950.5,lb,9.04,JPY,35712.52
+INV-10548,2026-03-12,Delta Corp,US,Cleaning Agent,4309.5,kg,10.13,CHF,43655.24
+INV-10549,2026-02-08,Yamamoto Trading Co.,JP,Cleaning Agent,2793.5,lb,19.76,USD,55199.56
+INV-10550,2026-01-16,Alpine Chemicals AG,CH,Hydraulic Fluid,1087.1,liter,59.29,EUR,64454.16
+INV-10551,2026-02-05,Müller GmbH,DE,Hydraulic Fluid,3335.3,gallon,60.6,EUR,202119.18
+INV-10552,2026-03-05,Eriksson Metall AB,SE,Copper Wire,473.7,lb,4.58,GBP,2169.55
+INV-10553,2026-03-01,Fontaine SA,FR,Copper Wire,2583.0,kg,11.72,JPY,30272.76
+INV-10554,2026-02-13,Rossi Industriale,IT,Cleaning Agent,1620.6,lb,16.29,JPY,26399.57
+INV-10555,2026-02-28,Nordic Supplies AS,NO,Rubber Gaskets,1270.0,lb,78.01,GBP,99072.7
+INV-10556,2026-03-12,Delta Corp,US,Hydraulic Fluid,1884.9,liter,32.49,GBP,61240.4
+INV-10557,2026-02-28,Müller GmbH,DE,Rubber Gaskets,1788.3,lb,67.27,NOK,120298.94
+INV-10558,2026-02-20,Delta Corp,US,Lubricant Oil,4223.8,gallon,43.52,USD,183819.78
+INV-10559,2026-01-18,Fontaine SA,FR,Hydraulic Fluid,3413.1,liter,55.22,USD,188471.38
+INV-10560,2026-02-26,Delta Corp,US,Rubber Gaskets,2167.1,lb,30.52,USD,66139.89
+INV-10561,2026-02-04,Smith & Bradley Ltd,GB,Aluminium Sheet,3514.4,short_ton,3325.23,USD,11686188.31
+INV-10562,2026-02-23,Hansen & Co,DK,Aluminium Sheet,2625.8,short_ton,2857.47,USD,7503144.73
+INV-10563,2026-02-28,Fontaine SA,FR,Cleaning Agent,3181.1,lb,12.18,SEK,38745.8
+INV-10564,2026-03-12,Fontaine SA,FR,Industrial Solvent,3253.8,gallon,27.86,CHF,90650.87
+INV-10565,2026-03-09,Alpine Chemicals AG,CH,Steel Fasteners,857.5,metric_ton,1651.69,USD,1416324.18
+INV-10566,2026-03-09,Nordic Supplies AS,NO,Cleaning Agent,175.3,lb,13.5,GBP,2366.55
+INV-10567,2026-02-15,Fontaine SA,FR,Rubber Gaskets,900.5,kg,67.04,EUR,60369.52
+INV-10568,2026-01-27,Smith & Bradley Ltd,GB,Hydraulic Fluid,3802.7,gallon,56.05,USD,213141.33
+INV-10569,2026-02-21,Yamamoto Trading Co.,JP,Aluminium Sheet,2329.9,metric_ton,3139.32,JPY,7314301.67
+INV-10570,2026-01-14,Delta Corp,US,Steel Fasteners,300.5,metric_ton,939.38,EUR,282283.69
+INV-10571,2026-03-12,Yamamoto Trading Co.,JP,Industrial Solvent,1338.3,gallon,38.62,USD,51685.15
+INV-10572,2026-01-17,Yamamoto Trading Co.,JP,Aluminium Sheet,2900.0,metric_ton,1632.42,SEK,4734018.0
+INV-10573,2026-01-19,Smith & Bradley Ltd,GB,Cleaning Agent,2428.1,lb,10.54,USD,25592.17
+INV-10574,2026-03-02,Rossi Industriale,IT,Rubber Gaskets,4197.0,lb,30.87,USD,129561.39
+INV-10575,2026-02-12,Delta Corp,US,Rubber Gaskets,202.0,lb,58.72,EUR,11861.44
+INV-10576,2026-02-09,Rossi Industriale,IT,Cleaning Agent,2595.0,lb,14.59,NOK,37861.05
+INV-10577,2026-03-01,Müller GmbH,DE,Copper Wire,860.2,kg,7.65,GBP,6580.53
+INV-10578,2026-03-01,Hansen & Co,DK,Cleaning Agent,3445.1,lb,9.33,EUR,32142.78
+INV-10579,2026-01-14,Nordic Supplies AS,NO,Copper Wire,2949.2,lb,4.77,NOK,14067.68
+INV-10580,2026-02-04,Smith & Bradley Ltd,GB,Aluminium Sheet,2701.0,metric_ton,3335.76,USD,9009887.76
+INV-10581,2026-02-12,Nordic Supplies AS,NO,Industrial Solvent,191.5,liter,9.74,USD,1865.21
+INV-10582,2026-02-23,Delta Corp,US,Rubber Gaskets,4736.5,lb,55.82,GBP,264391.43
+INV-10583,2026-01-20,Müller GmbH,DE,Hydraulic Fluid,967.3,gallon,45.14,CHF,43663.92
+INV-10584,2026-01-25,Hansen & Co,DK,Industrial Solvent,1068.3,gallon,29.13,EUR,31119.58
+INV-10585,2026-01-22,Alpine Chemicals AG,CH,Lubricant Oil,920.3,liter,29.52,EUR,27167.26
+INV-10586,2026-03-04,Delta Corp,US,Industrial Solvent,4653.4,gallon,40.0,USD,186136.0
+INV-10587,2026-01-30,Eriksson Metall AB,SE,Steel Fasteners,817.7,short_ton,1780.21,EUR,1455677.72
+INV-10588,2026-01-27,Fontaine SA,FR,Steel Fasteners,1955.5,short_ton,833.12,GBP,1629166.16
+INV-10589,2026-01-26,Delta Corp,US,Hydraulic Fluid,780.0,gallon,38.33,SEK,29897.4
+INV-10590,2026-03-01,Hansen & Co,DK,Cleaning Agent,2335.6,kg,15.39,USD,35944.88
+INV-10591,2026-01-26,Nordic Supplies AS,NO,Lubricant Oil,2031.3,gallon,41.8,EUR,84908.34
+INV-10592,2026-02-21,Hansen & Co,DK,Steel Fasteners,2888.9,metric_ton,1572.92,JPY,4544008.59
+INV-10593,2026-02-17,Smith & Bradley Ltd,GB,Rubber Gaskets,2854.9,kg,31.47,EUR,89843.7
+INV-10594,2026-01-21,Eriksson Metall AB,SE,Copper Wire,3192.4,lb,6.26,GBP,19984.42
+INV-10595,2026-03-06,Nordic Supplies AS,NO,Steel Fasteners,4823.1,metric_ton,2090.76,CHF,10083944.56
+INV-10596,2026-02-09,Smith & Bradley Ltd,GB,Industrial Solvent,173.2,gallon,16.6,JPY,2875.12
+INV-10597,2026-02-26,Yamamoto Trading Co.,JP,Lubricant Oil,3798.9,liter,29.89,SEK,113549.12
+INV-10598,2026-01-28,Alpine Chemicals AG,CH,Lubricant Oil,4817.4,gallon,27.78,GBP,133827.37
+INV-10599,2026-03-07,Rossi Industriale,IT,Industrial Solvent,3771.3,gallon,40.12,NOK,151304.56
+INV-10600,2026-01-14,Nordic Supplies AS,NO,Copper Wire,4954.6,lb,8.69,CHF,43055.47
+INV-10601,2026-02-20,Delta Corp,US,Rubber Gaskets,4042.3,kg,30.38,JPY,122805.07
+INV-10602,2026-02-12,Fontaine SA,FR,Lubricant Oil,2595.8,liter,21.17,USD,54953.09
+INV-10603,2026-03-14,Smith & Bradley Ltd,GB,Hydraulic Fluid,3896.0,liter,42.95,CHF,167333.2
+INV-10604,2026-03-14,Alpine Chemicals AG,CH,Hydraulic Fluid,515.8,gallon,57.38,GBP,29596.6
+INV-10605,2026-01-24,Müller GmbH,DE,Copper Wire,2114.0,kg,10.94,GBP,23127.16
+INV-10606,2026-01-26,Müller GmbH,DE,Cleaning Agent,2906.8,lb,17.21,USD,50026.03
+INV-10607,2026-03-14,Hansen & Co,DK,Industrial Solvent,2686.3,gallon,18.95,EUR,50905.39
+INV-10608,2026-02-04,Rossi Industriale,IT,Lubricant Oil,3684.9,liter,42.4,SEK,156239.76
+INV-10609,2026-02-28,Nordic Supplies AS,NO,Hydraulic Fluid,1529.3,liter,31.66,CHF,48417.64
+INV-10610,2026-03-05,Smith & Bradley Ltd,GB,Rubber Gaskets,347.3,kg,49.05,USD,17035.06
+INV-10611,2026-03-06,Smith & Bradley Ltd,GB,Copper Wire,3342.5,lb,9.78,EUR,32689.65
+INV-10612,2026-03-09,Smith & Bradley Ltd,GB,Hydraulic Fluid,1062.0,liter,53.93,EUR,57273.66
+INV-10613,2026-03-13,Rossi Industriale,IT,Steel Fasteners,3926.2,metric_ton,1651.57,GBP,6484394.13
+INV-10614,2026-01-25,Rossi Industriale,IT,Lubricant Oil,1793.3,gallon,24.73,CHF,44348.31
+INV-10615,2026-02-16,Hansen & Co,DK,Cleaning Agent,4841.9,kg,9.6,SEK,46482.24
+INV-10616,2026-01-30,Delta Corp,US,Industrial Solvent,4763.3,gallon,22.39,NOK,106650.29
+INV-10617,2026-01-23,Hansen & Co,DK,Steel Fasteners,1996.5,metric_ton,1075.58,NOK,2147395.47
+INV-10618,2026-02-10,Nordic Supplies AS,NO,Copper Wire,3880.1,lb,8.81,USD,34183.68
+INV-10619,2026-02-07,Yamamoto Trading Co.,JP,Hydraulic Fluid,726.1,gallon,21.13,USD,15342.49
+INV-10620,2026-02-22,Müller GmbH,DE,Cleaning Agent,728.1,lb,5.32,JPY,3873.49
+INV-10621,2026-02-10,Eriksson Metall AB,SE,Rubber Gaskets,801.5,kg,47.28,USD,37894.92
+INV-10622,2026-02-03,Rossi Industriale,IT,Steel Fasteners,2445.4,short_ton,1486.3,EUR,3634598.02
+INV-10623,2026-01-30,Rossi Industriale,IT,Rubber Gaskets,2546.9,kg,38.03,SEK,96858.61
+INV-10624,2026-02-04,Rossi Industriale,IT,Copper Wire,1902.8,kg,4.96,JPY,9437.89
+INV-10625,2026-02-11,Smith & Bradley Ltd,GB,Aluminium Sheet,4586.8,short_ton,2460.65,SEK,11286509.42
+INV-10626,2026-02-05,Yamamoto Trading Co.,JP,Copper Wire,133.3,kg,6.49,USD,865.12
+INV-10627,2026-01-24,Smith & Bradley Ltd,GB,Copper Wire,656.4,kg,11.56,USD,7587.98
+INV-10628,2026-02-20,Rossi Industriale,IT,Lubricant Oil,3271.6,gallon,20.7,JPY,67722.12
+INV-10629,2026-01-19,Smith & Bradley Ltd,GB,Steel Fasteners,3043.0,short_ton,2159.55,EUR,6571510.65
+INV-10630,2026-01-19,Eriksson Metall AB,SE,Rubber Gaskets,4457.4,lb,26.64,USD,118745.14
+INV-10631,2026-01-25,Rossi Industriale,IT,Hydraulic Fluid,3734.5,gallon,50.43,USD,188330.83
+INV-10632,2026-01-31,Alpine Chemicals AG,CH,Industrial Solvent,1716.0,liter,30.74,NOK,52749.84
+INV-10633,2026-01-18,Smith & Bradley Ltd,GB,Hydraulic Fluid,4670.0,gallon,57.53,JPY,268665.1
+INV-10634,2026-02-05,Müller GmbH,DE,Cleaning Agent,3879.6,lb,12.62,USD,48960.55
+INV-10635,2026-02-12,Fontaine SA,FR,Rubber Gaskets,1517.8,lb,49.57,JPY,75237.35
+INV-10636,2026-02-26,Hansen & Co,DK,Cleaning Agent,286.4,lb,16.81,SEK,4814.38
+INV-10637,2026-03-13,Hansen & Co,DK,Aluminium Sheet,1533.8,metric_ton,1657.32,EUR,2541997.42
+INV-10638,2026-01-17,Hansen & Co,DK,Copper Wire,4304.1,kg,6.3,SEK,27115.83
+INV-10639,2026-01-28,Smith & Bradley Ltd,GB,Industrial Solvent,4554.0,gallon,23.48,GBP,106927.92
+INV-10640,2026-02-10,Alpine Chemicals AG,CH,Cleaning Agent,2420.6,kg,14.45,USD,34977.67
+INV-10641,2026-01-22,Müller GmbH,DE,Copper Wire,1692.8,lb,8.1,USD,13711.68
+INV-10642,2026-03-08,Fontaine SA,FR,Steel Fasteners,4594.4,metric_ton,1633.64,EUR,7505595.62
+INV-10643,2026-01-26,Müller GmbH,DE,Industrial Solvent,609.0,liter,18.05,USD,10992.45
+INV-10644,2026-03-03,Yamamoto Trading Co.,JP,Cleaning Agent,4025.4,lb,17.83,EUR,71772.88
+INV-10645,2026-01-19,Nordic Supplies AS,NO,Lubricant Oil,4024.2,gallon,53.03,USD,213403.33
+INV-10646,2026-01-19,Fontaine SA,FR,Industrial Solvent,3389.2,liter,24.03,EUR,81442.48
+INV-10647,2026-01-27,Müller GmbH,DE,Aluminium Sheet,684.4,short_ton,3012.71,USD,2061898.72
+INV-10648,2026-01-28,Fontaine SA,FR,Rubber Gaskets,2410.4,lb,34.0,EUR,81953.6
+INV-10649,2026-01-18,Smith & Bradley Ltd,GB,Aluminium Sheet,514.9,metric_ton,1860.38,EUR,957909.66
+INV-10650,2026-03-04,Hansen & Co,DK,Steel Fasteners,48.7,metric_ton,1111.34,JPY,54122.26
+INV-10651,2026-01-18,Eriksson Metall AB,SE,Lubricant Oil,4554.9,gallon,40.3,USD,183562.47
+INV-10652,2026-01-31,Fontaine SA,FR,Cleaning Agent,3867.0,kg,19.69,USD,76141.23
+INV-10653,2026-01-23,Müller GmbH,DE,Industrial Solvent,3972.0,liter,28.61,JPY,113638.92
+INV-10654,2026-01-25,Yamamoto Trading Co.,JP,Hydraulic Fluid,4936.8,gallon,64.76,EUR,319707.17
+INV-10655,2026-02-26,Müller GmbH,DE,Lubricant Oil,3539.5,liter,37.72,GBP,133509.94
+INV-10656,2026-01-29,Müller GmbH,DE,Hydraulic Fluid,3953.0,liter,35.82,EUR,141596.46
+INV-10657,2026-01-20,Alpine Chemicals AG,CH,Lubricant Oil,2919.7,gallon,20.23,USD,59065.53
+INV-10658,2026-01-22,Eriksson Metall AB,SE,Cleaning Agent,2224.6,lb,14.93,GBP,33213.28
+INV-10659,2026-02-05,Fontaine SA,FR,Lubricant Oil,4637.4,gallon,34.35,GBP,159294.69
+INV-10660,2026-02-01,Nordic Supplies AS,NO,Hydraulic Fluid,108.3,gallon,47.7,CHF,5165.91
+INV-10661,2026-03-05,Hansen & Co,DK,Cleaning Agent,4486.3,lb,18.81,EUR,84387.3
+INV-10662,2026-02-12,Delta Corp,US,Industrial Solvent,4159.8,liter,12.28,USD,51082.34
+INV-10663,2026-01-29,Nordic Supplies AS,NO,Cleaning Agent,4170.8,kg,10.61,USD,44252.19
+INV-10664,2026-03-04,Fontaine SA,FR,Lubricant Oil,1288.8,gallon,54.67,CHF,70458.7
+INV-10665,2026-01-27,Yamamoto Trading Co.,JP,Lubricant Oil,1798.4,gallon,37.53,NOK,67493.95
+INV-10666,2026-01-28,Hansen & Co,DK,Copper Wire,2444.2,lb,11.58,USD,28303.84
+INV-10667,2026-02-19,Rossi Industriale,IT,Industrial Solvent,495.0,gallon,33.83,USD,16745.85
+INV-10668,2026-03-03,Delta Corp,US,Lubricant Oil,3804.2,gallon,50.36,GBP,191579.51
+INV-10669,2026-02-26,Smith & Bradley Ltd,GB,Cleaning Agent,1387.2,kg,6.44,USD,8933.57
+INV-10670,2026-02-11,Delta Corp,US,Steel Fasteners,379.4,short_ton,1941.83,USD,736730.3
+INV-10671,2026-01-20,Rossi Industriale,IT,Cleaning Agent,21.7,kg,17.25,CHF,374.32
+INV-10672,2026-01-30,Eriksson Metall AB,SE,Aluminium Sheet,2323.2,metric_ton,2153.45,CHF,5002895.04
+INV-10673,2026-01-19,Yamamoto Trading Co.,JP,Industrial Solvent,3783.0,liter,10.97,CHF,41499.51
+INV-10674,2026-03-09,Delta Corp,US,Cleaning Agent,1069.3,kg,8.34,EUR,8917.96
+INV-10675,2026-01-21,Delta Corp,US,Copper Wire,4041.9,lb,10.98,USD,44380.06
+INV-10676,2026-02-18,Alpine Chemicals AG,CH,Rubber Gaskets,4162.8,kg,27.91,USD,116183.75
+INV-10677,2026-03-02,Delta Corp,US,Lubricant Oil,4899.5,liter,51.78,GBP,253696.11
+INV-10678,2026-01-17,Hansen & Co,DK,Steel Fasteners,4589.5,short_ton,951.3,USD,4365991.35
+INV-10679,2026-02-01,Nordic Supplies AS,NO,Aluminium Sheet,4022.8,short_ton,2798.6,JPY,11258208.08
+INV-10680,2026-03-14,Fontaine SA,FR,Rubber Gaskets,2981.6,lb,58.11,USD,173260.78
+INV-10681,2026-01-21,Hansen & Co,DK,Hydraulic Fluid,4565.3,liter,43.53,USD,198727.51
+INV-10682,2026-03-03,Rossi Industriale,IT,Lubricant Oil,3415.8,gallon,28.85,USD,98545.83
+INV-10683,2026-02-27,Smith & Bradley Ltd,GB,Aluminium Sheet,657.0,short_ton,2923.9,JPY,1921002.3
+INV-10684,2026-03-13,Nordic Supplies AS,NO,Lubricant Oil,3100.2,liter,53.36,USD,165426.67
+INV-10685,2026-03-10,Hansen & Co,DK,Steel Fasteners,4783.7,short_ton,1629.17,JPY,7793460.53
+INV-10686,2026-03-04,Smith & Bradley Ltd,GB,Cleaning Agent,221.9,kg,7.08,CHF,1571.05
+INV-10687,2026-01-18,Nordic Supplies AS,NO,Rubber Gaskets,3868.3,lb,67.74,SEK,262038.64
+INV-10688,2026-01-25,Eriksson Metall AB,SE,Hydraulic Fluid,556.9,liter,50.29,USD,28006.5
+INV-10689,2026-01-24,Smith & Bradley Ltd,GB,Rubber Gaskets,2982.1,kg,52.37,CHF,156172.58
+INV-10690,2026-01-14,Nordic Supplies AS,NO,Cleaning Agent,1658.7,kg,15.57,EUR,25825.96
+INV-10691,2026-01-24,Rossi Industriale,IT,Aluminium Sheet,4647.9,metric_ton,2373.0,USD,11029466.7
+INV-10692,2026-01-16,Hansen & Co,DK,Lubricant Oil,48.2,gallon,16.03,JPY,772.65
+INV-10693,2026-01-27,Yamamoto Trading Co.,JP,Hydraulic Fluid,369.4,liter,33.88,EUR,12515.27
+INV-10694,2026-02-24,Rossi Industriale,IT,Copper Wire,1539.1,kg,5.05,USD,7772.45
+INV-10695,2026-02-25,Eriksson Metall AB,SE,Steel Fasteners,3512.8,metric_ton,1827.52,USD,6419712.26
+INV-10696,2026-03-05,Alpine Chemicals AG,CH,Steel Fasteners,88.5,short_ton,1654.32,EUR,146407.32
+INV-10697,2026-01-19,Rossi Industriale,IT,Industrial Solvent,503.3,gallon,36.46,GBP,18350.32
+INV-10698,2026-02-21,Hansen & Co,DK,Aluminium Sheet,4248.3,short_ton,1631.12,GBP,6929487.1
+INV-10699,2026-03-07,Fontaine SA,FR,Industrial Solvent,2983.5,liter,29.59,USD,88281.76
+INV-10700,2026-02-15,Alpine Chemicals AG,CH,Copper Wire,3427.4,lb,9.16,EUR,31394.98
+INV-10701,2026-03-07,Hansen & Co,DK,Hydraulic Fluid,3479.3,gallon,25.89,GBP,90079.08
+INV-10702,2026-03-08,Hansen & Co,DK,Aluminium Sheet,3222.5,short_ton,1971.78,CHF,6354061.05
+INV-10703,2026-02-22,Rossi Industriale,IT,Cleaning Agent,1925.0,lb,16.24,SEK,31262.0
+INV-10704,2026-01-14,Müller GmbH,DE,Aluminium Sheet,4762.4,short_ton,3139.28,USD,14950507.07
+INV-10705,2026-01-17,Müller GmbH,DE,Copper Wire,1178.3,lb,8.15,GBP,9603.15
+INV-10706,2026-03-11,Yamamoto Trading Co.,JP,Rubber Gaskets,596.8,lb,71.73,USD,42808.46
+INV-10707,2026-01-16,Alpine Chemicals AG,CH,Aluminium Sheet,2082.5,short_ton,2603.7,CHF,5422205.25
+INV-10708,2026-03-08,Alpine Chemicals AG,CH,Rubber Gaskets,3817.5,lb,34.01,USD,129833.17
+INV-10709,2026-02-25,Rossi Industriale,IT,Industrial Solvent,3492.8,gallon,31.25,SEK,109150.0
+INV-10710,2026-02-19,Fontaine SA,FR,Copper Wire,29.6,lb,11.67,USD,345.43
+INV-10711,2026-02-24,Delta Corp,US,Copper Wire,1383.5,lb,11.84,USD,16380.64
+INV-10712,2026-01-27,Rossi Industriale,IT,Cleaning Agent,2247.6,kg,8.54,GBP,19194.5
+INV-10713,2026-02-27,Smith & Bradley Ltd,GB,Lubricant Oil,4987.7,liter,26.89,NOK,134119.25
+INV-10714,2026-02-04,Müller GmbH,DE,Industrial Solvent,4755.9,liter,44.76,SEK,212874.08
+INV-10715,2026-02-11,Nordic Supplies AS,NO,Lubricant Oil,3979.6,gallon,42.93,GBP,170844.23
+INV-10716,2026-02-16,Eriksson Metall AB,SE,Rubber Gaskets,362.0,lb,55.27,CHF,20007.74
+INV-10717,2026-03-12,Rossi Industriale,IT,Lubricant Oil,1202.3,liter,16.49,CHF,19825.93
+INV-10718,2026-03-13,Delta Corp,US,Hydraulic Fluid,4299.5,liter,39.91,GBP,171593.04
+INV-10719,2026-01-30,Delta Corp,US,Copper Wire,2079.6,kg,10.73,GBP,22314.11
+INV-10720,2026-03-05,Smith & Bradley Ltd,GB,Lubricant Oil,3341.9,gallon,45.0,USD,150385.5
+INV-10721,2026-02-09,Yamamoto Trading Co.,JP,Aluminium Sheet,2678.3,metric_ton,3399.21,GBP,9104104.14
+INV-10722,2026-02-24,Müller GmbH,DE,Lubricant Oil,1289.4,gallon,49.51,USD,63838.19
+INV-10723,2026-01-29,Eriksson Metall AB,SE,Hydraulic Fluid,3036.4,gallon,59.42,NOK,180422.89
+INV-10724,2026-02-27,Müller GmbH,DE,Copper Wire,770.0,lb,4.96,GBP,3819.2
+INV-10725,2026-01-26,Smith & Bradley Ltd,GB,Rubber Gaskets,567.4,kg,35.12,EUR,19927.09
+INV-10726,2026-02-07,Fontaine SA,FR,Rubber Gaskets,610.6,lb,57.95,CHF,35384.27
+INV-10727,2026-02-07,Müller GmbH,DE,Rubber Gaskets,344.0,lb,31.6,CHF,10870.4
+INV-10728,2026-02-04,Rossi Industriale,IT,Lubricant Oil,4675.9,liter,28.81,SEK,134712.68
+INV-10729,2026-02-25,Hansen & Co,DK,Lubricant Oil,1414.1,gallon,40.08,GBP,56677.13
+INV-10730,2026-01-27,Fontaine SA,FR,Copper Wire,4415.8,lb,11.41,EUR,50384.28
+INV-10731,2026-01-14,Hansen & Co,DK,Steel Fasteners,801.3,short_ton,1828.26,USD,1464984.74
+INV-10732,2026-01-15,Müller GmbH,DE,Cleaning Agent,781.5,kg,9.72,USD,7596.18
+INV-10733,2026-03-08,Yamamoto Trading Co.,JP,Rubber Gaskets,3851.3,kg,68.23,USD,262774.2
+INV-10734,2026-03-05,Delta Corp,US,Copper Wire,3213.8,lb,10.97,GBP,35255.39
+INV-10735,2026-01-28,Rossi Industriale,IT,Rubber Gaskets,3841.9,lb,71.79,EUR,275810.0
+INV-10736,2026-01-19,Rossi Industriale,IT,Cleaning Agent,1158.6,lb,12.26,NOK,14204.44
+INV-10737,2026-01-18,Yamamoto Trading Co.,JP,Industrial Solvent,3594.3,liter,19.8,CHF,71167.14
+INV-10738,2026-01-14,Smith & Bradley Ltd,GB,Steel Fasteners,3064.2,metric_ton,2060.92,GBP,6315071.06
+INV-10739,2026-02-01,Smith & Bradley Ltd,GB,Steel Fasteners,1515.8,metric_ton,1932.46,CHF,2929222.87
+INV-10740,2026-01-28,Fontaine SA,FR,Lubricant Oil,3374.0,liter,21.88,CHF,73823.12
+INV-10741,2026-01-28,Eriksson Metall AB,SE,Industrial Solvent,1963.9,gallon,32.16,USD,63159.02
+INV-10742,2026-03-01,Smith & Bradley Ltd,GB,Copper Wire,326.6,kg,7.97,USD,2603.0
+INV-10743,2026-03-10,Fontaine SA,FR,Industrial Solvent,2355.8,gallon,35.36,EUR,83301.09
+INV-10744,2026-02-10,Müller GmbH,DE,Steel Fasteners,4127.7,metric_ton,2030.68,USD,8382037.84
+INV-10745,2026-02-14,Rossi Industriale,IT,Lubricant Oil,2848.2,liter,20.89,SEK,59498.9
+INV-10746,2026-03-13,Yamamoto Trading Co.,JP,Steel Fasteners,3222.1,short_ton,815.92,USD,2628975.83
+INV-10747,2026-02-28,Hansen & Co,DK,Cleaning Agent,3249.2,kg,5.02,EUR,16310.98
+INV-10748,2026-02-13,Fontaine SA,FR,Rubber Gaskets,3294.9,kg,31.66,USD,104316.53
+INV-10749,2026-01-28,Nordic Supplies AS,NO,Hydraulic Fluid,4097.2,gallon,27.74,NOK,113656.33
+INV-10750,2026-01-27,Delta Corp,US,Cleaning Agent,3878.5,kg,8.72,NOK,33820.52
+INV-10751,2026-02-13,Fontaine SA,FR,Copper Wire,4743.0,kg,9.26,USD,43920.18
+INV-10752,2026-01-19,Alpine Chemicals AG,CH,Aluminium Sheet,3771.7,short_ton,3221.46,GBP,12150380.68
+INV-10753,2026-02-19,Müller GmbH,DE,Cleaning Agent,4279.1,lb,8.09,GBP,34617.92
+INV-10754,2026-01-22,Hansen & Co,DK,Cleaning Agent,4864.0,kg,17.34,USD,84341.76
+INV-10755,2026-02-09,Delta Corp,US,Copper Wire,485.4,kg,10.32,GBP,5009.33
+INV-10756,2026-02-28,Fontaine SA,FR,Lubricant Oil,874.6,liter,22.41,EUR,19599.79
+INV-10757,2026-01-21,Alpine Chemicals AG,CH,Hydraulic Fluid,2397.5,liter,23.64,GBP,56676.9
+INV-10758,2026-03-11,Fontaine SA,FR,Lubricant Oil,4354.8,liter,28.09,CHF,122326.33
+INV-10759,2026-03-04,Alpine Chemicals AG,CH,Copper Wire,1850.8,kg,8.73,EUR,16157.48
+INV-10760,2026-03-10,Nordic Supplies AS,NO,Cleaning Agent,1306.1,kg,9.04,EUR,11807.14
+INV-10761,2026-02-05,Fontaine SA,FR,Hydraulic Fluid,537.8,gallon,45.77,USD,24615.11
+INV-10762,2026-01-23,Fontaine SA,FR,Cleaning Agent,4249.2,kg,12.24,NOK,52010.21
+INV-10763,2026-02-27,Fontaine SA,FR,Cleaning Agent,429.8,lb,13.47,USD,5789.41
+INV-10764,2026-02-23,Fontaine SA,FR,Lubricant Oil,3909.0,liter,44.51,NOK,173989.59
+INV-10765,2026-02-26,Rossi Industriale,IT,Industrial Solvent,3380.1,liter,8.13,CHF,27480.21
+INV-10766,2026-02-22,Eriksson Metall AB,SE,Cleaning Agent,3604.4,lb,16.49,NOK,59436.56
+INV-10767,2026-02-06,Alpine Chemicals AG,CH,Copper Wire,2086.6,lb,10.21,USD,21304.19
+INV-10768,2026-02-06,Nordic Supplies AS,NO,Copper Wire,3179.0,lb,8.86,EUR,28165.94
+INV-10769,2026-03-14,Müller GmbH,DE,Rubber Gaskets,1994.6,lb,39.7,USD,79185.62
+INV-10770,2026-01-26,Müller GmbH,DE,Cleaning Agent,4368.6,kg,16.4,EUR,71645.04
+INV-10771,2026-01-23,Alpine Chemicals AG,CH,Aluminium Sheet,2424.6,short_ton,2843.09,NOK,6893356.01
+INV-10772,2026-02-23,Delta Corp,US,Cleaning Agent,1219.5,lb,17.51,EUR,21353.45
+INV-10773,2026-02-05,Müller GmbH,DE,Rubber Gaskets,1631.2,kg,53.22,JPY,86812.46
+INV-10774,2026-01-27,Yamamoto Trading Co.,JP,Industrial Solvent,3969.9,gallon,18.58,USD,73760.74
+INV-10775,2026-02-09,Rossi Industriale,IT,Aluminium Sheet,2539.5,short_ton,3191.5,EUR,8104814.25
+INV-10776,2026-02-28,Smith & Bradley Ltd,GB,Cleaning Agent,2864.9,kg,13.69,USD,39220.48
+INV-10777,2026-02-21,Alpine Chemicals AG,CH,Copper Wire,2567.8,lb,5.94,USD,15252.73
+INV-10778,2026-01-17,Rossi Industriale,IT,Copper Wire,2021.0,lb,4.96,USD,10024.16
+INV-10779,2026-01-15,Delta Corp,US,Copper Wire,4100.1,lb,5.65,JPY,23165.57
+INV-10780,2026-01-31,Rossi Industriale,IT,Industrial Solvent,687.1,gallon,22.11,GBP,15191.78
+INV-10781,2026-03-04,Smith & Bradley Ltd,GB,Lubricant Oil,1396.3,liter,33.09,JPY,46203.57
+INV-10782,2026-01-14,Hansen & Co,DK,Aluminium Sheet,2324.4,short_ton,1593.1,GBP,3703001.64
+INV-10783,2026-02-16,Smith & Bradley Ltd,GB,Rubber Gaskets,2964.5,kg,53.99,EUR,160053.36
+INV-10784,2026-02-20,Eriksson Metall AB,SE,Industrial Solvent,268.9,gallon,17.6,GBP,4732.64
+INV-10785,2026-01-15,Nordic Supplies AS,NO,Industrial Solvent,2739.1,gallon,37.56,USD,102880.6
+INV-10786,2026-03-06,Rossi Industriale,IT,Industrial Solvent,3595.7,liter,31.71,NOK,114019.65
+INV-10787,2026-02-04,Müller GmbH,DE,Copper Wire,4254.5,lb,9.66,JPY,41098.47
+INV-10788,2026-03-07,Delta Corp,US,Steel Fasteners,19.4,short_ton,1904.6,USD,36949.24
+INV-10789,2026-01-18,Alpine Chemicals AG,CH,Copper Wire,1038.7,lb,9.55,EUR,9919.59
+INV-10790,2026-01-17,Hansen & Co,DK,Aluminium Sheet,4936.7,metric_ton,1806.51,USD,8918197.92
+INV-10791,2026-02-19,Smith & Bradley Ltd,GB,Industrial Solvent,3600.2,gallon,20.07,EUR,72256.01
+INV-10792,2026-02-24,Delta Corp,US,Rubber Gaskets,1055.5,kg,69.03,USD,72861.17
+INV-10793,2026-02-11,Hansen & Co,DK,Lubricant Oil,1707.5,gallon,27.66,NOK,47229.45
+INV-10794,2026-02-20,Alpine Chemicals AG,CH,Steel Fasteners,911.0,short_ton,1651.23,NOK,1504270.53
+INV-10795,2026-01-28,Delta Corp,US,Hydraulic Fluid,334.7,liter,35.14,EUR,11761.36
+INV-10796,2026-02-08,Delta Corp,US,Aluminium Sheet,914.6,short_ton,2596.53,GBP,2374786.34
+INV-10797,2026-02-11,Yamamoto Trading Co.,JP,Steel Fasteners,640.5,metric_ton,2198.45,EUR,1408107.22
+INV-10798,2026-01-24,Yamamoto Trading Co.,JP,Copper Wire,2967.6,lb,5.71,NOK,16945.0
+INV-10799,2026-02-15,Yamamoto Trading Co.,JP,Lubricant Oil,100.7,liter,15.14,USD,1524.6
+INV-10800,2026-02-06,Fontaine SA,FR,Copper Wire,1530.3,lb,8.74,NOK,13374.82
+INV-10801,2026-03-01,Eriksson Metall AB,SE,Hydraulic Fluid,423.5,gallon,39.12,EUR,16567.32
+INV-10802,2026-01-30,Rossi Industriale,IT,Copper Wire,4567.8,kg,7.76,GBP,35446.13
+INV-10803,2026-01-31,Nordic Supplies AS,NO,Aluminium Sheet,979.4,short_ton,3308.59,CHF,3240433.05
+INV-10804,2026-01-23,Rossi Industriale,IT,Industrial Solvent,4829.6,liter,24.48,USD,118228.61
+INV-10805,2026-03-09,Fontaine SA,FR,Cleaning Agent,3226.8,kg,5.87,USD,18941.32
+INV-10806,2026-01-15,Hansen & Co,DK,Steel Fasteners,4064.0,metric_ton,1374.36,EUR,5585399.04
+INV-10807,2026-02-18,Delta Corp,US,Steel Fasteners,3594.1,metric_ton,1780.66,EUR,6399870.11
+INV-10808,2026-01-22,Alpine Chemicals AG,CH,Industrial Solvent,2188.6,gallon,21.38,USD,46792.27
+INV-10809,2026-01-19,Hansen & Co,DK,Rubber Gaskets,2198.5,kg,53.46,USD,117531.81
+INV-10810,2026-01-26,Smith & Bradley Ltd,GB,Copper Wire,4435.7,lb,4.51,JPY,20005.01
+INV-10811,2026-02-06,Alpine Chemicals AG,CH,Hydraulic Fluid,564.3,gallon,19.98,EUR,11274.71
+INV-10812,2026-03-03,Fontaine SA,FR,Rubber Gaskets,4644.8,kg,53.52,GBP,248589.7
+INV-10813,2026-01-22,Hansen & Co,DK,Steel Fasteners,4331.9,metric_ton,1933.77,JPY,8376898.26
+INV-10814,2026-02-05,Müller GmbH,DE,Copper Wire,4769.5,lb,11.53,EUR,54992.33
+INV-10815,2026-03-13,Fontaine SA,FR,Hydraulic Fluid,4627.9,liter,26.8,GBP,124027.72
+INV-10816,2026-01-17,Hansen & Co,DK,Lubricant Oil,3224.0,gallon,46.15,GBP,148787.6
+INV-10817,2026-01-28,Yamamoto Trading Co.,JP,Aluminium Sheet,3364.1,short_ton,2693.96,EUR,9062750.84
+INV-10818,2026-01-20,Delta Corp,US,Cleaning Agent,65.3,lb,6.13,EUR,400.29
+INV-10819,2026-02-23,Hansen & Co,DK,Industrial Solvent,4848.5,liter,11.19,EUR,54254.71
+INV-10820,2026-02-12,Nordic Supplies AS,NO,Hydraulic Fluid,3749.4,liter,61.82,EUR,231787.91
+INV-10821,2026-01-26,Delta Corp,US,Lubricant Oil,207.6,gallon,53.46,USD,11098.3
+INV-10822,2026-01-26,Nordic Supplies AS,NO,Steel Fasteners,3225.2,metric_ton,1624.53,USD,5239434.16
+INV-10823,2026-02-22,Yamamoto Trading Co.,JP,Steel Fasteners,1308.6,short_ton,2100.15,USD,2748256.29
+INV-10824,2026-03-09,Alpine Chemicals AG,CH,Lubricant Oil,1659.0,gallon,19.23,USD,31902.57
+INV-10825,2026-01-27,Hansen & Co,DK,Rubber Gaskets,1783.8,kg,37.35,EUR,66624.93
+INV-10826,2026-03-12,Eriksson Metall AB,SE,Industrial Solvent,4285.5,gallon,22.96,GBP,98395.08
+INV-10827,2026-01-31,Nordic Supplies AS,NO,Copper Wire,2155.6,kg,10.56,USD,22763.14
+INV-10828,2026-01-17,Alpine Chemicals AG,CH,Cleaning Agent,3153.4,lb,6.54,CHF,20623.24
+INV-10829,2026-01-16,Rossi Industriale,IT,Rubber Gaskets,1273.6,lb,27.73,USD,35316.93
+INV-10830,2026-02-12,Müller GmbH,DE,Lubricant Oil,3468.6,liter,23.1,GBP,80124.66
+INV-10831,2026-03-13,Alpine Chemicals AG,CH,Rubber Gaskets,3878.8,kg,33.33,CHF,129280.4
+INV-10832,2026-03-06,Delta Corp,US,Hydraulic Fluid,1772.7,gallon,59.66,JPY,105759.28
+INV-10833,2026-03-06,Delta Corp,US,Rubber Gaskets,1549.4,lb,30.6,EUR,47411.64
+INV-10834,2026-02-24,Rossi Industriale,IT,Hydraulic Fluid,4073.5,gallon,52.37,JPY,213329.19
+INV-10835,2026-02-04,Müller GmbH,DE,Lubricant Oil,3021.6,liter,51.97,EUR,157032.55
+INV-10836,2026-03-13,Fontaine SA,FR,Lubricant Oil,2881.3,liter,15.78,USD,45466.91
+INV-10837,2026-01-22,Eriksson Metall AB,SE,Steel Fasteners,2966.8,metric_ton,1347.83,CHF,3998742.04
+INV-10838,2026-01-19,Müller GmbH,DE,Copper Wire,2626.1,kg,4.5,USD,11817.45
+INV-10839,2026-01-27,Nordic Supplies AS,NO,Steel Fasteners,4170.4,short_ton,1892.99,EUR,7894525.5
+INV-10840,2026-02-21,Müller GmbH,DE,Lubricant Oil,1946.8,liter,21.01,GBP,40902.27
+INV-10841,2026-02-24,Eriksson Metall AB,SE,Steel Fasteners,504.1,short_ton,1167.61,USD,588592.2
+INV-10842,2026-01-30,Fontaine SA,FR,Hydraulic Fluid,521.5,liter,39.78,GBP,20745.27
+INV-10843,2026-02-22,Fontaine SA,FR,Rubber Gaskets,3400.3,lb,65.22,GBP,221767.57
+INV-10844,2026-03-09,Rossi Industriale,IT,Industrial Solvent,1606.2,gallon,40.29,USD,64713.8
+INV-10845,2026-01-17,Rossi Industriale,IT,Aluminium Sheet,378.2,short_ton,2540.91,USD,960972.16
+INV-10846,2026-02-09,Yamamoto Trading Co.,JP,Lubricant Oil,263.1,gallon,46.26,USD,12171.01
+INV-10847,2026-02-20,Fontaine SA,FR,Lubricant Oil,4368.2,liter,23.33,NOK,101910.11
+INV-10848,2026-01-31,Rossi Industriale,IT,Industrial Solvent,4651.6,gallon,23.46,USD,109126.54
+INV-10849,2026-03-07,Smith & Bradley Ltd,GB,Copper Wire,1266.4,kg,11.26,GBP,14259.66
+INV-10850,2026-01-29,Yamamoto Trading Co.,JP,Cleaning Agent,3636.0,lb,6.41,USD,23306.76
+INV-10851,2026-01-16,Delta Corp,US,Steel Fasteners,52.0,short_ton,1647.86,SEK,85688.72
+INV-10852,2026-02-02,Smith & Bradley Ltd,GB,Industrial Solvent,1302.3,liter,19.15,USD,24939.04
+INV-10853,2026-02-25,Fontaine SA,FR,Steel Fasteners,3253.5,metric_ton,938.84,CHF,3054515.94
+INV-10854,2026-01-26,Nordic Supplies AS,NO,Copper Wire,1736.0,lb,6.89,SEK,11961.04
+INV-10855,2026-02-23,Delta Corp,US,Cleaning Agent,2765.7,kg,19.64,USD,54318.35
+INV-10856,2026-01-14,Alpine Chemicals AG,CH,Rubber Gaskets,2480.9,kg,28.7,GBP,71201.83
+INV-10857,2026-01-14,Alpine Chemicals AG,CH,Copper Wire,4933.8,kg,4.8,GBP,23682.24
+INV-10858,2026-02-26,Fontaine SA,FR,Rubber Gaskets,1255.1,lb,79.43,EUR,99692.59
+INV-10859,2026-02-01,Müller GmbH,DE,Industrial Solvent,2775.6,liter,27.79,GBP,77133.92
+INV-10860,2026-01-22,Delta Corp,US,Aluminium Sheet,4261.6,metric_ton,2751.06,USD,11723917.3
+INV-10861,2026-02-12,Alpine Chemicals AG,CH,Lubricant Oil,3076.8,gallon,31.48,CHF,96857.66
+INV-10862,2026-01-15,Eriksson Metall AB,SE,Hydraulic Fluid,3503.3,gallon,38.3,GBP,134176.39
+INV-10863,2026-02-10,Delta Corp,US,Cleaning Agent,3679.1,lb,7.47,USD,27482.88
+INV-10864,2026-03-09,Fontaine SA,FR,Industrial Solvent,4812.5,liter,20.58,GBP,99041.25
+INV-10865,2026-02-02,Rossi Industriale,IT,Steel Fasteners,4346.3,short_ton,2020.96,EUR,8783698.45
+INV-10866,2026-01-28,Hansen & Co,DK,Industrial Solvent,3203.5,liter,33.34,USD,106804.69
+INV-10867,2026-03-06,Alpine Chemicals AG,CH,Cleaning Agent,813.1,lb,11.83,GBP,9618.97
+INV-10868,2026-03-02,Müller GmbH,DE,Industrial Solvent,4625.1,liter,15.83,JPY,73215.33
+INV-10869,2026-02-20,Hansen & Co,DK,Cleaning Agent,17.7,kg,10.49,EUR,185.67
+INV-10870,2026-02-12,Yamamoto Trading Co.,JP,Copper Wire,1274.8,lb,7.58,GBP,9662.98
+INV-10871,2026-01-28,Hansen & Co,DK,Steel Fasteners,2092.1,short_ton,1847.41,USD,3864966.46
+INV-10872,2026-03-09,Hansen & Co,DK,Industrial Solvent,3130.3,gallon,17.71,USD,55437.61
+INV-10873,2026-03-11,Nordic Supplies AS,NO,Steel Fasteners,28.6,metric_ton,1184.46,JPY,33875.56
+INV-10874,2026-02-13,Delta Corp,US,Industrial Solvent,1357.2,gallon,26.59,USD,36087.95
+INV-10875,2026-01-30,Hansen & Co,DK,Aluminium Sheet,2224.9,metric_ton,1605.83,JPY,3572811.17
+INV-10876,2026-01-29,Smith & Bradley Ltd,GB,Hydraulic Fluid,1614.5,gallon,61.8,GBP,99776.1
+INV-10877,2026-01-24,Delta Corp,US,Hydraulic Fluid,1437.3,gallon,24.09,NOK,34624.56
+INV-10878,2026-02-09,Delta Corp,US,Aluminium Sheet,4596.9,metric_ton,1797.21,USD,8261594.65
+INV-10879,2026-02-11,Hansen & Co,DK,Steel Fasteners,3850.0,short_ton,1253.94,USD,4827669.0
+INV-10880,2026-01-16,Hansen & Co,DK,Industrial Solvent,45.3,liter,28.85,EUR,1306.9
+INV-10881,2026-02-28,Hansen & Co,DK,Lubricant Oil,4227.0,gallon,39.09,USD,165233.43
+INV-10882,2026-01-30,Eriksson Metall AB,SE,Hydraulic Fluid,1656.1,liter,62.27,GBP,103125.35
+INV-10883,2026-02-13,Rossi Industriale,IT,Rubber Gaskets,4259.8,kg,40.77,GBP,173672.05
+INV-10884,2026-02-19,Eriksson Metall AB,SE,Cleaning Agent,1373.2,kg,9.44,CHF,12963.01
+INV-10885,2026-03-08,Delta Corp,US,Industrial Solvent,3872.3,liter,31.23,USD,120931.93
+INV-10886,2026-01-18,Alpine Chemicals AG,CH,Rubber Gaskets,4348.6,kg,61.96,NOK,269439.26
+INV-10887,2026-02-09,Rossi Industriale,IT,Industrial Solvent,4620.1,liter,11.78,GBP,54424.78
+INV-10888,2026-02-11,Eriksson Metall AB,SE,Industrial Solvent,4935.1,liter,29.4,USD,145091.94
+INV-10889,2026-02-13,Müller GmbH,DE,Steel Fasteners,3522.5,short_ton,1495.51,GBP,5267933.97
+INV-10890,2026-02-09,Fontaine SA,FR,Lubricant Oil,299.8,liter,27.48,GBP,8238.5
+INV-10891,2026-02-20,Eriksson Metall AB,SE,Rubber Gaskets,739.9,lb,63.24,EUR,46791.28
+INV-10892,2026-02-28,Yamamoto Trading Co.,JP,Aluminium Sheet,509.7,short_ton,1987.81,CHF,1013186.76
+INV-10893,2026-03-12,Hansen & Co,DK,Lubricant Oil,1306.6,gallon,52.93,JPY,69158.34
+INV-10894,2026-01-26,Smith & Bradley Ltd,GB,Copper Wire,1777.2,lb,5.62,GBP,9987.86
+INV-10895,2026-02-09,Müller GmbH,DE,Rubber Gaskets,856.7,kg,51.42,NOK,44051.51
+INV-10896,2026-02-01,Eriksson Metall AB,SE,Copper Wire,390.4,lb,11.23,USD,4384.19
+INV-10897,2026-01-21,Rossi Industriale,IT,Hydraulic Fluid,3956.9,gallon,49.79,EUR,197014.05
+INV-10898,2026-01-28,Rossi Industriale,IT,Hydraulic Fluid,3765.2,gallon,53.92,NOK,203019.58
+INV-10899,2026-02-10,Smith & Bradley Ltd,GB,Rubber Gaskets,844.6,kg,38.79,GBP,32762.03
+INV-10900,2026-01-24,Nordic Supplies AS,NO,Cleaning Agent,3628.6,kg,9.87,USD,35814.28
+INV-10901,2026-03-14,Fontaine SA,FR,Lubricant Oil,272.7,gallon,30.73,EUR,8380.07
+INV-10902,2026-03-12,Smith & Bradley Ltd,GB,Steel Fasteners,1520.5,metric_ton,803.24,JPY,1221326.42
+INV-10903,2026-02-27,Smith & Bradley Ltd,GB,Cleaning Agent,121.6,kg,15.62,EUR,1899.39
+INV-10904,2026-02-20,Rossi Industriale,IT,Cleaning Agent,2782.3,kg,10.11,USD,28129.05
+INV-10905,2026-02-04,Alpine Chemicals AG,CH,Industrial Solvent,1860.4,liter,30.02,GBP,55849.21
+INV-10906,2026-02-25,Alpine Chemicals AG,CH,Rubber Gaskets,3091.5,lb,76.48,USD,236437.92
+INV-10907,2026-03-10,Müller GmbH,DE,Industrial Solvent,76.0,liter,25.73,USD,1955.48
+INV-10908,2026-01-25,Smith & Bradley Ltd,GB,Cleaning Agent,754.5,kg,17.15,USD,12939.67
+INV-10909,2026-02-15,Rossi Industriale,IT,Copper Wire,569.2,lb,8.33,EUR,4741.44
+INV-10910,2026-02-15,Eriksson Metall AB,SE,Copper Wire,684.5,lb,10.28,CHF,7036.66
+INV-10911,2026-01-29,Delta Corp,US,Aluminium Sheet,1854.6,short_ton,2024.16,NOK,3754007.14
+INV-10912,2026-03-04,Hansen & Co,DK,Rubber Gaskets,603.0,kg,40.6,GBP,24481.8
+INV-10913,2026-01-29,Nordic Supplies AS,NO,Lubricant Oil,1302.6,gallon,46.18,CHF,60154.07
+INV-10914,2026-02-09,Eriksson Metall AB,SE,Lubricant Oil,3137.9,gallon,16.01,NOK,50237.78
+INV-10915,2026-01-19,Delta Corp,US,Industrial Solvent,1994.0,gallon,10.78,JPY,21495.32
+INV-10916,2026-02-26,Fontaine SA,FR,Cleaning Agent,2839.2,lb,14.0,SEK,39748.8
+INV-10917,2026-02-17,Hansen & Co,DK,Cleaning Agent,2806.2,kg,8.31,USD,23319.52
+INV-10918,2026-01-30,Yamamoto Trading Co.,JP,Cleaning Agent,3465.4,lb,5.8,EUR,20099.32
+INV-10919,2026-02-18,Hansen & Co,DK,Rubber Gaskets,1154.4,kg,54.62,SEK,63053.33
+INV-10920,2026-01-26,Eriksson Metall AB,SE,Hydraulic Fluid,4925.1,gallon,56.35,NOK,277529.39
+INV-10921,2026-03-10,Eriksson Metall AB,SE,Copper Wire,4117.4,lb,9.19,JPY,37838.91
+INV-10922,2026-02-17,Hansen & Co,DK,Rubber Gaskets,1467.6,lb,60.68,EUR,89053.97
+INV-10923,2026-02-05,Hansen & Co,DK,Steel Fasteners,3823.6,short_ton,846.04,CHF,3234918.54
+INV-10924,2026-03-04,Eriksson Metall AB,SE,Aluminium Sheet,1775.2,metric_ton,2059.95,JPY,3656823.24
+INV-10925,2026-03-08,Rossi Industriale,IT,Hydraulic Fluid,3142.9,gallon,55.63,EUR,174839.53
+INV-10926,2026-03-05,Hansen & Co,DK,Hydraulic Fluid,4626.4,gallon,43.85,JPY,202867.64
+INV-10927,2026-02-11,Delta Corp,US,Hydraulic Fluid,3567.0,gallon,57.24,JPY,204175.08
+INV-10928,2026-02-24,Rossi Industriale,IT,Aluminium Sheet,2709.4,metric_ton,1967.34,EUR,5330311.0
+INV-10929,2026-02-21,Nordic Supplies AS,NO,Hydraulic Fluid,1235.5,liter,47.99,USD,59291.65
+INV-10930,2026-03-09,Smith & Bradley Ltd,GB,Copper Wire,1869.9,kg,10.95,EUR,20475.4
+INV-10931,2026-03-04,Smith & Bradley Ltd,GB,Rubber Gaskets,843.0,lb,34.8,USD,29336.4
+INV-10932,2026-01-20,Müller GmbH,DE,Rubber Gaskets,2226.9,lb,78.49,EUR,174789.38
+INV-10933,2026-01-24,Müller GmbH,DE,Copper Wire,587.1,kg,4.86,USD,2853.31
+INV-10934,2026-02-12,Nordic Supplies AS,NO,Cleaning Agent,1705.7,lb,10.35,EUR,17653.99
+INV-10935,2026-02-14,Delta Corp,US,Cleaning Agent,4742.5,lb,13.23,CHF,62743.28
+INV-10936,2026-03-13,Nordic Supplies AS,NO,Copper Wire,2798.9,kg,4.05,NOK,11335.55
+INV-10937,2026-01-20,Fontaine SA,FR,Copper Wire,349.1,lb,5.26,EUR,1836.27
+INV-10938,2026-01-14,Smith & Bradley Ltd,GB,Copper Wire,140.3,lb,10.55,SEK,1480.17
+INV-10939,2026-01-14,Rossi Industriale,IT,Hydraulic Fluid,976.3,gallon,20.64,EUR,20150.83
+INV-10940,2026-02-09,Alpine Chemicals AG,CH,Industrial Solvent,2886.5,gallon,26.68,EUR,77011.82
+INV-10941,2026-02-13,Fontaine SA,FR,Steel Fasteners,708.0,metric_ton,1015.77,JPY,719165.16
+INV-10942,2026-02-15,Alpine Chemicals AG,CH,Hydraulic Fluid,319.6,gallon,37.02,CHF,11831.59
+INV-10943,2026-01-22,Fontaine SA,FR,Aluminium Sheet,407.0,short_ton,3079.18,CHF,1253226.26
+INV-10944,2026-03-07,Fontaine SA,FR,Aluminium Sheet,4439.2,short_ton,2674.16,GBP,11871131.07
+INV-10945,2026-02-02,Delta Corp,US,Industrial Solvent,4853.5,liter,38.8,CHF,188315.8
+INV-10946,2026-03-11,Fontaine SA,FR,Aluminium Sheet,3343.6,metric_ton,2772.84,USD,9271267.82
+INV-10947,2026-02-12,Nordic Supplies AS,NO,Steel Fasteners,2841.6,short_ton,1694.71,USD,4815687.94
+INV-10948,2026-01-31,Alpine Chemicals AG,CH,Steel Fasteners,373.7,metric_ton,1966.44,EUR,734858.63
+INV-10949,2026-01-26,Rossi Industriale,IT,Hydraulic Fluid,1622.4,liter,34.38,USD,55778.11
+INV-10950,2026-02-10,Müller GmbH,DE,Steel Fasteners,961.5,short_ton,1854.41,USD,1783015.22
+INV-10951,2026-01-30,Alpine Chemicals AG,CH,Rubber Gaskets,735.1,kg,23.74,NOK,17451.27
+INV-10952,2026-02-13,Hansen & Co,DK,Industrial Solvent,3552.1,liter,16.13,JPY,57295.37
+INV-10953,2026-02-01,Yamamoto Trading Co.,JP,Industrial Solvent,4910.2,liter,9.65,GBP,47383.43
+INV-10954,2026-02-21,Fontaine SA,FR,Lubricant Oil,1320.6,gallon,46.06,CHF,60826.84
+INV-10955,2026-01-31,Eriksson Metall AB,SE,Steel Fasteners,4021.7,short_ton,2173.66,JPY,8741808.42
+INV-10956,2026-01-27,Yamamoto Trading Co.,JP,Steel Fasteners,4447.9,short_ton,1749.42,EUR,7781245.22
+INV-10957,2026-01-20,Delta Corp,US,Copper Wire,1933.8,lb,7.03,GBP,13594.61
+INV-10958,2026-01-27,Yamamoto Trading Co.,JP,Copper Wire,4527.4,kg,7.76,GBP,35132.62
+INV-10959,2026-01-20,Hansen & Co,DK,Aluminium Sheet,709.7,short_ton,1943.66,EUR,1379415.5
+INV-10960,2026-01-21,Müller GmbH,DE,Industrial Solvent,2465.2,liter,27.22,USD,67102.74
+INV-10961,2026-01-18,Yamamoto Trading Co.,JP,Cleaning Agent,502.4,kg,6.8,EUR,3416.32
+INV-10962,2026-01-26,Yamamoto Trading Co.,JP,Rubber Gaskets,737.2,kg,32.11,USD,23671.49
+INV-10963,2026-02-25,Eriksson Metall AB,SE,Cleaning Agent,3740.7,lb,9.99,EUR,37369.59
+INV-10964,2026-02-08,Nordic Supplies AS,NO,Aluminium Sheet,2575.2,metric_ton,2603.23,EUR,6703837.9
+INV-10965,2026-02-15,Fontaine SA,FR,Copper Wire,3251.2,kg,9.03,GBP,29358.34
+INV-10966,2026-02-12,Hansen & Co,DK,Copper Wire,4566.6,kg,5.57,EUR,25435.96
+INV-10967,2026-01-17,Rossi Industriale,IT,Lubricant Oil,3523.5,liter,44.62,USD,157218.57
+INV-10968,2026-01-17,Smith & Bradley Ltd,GB,Lubricant Oil,170.3,gallon,26.34,GBP,4485.7
+INV-10969,2026-02-11,Rossi Industriale,IT,Hydraulic Fluid,3861.7,gallon,28.39,USD,109633.66
+INV-10970,2026-03-07,Hansen & Co,DK,Copper Wire,4785.5,kg,11.61,CHF,55559.65
+INV-10971,2026-02-11,Rossi Industriale,IT,Hydraulic Fluid,3109.5,liter,29.65,USD,92196.67
+INV-10972,2026-02-22,Smith & Bradley Ltd,GB,Industrial Solvent,3931.3,liter,39.85,USD,156662.31
+INV-10973,2026-02-17,Alpine Chemicals AG,CH,Rubber Gaskets,1152.3,kg,47.35,EUR,54561.4
+INV-10974,2026-02-17,Nordic Supplies AS,NO,Industrial Solvent,3489.9,gallon,17.0,SEK,59328.3
+INV-10975,2026-03-11,Delta Corp,US,Copper Wire,1622.4,kg,5.85,JPY,9491.04
+INV-10976,2026-01-21,Yamamoto Trading Co.,JP,Copper Wire,1593.1,kg,9.28,USD,14783.97
+INV-10977,2026-01-21,Rossi Industriale,IT,Cleaning Agent,1651.4,lb,18.36,CHF,30319.7
+INV-10978,2026-03-07,Müller GmbH,DE,Hydraulic Fluid,4387.0,liter,45.04,GBP,197590.48
+INV-10979,2026-01-18,Alpine Chemicals AG,CH,Steel Fasteners,774.1,short_ton,1180.68,EUR,913964.39
+INV-10980,2026-02-03,Nordic Supplies AS,NO,Rubber Gaskets,380.7,lb,27.69,EUR,10541.58
+INV-10981,2026-02-16,Eriksson Metall AB,SE,Industrial Solvent,3937.5,liter,18.39,EUR,72410.62
+INV-10982,2026-02-12,Smith & Bradley Ltd,GB,Aluminium Sheet,321.6,short_ton,3114.24,NOK,1001539.58
+INV-10983,2026-02-14,Müller GmbH,DE,Cleaning Agent,2099.6,lb,12.59,EUR,26433.96
+INV-10984,2026-01-24,Rossi Industriale,IT,Hydraulic Fluid,4341.8,gallon,34.24,NOK,148663.23
+INV-10985,2026-02-10,Smith & Bradley Ltd,GB,Steel Fasteners,3430.3,metric_ton,1616.29,USD,5544359.59
+INV-10986,2026-02-11,Rossi Industriale,IT,Lubricant Oil,3246.0,liter,16.29,USD,52877.34
+INV-10987,2026-02-26,Alpine Chemicals AG,CH,Hydraulic Fluid,1879.2,gallon,56.03,EUR,105291.58
+INV-10988,2026-01-29,Smith & Bradley Ltd,GB,Cleaning Agent,3901.8,kg,5.1,SEK,19899.18
+INV-10989,2026-02-02,Alpine Chemicals AG,CH,Lubricant Oil,3055.9,liter,23.83,GBP,72822.1
+INV-10990,2026-03-03,Delta Corp,US,Copper Wire,881.5,lb,4.53,USD,3993.2
+INV-10991,2026-02-01,Alpine Chemicals AG,CH,Hydraulic Fluid,4951.0,gallon,40.94,GBP,202693.94
+INV-10992,2026-03-14,Yamamoto Trading Co.,JP,Rubber Gaskets,564.6,kg,64.17,USD,36230.38
+INV-10993,2026-02-04,Smith & Bradley Ltd,GB,Rubber Gaskets,832.3,lb,67.21,GBP,55938.88
+INV-10994,2026-02-04,Eriksson Metall AB,SE,Rubber Gaskets,1258.3,lb,78.88,EUR,99254.7
+INV-10995,2026-02-14,Hansen & Co,DK,Lubricant Oil,2860.8,gallon,52.06,USD,148933.25
+INV-10996,2026-02-27,Eriksson Metall AB,SE,Industrial Solvent,4022.8,gallon,20.78,EUR,83593.78
+INV-10997,2026-01-20,Müller GmbH,DE,Industrial Solvent,108.0,liter,36.44,NOK,3935.52
+INV-10998,2026-03-09,Fontaine SA,FR,Copper Wire,2225.8,kg,9.84,NOK,21901.87
+INV-10999,2026-01-21,Müller GmbH,DE,Steel Fasteners,3174.3,short_ton,862.28,EUR,2737135.4
+INV-11000,2026-01-16,Alpine Chemicals AG,CH,Hydraulic Fluid,2921.6,liter,53.91,JPY,157503.46
