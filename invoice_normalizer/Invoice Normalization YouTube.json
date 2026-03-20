@@ -1,12 +1,12 @@
 {
   "version": "2.0.0",
-  "exportedAt": "2026-03-19T20:27:30.240Z",
+  "exportedAt": "2026-03-20T19:21:08.089Z",
   "pipeline": {
     "id": "pipeline-1773952016540",
     "name": "Invoice Normalization YouTube",
     "label": "Invoice Normalization YouTube",
     "version": "1.0.0",
-    "changeVersion": 25,
+    "changeVersion": 39,
     "variables": {},
     "nodes": [
       {
@@ -51,7 +51,7 @@
         "config": {
           "source": "sharepoint",
           "siteUrl": "https://yoursharepoint.sharepoint.com/sites/test",
-          "filePath": "/invoices/invoices_data.csv",
+          "filePath": "/invoices/fx_rates_daily.csv",
           "shareUrl": ""
         }
       },
