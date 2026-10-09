@@ -1,0 +1,44 @@
+# Source capability inventory
+
+Generated from live probes on 2026-10-09. Only successful probes appear in **Verified capabilities**. Sources not demonstrated are listed separately under **Unverified / unavailable**.
+
+## Verified capabilities
+
+| Source / access method | Exact probe performed | Result | What I can do with it | Known limits |
+|---|---|---|---|---|
+| Web search (`web.search_query`) | Query: `SSB statistikkbanken befolkning kommune` | **Success.** Returned official SSB population/statistics results, including `https://www.ssb.no/befolkning/folketall/statistikk/befolkning` and `https://www.ssb.no/befolkning`. | Read search results and snippets; use results to locate public sources. | Read-only. Search-index coverage and ranking apply. No authenticated/private search. Rate-limit details were not surfaced by the probe. |
+| Public JSON over HTTPS (`fetch_data`) | GET `https://www.hvakosterstrommen.no/api/v1/prices/2024/01-15_NO2.json` | **Success: HTTP 200.** Parsed as 24 objects with `NOK_per_kWh`, `EUR_per_kWh`, `EXR`, `time_start`, and `time_end`. | Read, parse, compute on, transform, and export retrieved data. | Remote source is read-only in this workflow. No authentication was required. Provider rate limits were not surfaced. Large responses may require paged or bulk ingestion. |
+| Public CSV over HTTPS (`fetch_data` + CSV parser) | GET `https://data.norges-bank.no/api/data/EXR/B.EUR.NOK.SP?format=csv&startPeriod=2024-01-01&endPeriod=2024-01-31` | **Success: HTTP 200.** Returned semicolon-delimited text; parsing produced 22 observations from 2024-01-02 through 2024-01-31. | Read, parse, compute on, transform, and export CSV data. | This fetch arrived as one raw string rather than pre-split rows; delimiter-aware parsing was required. No authentication was required. Provider rate limits were not surfaced. |
+| SSB PxWeb API metadata (`fetch_data`) | GET `https://data.ssb.no/api/v0/no/table/07459/` | **Success: HTTP 200.** Title: `07459: Befolkning, etter region, kjønn, alder, statistikkvariabel og år`; metadata contained 5 variables. | Read and parse PxWeb metadata; use metadata to construct later table queries; compute on returned results. | Probe covered metadata only, not a POST data query. Public/read-only; no authentication required. API query-size and rate limits were not surfaced by this probe. |
+| NVE Magasinstatistikk public API (`fetch_data`) | Discovery searches: `site:nve.no magasinstatistikk API` and `NVE reservoir statistics API magasinstatistikk`; then GET `https://biapi.nve.no/magasinstatistikk/api/Magasinstatistikk/HentOffentligDataSisteUke` | **Success: HTTP 200.** The current public endpoint returned 9 records with weekly filling level, capacity, stored TWh, area type/number, and publication fields. Official documentation was found at `https://api.nve.no/doc/magasinstatistikk/` and Swagger at `https://biapi.nve.no/magasinstatistikk/swagger/index.html`. | Read, parse, and compute on public reservoir statistics. | Public/read-only; no authentication required in this probe. The “latest week” response changes over time. Rate limits were not surfaced. No obsolete endpoint was supplied, so no endpoint move could be confirmed. |
+| Public HTML over HTTPS (`fetch_data`) | GET `https://api.nve.no/doc/magasinstatistikk/` | **Success: HTTP 200.** Retrieved raw HTML; response sample reported 15,026 characters and was truncated for display. | Read raw page source and extract/parse static HTML content. | This verifies HTTP HTML retrieval, not JavaScript interaction. Returned previews may be truncated while the captured dataset remains available. |
+| Local project filesystem — JSON (`read_workspace_file`) | Read `kverna.json` | **Success.** UTF-8 JSON file, 92 bytes, containing `schemaVersion`, `generator`, and `updatedAt`. | Read and parse local UTF-8 JSON; compute on its contents; write files under the project folder. | Access is restricted to the project folder. This probe does not establish support for arbitrary paths or very large JSON files. |
+| Local project filesystem — plain text/log (`read_workspace_file`) | Read `startup.log` | **Success.** UTF-8 text file, 350 bytes. | Read and parse local text/log files; compute on text; write files under the project folder. | Access is restricted to the project folder. Large files are windowed/paged rather than returned all at once. |
+| In-memory transformation / computation (`run_transform`) | Parsed the fetched Norges Bank semicolon CSV and summarized it together with the electricity JSON. | **Success after one corrected retry.** Result: 24 electricity rows; 22 exchange-rate rows; first/last CSV periods 2024-01-02 and 2024-01-31. Initial attempt failed with exact error: `json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)` because the CSV input was raw text, not a JSON-quoted string. | Parse, reshape, aggregate, join small/medium captured datasets, and calculate derived values. | In-memory execution has practical memory limits; large datasets should use the workspace data store. Input representation can differ by schema and must be handled explicitly. |
+| Local project filesystem — Markdown/JSON write (`write_workspace_file`) | Wrote `capabilities.md` and `capabilities.json` in the project folder. | **Success** if both files are present and readable in the verification step following creation. | Write authored UTF-8 Markdown and JSON under the project folder. | Cannot write outside the project folder. Written factual data must be derived from actual probes; large/many data files require dataset export/write tools. |
+
+## Unverified / unavailable
+
+| Claimed or potential source type | Probe / observation | Result and exact limitation |
+|---|---|---|
+| Interactive signed-in web browser | Guardrail state checked before work. | **Unavailable.** The current guardrail says: `Web browser (browse_*, signed in as the user): OFF.` Enabling **Allow the web browser** under **Allowed nodes** would permit this probe. Plain public HTTP and web search were tested instead. |
+| Structured web-page text extraction via the public page opener | Opened `https://api.nve.no/doc/magasinstatistikk/` and `https://www.ssb.no/befolkning`. | **Unverified.** The opener returned the URLs but no extracted page text and no explicit error. Raw HTML retrieval was successfully verified separately. |
+| Attached files | `list_attached_files` | **Unavailable for probing:** returned `files: []`. No attached format was claimed. |
+| Local CSV file | Project-folder listing | **Unverified:** no local `.csv` file was present. Remote CSV retrieval and parsing were verified, but local CSV reading is not claimed here. |
+| Local XLSX, DOCX, PPTX, PDF, Parquet, or NDJSON | Project-folder and attachment inventories | **Unverified:** no real local/attached sample of these formats was available, so none is listed as a verified format. |
+| Open Excel workbook | `excel_list_sheets` | **Unavailable for content testing:** call succeeded but returned 0 sheets. No Excel read capability is claimed from this probe. |
+| Preconfigured SQL, Oracle, OneDrive, SharePoint, Mail, Teams, or file-reference connectors | `find_configured_sources` | **Unavailable for live data testing:** returned `No configured data-source nodes found in the active or imported pipeline.` These connector families remain unverified in this inventory. |
+| SQL databases | No server/database connection parameters were available. | **Unprobed.** A legitimate live probe requires a configured server and database; none was discovered. |
+| Oracle databases | No configured Oracle source was found. | **Unprobed.** Oracle discovery/connection was not attempted without a relevant user-named database or configured source. |
+| OneDrive / SharePoint drives and lists | No configured source was found. | **Unprobed.** Testing would require account authentication and a target drive/site/list. |
+| Mail and Teams | No configured source was found. | **Unprobed.** Testing would read private account data and requires authentication/target context; no such private-data probe was necessary for the mandatory public-source inventory. |
+| Remote writes / side effects | Current guardrail state | **Unavailable.** Drive File Write, Send Email, SharePoint writes, Teams Message, SQL writes, Oracle writes, and OS Command are disabled. No remote-write capability is claimed. |
+
+## Mandatory probe checklist
+
+1. Web search query — succeeded.
+2. Electricity-price JSON URL — HTTP 200, 24 rows.
+3. Norges Bank CSV URL — HTTP 200, parsed to 22 observations.
+4. SSB PxWeb table 07459 metadata — HTTP 200, 5 variables.
+5. NVE reservoir statistics — current public API found and called successfully, HTTP 200, 9 records.
+6. Local formats claimed — JSON and plain text read successfully; Markdown/JSON outputs written and then verified separately. No unsupported local format is claimed.

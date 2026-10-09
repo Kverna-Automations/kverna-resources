@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "exportedAt": "2026-10-09T18:06:01.746Z",
+  "pipeline": {
+    "id": "pipeline-1",
+    "name": "pipeline-1",
+    "label": "My First Pipeline",
+    "version": "1.0.0",
+    "changeVersion": 0,
+    "nodes": [],
+    "triggers": [
+      {
+        "id": "pipeline-1-trigger-manual",
+        "label": "Manual",
+        "type": "manual",
+        "enabled": true,
+        "description": "Executes when \"Run Pipeline\" button is pressed"
+      },
+      {
+        "id": "pipeline-1-trigger-startup",
+        "label": "On Startup",
+        "type": "startup",
+        "enabled": true,
+        "description": "Executes when the workbook is opened"
+      }
+    ],
+    "edges": []
+  }
+}

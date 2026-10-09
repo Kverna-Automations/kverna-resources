@@ -1,0 +1,157 @@
+{
+  "generated_date": "2026-10-09",
+  "policy": "Only successfully probed capabilities are listed under verified. Claimed but unprobed or unavailable sources are listed separately.",
+  "verified": [
+    {
+      "source": "Web search",
+      "access_method": "web.search_query",
+      "exact_probe": "SSB statistikkbanken befolkning kommune",
+      "result": "success; returned official SSB population/statistics results",
+      "can_do": ["read search results", "locate public sources"],
+      "limits": ["read-only", "search-index coverage and ranking apply", "no authenticated/private search verified", "rate limits not surfaced"]
+    },
+    {
+      "source": "Public JSON over HTTPS",
+      "access_method": "fetch_data GET",
+      "exact_probe": "https://www.hvakosterstrommen.no/api/v1/prices/2024/01-15_NO2.json",
+      "result": "success; HTTP 200; 24 parsed objects",
+      "can_do": ["read", "parse", "compute on", "transform", "export"],
+      "limits": ["remote source read-only in this workflow", "no authentication required", "provider rate limits not surfaced", "large responses may require paged or bulk ingestion"]
+    },
+    {
+      "source": "Public CSV over HTTPS",
+      "access_method": "fetch_data GET plus semicolon CSV parsing",
+      "exact_probe": "https://data.norges-bank.no/api/data/EXR/B.EUR.NOK.SP?format=csv&startPeriod=2024-01-01&endPeriod=2024-01-31",
+      "result": "success; HTTP 200; raw semicolon text parsed to 22 observations from 2024-01-02 through 2024-01-31",
+      "can_do": ["read", "parse", "compute on", "transform", "export"],
+      "limits": ["response arrived as one raw string", "delimiter-aware parsing required", "no authentication required", "provider rate limits not surfaced"]
+    },
+    {
+      "source": "SSB PxWeb API metadata",
+      "access_method": "fetch_data GET",
+      "exact_probe": "https://data.ssb.no/api/v0/no/table/07459/",
+      "result": "success; HTTP 200; title '07459: Befolkning, etter region, kjønn, alder, statistikkvariabel og år'; 5 variables",
+      "can_do": ["read metadata", "parse metadata", "construct later data queries", "compute on returned data"],
+      "limits": ["metadata only; POST data query not probed", "public/read-only", "query-size and rate limits not surfaced"]
+    },
+    {
+      "source": "NVE Magasinstatistikk public API",
+      "access_method": "web search discovery plus fetch_data GET",
+      "exact_probe": "searches 'site:nve.no magasinstatistikk API' and 'NVE reservoir statistics API magasinstatistikk'; GET https://biapi.nve.no/magasinstatistikk/api/Magasinstatistikk/HentOffentligDataSisteUke",
+      "result": "success; HTTP 200; 9 records; official docs found at https://api.nve.no/doc/magasinstatistikk/ and Swagger at https://biapi.nve.no/magasinstatistikk/swagger/index.html",
+      "can_do": ["read", "parse", "compute on"],
+      "limits": ["public/read-only", "latest-week response changes over time", "no authentication required", "rate limits not surfaced", "no obsolete endpoint was supplied, so no endpoint move was confirmed"]
+    },
+    {
+      "source": "Public HTML over HTTPS",
+      "access_method": "fetch_data GET",
+      "exact_probe": "https://api.nve.no/doc/magasinstatistikk/",
+      "result": "success; HTTP 200; raw HTML string; displayed sample reported 15026 characters and was truncated",
+      "can_do": ["read raw HTML", "parse static HTML"],
+      "limits": ["JavaScript interaction not verified", "displayed previews can be truncated"]
+    },
+    {
+      "source": "Local project filesystem JSON",
+      "access_method": "read_workspace_file",
+      "exact_probe": "kverna.json",
+      "result": "success; UTF-8; 92 bytes",
+      "can_do": ["read", "parse", "compute on", "write within project folder"],
+      "limits": ["project-folder scope only", "arbitrary external paths not verified", "very large JSON not probed"]
+    },
+    {
+      "source": "Local project filesystem plain text/log",
+      "access_method": "read_workspace_file",
+      "exact_probe": "startup.log",
+      "result": "success; UTF-8; 350 bytes",
+      "can_do": ["read", "parse", "compute on", "write within project folder"],
+      "limits": ["project-folder scope only", "large files are windowed or paged"]
+    },
+    {
+      "source": "In-memory transformation and computation",
+      "access_method": "run_transform Python",
+      "exact_probe": "parse the fetched Norges Bank CSV and summarize it with the electricity JSON",
+      "result": "success after corrected retry; 24 electricity rows and 22 CSV rows; CSV period 2024-01-02 through 2024-01-31",
+      "failure_record": "initial attempt: json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0); corrected by treating CSV input as raw text",
+      "can_do": ["parse", "compute", "reshape", "aggregate", "join small/medium datasets"],
+      "limits": ["practical in-memory limits", "large datasets should use a scalable data-store path", "input representation must be handled according to schema"]
+    },
+    {
+      "source": "Local project filesystem Markdown/JSON write and readback",
+      "access_method": "write_workspace_file plus read_workspace_file",
+      "exact_probe": "wrote and read back capabilities.md and capabilities.json",
+      "result": "success; capabilities.md read back as UTF-8 with 8916 bytes; capabilities.json initial version read back as UTF-8 with 8489 bytes, then finalized",
+      "can_do": ["write authored UTF-8 Markdown and JSON", "read back and verify"],
+      "limits": ["project-folder scope only", "factual content must derive from actual probes", "large or many data files require dataset export/write tools"]
+    }
+  ],
+  "unverified": [
+    {
+      "source": "Interactive signed-in web browser",
+      "probe": "current guardrail state",
+      "result": "unavailable; exact setting state: Web browser (browse_*, signed in as the user): OFF. Enable Allow the web browser under Allowed nodes to test"
+    },
+    {
+      "source": "Structured public web-page text extraction",
+      "probe": "opened https://api.nve.no/doc/magasinstatistikk/ and https://www.ssb.no/befolkning",
+      "result": "unverified; opener returned URLs but no extracted page text and no explicit error"
+    },
+    {
+      "source": "Attached files",
+      "probe": "list_attached_files",
+      "result": "unavailable; exact result: files: []"
+    },
+    {
+      "source": "Local CSV file",
+      "probe": "project-folder listing",
+      "result": "unverified; no local .csv file present; remote CSV only was verified"
+    },
+    {
+      "source": "Local XLSX, DOCX, PPTX, PDF, Parquet, NDJSON",
+      "probe": "project-folder and attachment inventories",
+      "result": "unverified; no real sample file available, so no capability claimed"
+    },
+    {
+      "source": "Open Excel workbook",
+      "probe": "excel_list_sheets",
+      "result": "unavailable for content testing; call succeeded with 0 sheets"
+    },
+    {
+      "source": "Configured SQL, Oracle, OneDrive, SharePoint, Mail, Teams, or file-reference connectors",
+      "probe": "find_configured_sources",
+      "result": "unavailable for live data testing; exact result: No configured data-source nodes found in the active or imported pipeline"
+    },
+    {
+      "source": "SQL databases",
+      "probe": "no server/database parameters discovered",
+      "result": "unprobed; a legitimate connection target was unavailable"
+    },
+    {
+      "source": "Oracle databases",
+      "probe": "no configured Oracle source found",
+      "result": "unprobed; no relevant named database or configured source"
+    },
+    {
+      "source": "OneDrive and SharePoint",
+      "probe": "no configured source found",
+      "result": "unprobed; requires authentication and a target drive/site/list"
+    },
+    {
+      "source": "Mail and Teams",
+      "probe": "no configured source found",
+      "result": "unprobed; private account access requires authentication and target context"
+    },
+    {
+      "source": "Remote writes and side effects",
+      "probe": "current guardrail state",
+      "result": "unavailable; Drive File Write, Send Email, SharePoint writes, Teams Message, SQL writes, Oracle writes, and OS Command are disabled"
+    }
+  ],
+  "mandatory_probe_checklist": {
+    "web_search": "success",
+    "electricity_json": "success; HTTP 200; 24 rows",
+    "norges_bank_csv": "success; HTTP 200; 22 parsed observations",
+    "ssb_07459_metadata": "success; HTTP 200; 5 variables",
+    "nve_reservoir_api": "success; HTTP 200; 9 rows",
+    "local_claimed_formats": "JSON and plain text read successfully; Markdown and JSON written and read back; no other local format claimed"
+  }
+}
