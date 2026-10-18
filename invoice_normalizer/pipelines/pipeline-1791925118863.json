@@ -1,0 +1,506 @@
+{
+  "version": "2.0.0",
+  "exportedAt": "2026-10-17T16:33:34.617Z",
+  "pipeline": {
+    "id": "pipeline-1791925118863",
+    "name": "Invoice Operations Wallboard",
+    "label": "Invoice Operations Wallboard",
+    "enableDebug": true,
+    "variables": {},
+    "nodes": [
+      {
+        "id": "n1",
+        "type": "dataset:fetch",
+        "label": "Operational FX Rates",
+        "position": {
+          "x": 825,
+          "y": 0
+        },
+        "config": {
+          "format": "csv",
+          "pagingMode": "none",
+          "pageSize": 1000,
+          "startPage": 1,
+          "nextLinkPath": "@odata.nextLink",
+          "maxPages": 100,
+          "mode": "replace",
+          "authentication": "none",
+          "tableName": "op_fx_rates",
+          "url": "C:\\repos\\kverna-resources\\invoice_normalizer\\fx_rates_daily.csv"
+        }
+      },
+      {
+        "id": "n2",
+        "type": "dataset:fetch",
+        "label": "Operational Invoices",
+        "position": {
+          "x": 675,
+          "y": 220
+        },
+        "config": {
+          "format": "csv",
+          "pagingMode": "none",
+          "pageSize": 1000,
+          "startPage": 1,
+          "nextLinkPath": "@odata.nextLink",
+          "maxPages": 100,
+          "mode": "replace",
+          "authentication": "none",
+          "tableName": "op_invoice_raw",
+          "url": "C:\\repos\\kverna-resources\\invoice_normalizer\\invoices_data.csv"
+        }
+      },
+      {
+        "id": "n3",
+        "type": "dataset:query",
+        "label": "Normalize Operations",
+        "position": {
+          "x": 825,
+          "y": 440
+        },
+        "config": {
+          "enableCache": false,
+          "cacheTTL": 60,
+          "resultTable": "op_invoice_normalized",
+          "sql": "SELECT\n  i.*,\n  CASE i.UoM\n    WHEN 'kg' THEN ROUND(i.Quantity, 6)\n    WHEN 'liter' THEN ROUND(i.Quantity, 6)\n    WHEN 'metric_ton' THEN ROUND(i.Quantity, 6)\n    WHEN 'lb' THEN ROUND(i.Quantity * 0.45359237, 6)\n    WHEN 'gallon' THEN ROUND(i.Quantity * 3.78541, 6)\n    WHEN 'short_ton' THEN ROUND(i.Quantity * 0.907185, 6)\n    ELSE ROUND(i.Quantity, 6)\n  END AS Qty_Normalized,\n  CASE i.UoM\n    WHEN 'lb' THEN 'kg'\n    WHEN 'gallon' THEN 'liter'\n    WHEN 'short_ton' THEN 'metric_ton'\n    ELSE i.UoM\n  END AS UoM_Normalized,\n  CASE i.Currency\n    WHEN 'USD' THEN 1.0 WHEN 'EUR' THEN fx.USD_EUR WHEN 'GBP' THEN fx.USD_GBP\n    WHEN 'JPY' THEN fx.USD_JPY WHEN 'NOK' THEN fx.USD_NOK WHEN 'CHF' THEN fx.USD_CHF WHEN 'SEK' THEN fx.USD_SEK\n  END AS Rate,\n  ROUND(i.TotalAmount / CASE i.Currency\n    WHEN 'USD' THEN 1.0 WHEN 'EUR' THEN fx.USD_EUR WHEN 'GBP' THEN fx.USD_GBP\n    WHEN 'JPY' THEN fx.USD_JPY WHEN 'NOK' THEN fx.USD_NOK WHEN 'CHF' THEN fx.USD_CHF WHEN 'SEK' THEN fx.USD_SEK END, 2) AS TotalAmount_USD\nFROM op_invoice_raw i\nLEFT JOIN LATERAL (\n  SELECT * FROM op_fx_rates f\n  ORDER BY ABS(date_diff('day', i.Date, f.Date))\n  LIMIT 1\n) fx ON TRUE"
+        }
+      },
+      {
+        "id": "n4",
+        "type": "dataset:query",
+        "label": "Operations Snapshot",
+        "position": {
+          "x": 340,
+          "y": 660
+        },
+        "config": {
+          "enableCache": false,
+          "cacheTTL": 60,
+          "resultTable": "q_operations_snapshot",
+          "sql": "SELECT\n  ROUND(SUM(TotalAmount_USD), 2) AS total_spend_usd,\n  COUNT(*) AS invoice_count,\n  ROUND(AVG(TotalAmount_USD), 2) AS avg_invoice_usd,\n  COUNT(DISTINCT Vendor) AS unique_vendors,\n  CAST(20 + floor(random() * 31) AS INTEGER) AS simulated_throughput,\n  CAST(3 + floor(random() * 26) AS INTEGER) AS simulated_queue,\n  CAST(180 + floor(random() * 470) AS INTEGER) AS simulated_latency_ms,\n  CAST(90 + floor(random() * 10) AS INTEGER) AS simulated_health_score,\n  strftime(current_timestamp, '%Y-%m-%d %H:%M:%S') AS refreshed_at\nFROM op_invoice_normalized"
+        }
+      },
+      {
+        "id": "n5",
+        "type": "dataset:materialize",
+        "label": "Operations Snapshot rows",
+        "position": {
+          "x": 340,
+          "y": 880
+        },
+        "config": {
+          "maxRows": 10
+        }
+      },
+      {
+        "id": "n6",
+        "type": "dataset:query",
+        "label": "Actual Spend Trend",
+        "position": {
+          "x": 0,
+          "y": 1100
+        },
+        "config": {
+          "enableCache": false,
+          "cacheTTL": 60,
+          "resultTable": "q_actual_spend_trend",
+          "sql": "SELECT Date, ROUND(SUM(TotalAmount_USD), 2) AS spend_usd\nFROM op_invoice_normalized\nGROUP BY Date\nORDER BY Date"
+        }
+      },
+      {
+        "id": "n7",
+        "type": "dataset:materialize",
+        "label": "Actual Spend Trend rows",
+        "position": {
+          "x": 0,
+          "y": 1320
+        },
+        "config": {
+          "maxRows": 100
+        }
+      },
+      {
+        "id": "n8",
+        "type": "dataset:query",
+        "label": "Vendor Operations",
+        "position": {
+          "x": 180,
+          "y": 1540
+        },
+        "config": {
+          "enableCache": false,
+          "cacheTTL": 60,
+          "resultTable": "q_vendor_operations",
+          "sql": "WITH vendor_actual AS (\n  SELECT Vendor, ROUND(SUM(TotalAmount_USD), 2) AS spend_usd, COUNT(*) AS invoice_count\n  FROM op_invoice_normalized\n  GROUP BY Vendor\n), vendor_sim AS (\n  SELECT *,\n    CAST(floor(random() * 18) AS INTEGER) AS simulated_queue,\n    CAST(8 + floor(random() * 25) AS INTEGER) AS simulated_rate,\n    CAST(floor(random() * 100) AS INTEGER) AS simulated_risk\n  FROM vendor_actual\n)\nSELECT Vendor, spend_usd, invoice_count, simulated_queue, simulated_rate, simulated_risk,\n  CASE WHEN simulated_risk >= 85 THEN 'Watch' WHEN simulated_risk >= 65 THEN 'Elevated' ELSE 'Healthy' END AS simulated_status\nFROM vendor_sim\nORDER BY spend_usd DESC"
+        }
+      },
+      {
+        "id": "n9",
+        "type": "dataset:materialize",
+        "label": "Vendor Operations rows",
+        "position": {
+          "x": 180,
+          "y": 1760
+        },
+        "config": {
+          "maxRows": 100
+        }
+      },
+      {
+        "id": "n10",
+        "type": "dataset:query",
+        "label": "Invoice Watchlist",
+        "position": {
+          "x": 360,
+          "y": 1980
+        },
+        "config": {
+          "enableCache": false,
+          "cacheTTL": 60,
+          "resultTable": "q_invoice_watchlist",
+          "sql": "SELECT InvoiceID, Date, Vendor, Country, Description AS category, Currency, ROUND(TotalAmount_USD, 2) AS amount_usd\nFROM op_invoice_normalized\nORDER BY TotalAmount_USD DESC\nLIMIT 12"
+        }
+      },
+      {
+        "id": "n11",
+        "type": "dataset:materialize",
+        "label": "Invoice Watchlist rows",
+        "position": {
+          "x": 360,
+          "y": 2200
+        },
+        "config": {
+          "maxRows": 20
+        }
+      },
+      {
+        "id": "n12",
+        "type": "dataset:query",
+        "label": "Linked Ops Pulse",
+        "position": {
+          "x": 540,
+          "y": 2420
+        },
+        "config": {
+          "enableCache": false,
+          "cacheTTL": 60,
+          "resultTable": "q_linked_ops_pulse",
+          "sql": "WITH base AS (\n  SELECT COUNT(*) AS invoice_count FROM op_invoice_normalized\n)\nSELECT\n  strftime(current_timestamp - i * INTERVAL '1 minute', '%H:%M') AS minute,\n  CAST(18 + floor(random() * 35) + (invoice_count * 0) AS INTEGER) AS invoices_per_min,\n  CAST(4 + floor(random() * 28) AS INTEGER) AS queue_depth,\n  CAST(170 + floor(random() * 520) AS INTEGER) AS latency_ms\nFROM range(59, -1, -1) AS t(i)\nCROSS JOIN base"
+        }
+      },
+      {
+        "id": "n13",
+        "type": "dataset:materialize",
+        "label": "Linked Ops Pulse rows",
+        "position": {
+          "x": 540,
+          "y": 2640
+        },
+        "config": {
+          "maxRows": 100
+        }
+      },
+      {
+        "id": "n14",
+        "type": "dashboard:build",
+        "label": "Web dashboard",
+        "position": {
+          "x": 370,
+          "y": 2860
+        },
+        "config": {
+          "name": "Invoice Operations Wallboard",
+          "publish": true,
+          "spec": "{\n  \"name\": \"Invoice Operations Wallboard\",\n  \"layout\": {\n    \"columns\": 12\n  },\n  \"items\": [\n    {\n      \"id\": \"item_1\",\n      \"view\": {\n        \"kind\": \"text\",\n        \"title\": \"INVOICE OPERATIONS CONTROL ROOM\",\n        \"text\": \"## LIVE WALLBOARD\\n**Actual:** normalized invoice spend, counts, vendors, and invoice watchlist.  \\n**Simulated for testing:** throughput, queue depth, latency, health, vendor risk, and status — regenerated on every refresh.\"\n      },\n      \"position\": {\n        \"row\": 0,\n        \"col\": 0,\n        \"rowSpan\": 2,\n        \"colSpan\": 12\n      }\n    },\n    {\n      \"id\": \"item_2\",\n      \"input\": \"input_0\",\n      \"view\": {\n        \"kind\": \"metric\",\n        \"title\": \"ACTUAL NORMALIZED SPEND\",\n        \"encodings\": {\n          \"value\": \"total_spend_usd\"\n        },\n        \"options\": {\n          \"valueFormat\": \"$#,##0\"\n        }\n      },\n      \"position\": {\n        \"row\": 2,\n        \"col\": 0,\n        \"rowSpan\": 2,\n        \"colSpan\": 3\n      }\n    },\n    {\n      \"id\": \"item_3\",\n      \"input\": \"input_0\",\n      \"view\": {\n        \"kind\": \"metric\",\n        \"title\": \"ACTUAL INVOICES\",\n        \"encodings\": {\n          \"value\": \"invoice_count\"\n        },\n        \"options\": {\n          \"valueFormat\": \"#,##0\"\n        }\n      },\n      \"position\": {\n        \"row\": 2,\n        \"col\": 3,\n        \"rowSpan\": 2,\n        \"colSpan\": 3\n      }\n    },\n    {\n      \"id\": \"item_4\",\n      \"input\": \"input_0\",\n      \"view\": {\n        \"kind\": \"metric\",\n        \"title\": \"SIMULATED HEALTH\",\n        \"encodings\": {\n          \"value\": \"simulated_health_score\"\n        },\n        \"options\": {\n          \"valueFormat\": \"0\"\n        }\n      },\n      \"position\": {\n        \"row\": 2,\n        \"col\": 6,\n        \"rowSpan\": 2,\n        \"colSpan\": 3\n      }\n    },\n    {\n      \"id\": \"item_5\",\n      \"input\": \"input_0\",\n      \"view\": {\n        \"kind\": \"metric\",\n        \"title\": \"SIMULATED INVOICES / MIN\",\n        \"encodings\": {\n          \"value\": \"simulated_throughput\"\n        },\n        \"options\": {\n          \"valueFormat\": \"#,##0\"\n        }\n      },\n      \"position\": {\n        \"row\": 2,\n        \"col\": 9,\n        \"rowSpan\": 2,\n        \"colSpan\": 3\n      }\n    },\n    {\n      \"id\": \"item_6\",\n      \"input\": \"input_1\",\n      \"view\": {\n        \"kind\": \"line\",\n        \"title\": \"SIMULATED LIVE FLOW — LAST 60 MINUTES\",\n        \"encodings\": {\n          \"x\": \"minute\",\n          \"y\": [\n            \"invoices_per_min\",\n            \"queue_depth\"\n          ]\n        },\n        \"options\": {\n          \"marker\": \"circle\",\n          \"height\": 390,\n          \"colors\": [\n            \"#22D3EE\",\n            \"#FB7185\"\n          ]\n        }\n      },\n      \"position\": {\n        \"row\": 4,\n        \"col\": 0,\n        \"rowSpan\": 6,\n        \"colSpan\": 6\n      }\n    },\n    {\n      \"id\": \"item_7\",\n      \"input\": \"input_2\",\n      \"view\": {\n        \"kind\": \"area\",\n        \"title\": \"ACTUAL NORMALIZED SPEND — USD\",\n        \"encodings\": {\n          \"x\": \"Date\",\n          \"y\": \"spend_usd\"\n        },\n        \"options\": {\n          \"valueFormat\": \"$#,##0\",\n          \"marker\": \"circle\",\n          \"height\": 350,\n          \"colors\": [\n            \"#A78BFA\"\n          ]\n        }\n      },\n      \"position\": {\n        \"row\": 4,\n        \"col\": 6,\n        \"rowSpan\": 5,\n        \"colSpan\": 6\n      }\n    },\n    {\n      \"id\": \"item_8\",\n      \"input\": \"input_3\",\n      \"view\": {\n        \"kind\": \"bar\",\n        \"title\": \"VENDOR COMMAND BOARD — STATUS IS SIMULATED\",\n        \"encodings\": {\n          \"x\": \"Vendor\",\n          \"y\": \"spend_usd\",\n          \"series\": \"simulated_status\"\n        },\n        \"options\": {\n          \"horizontal\": true,\n          \"valueFormat\": \"$#,##0\",\n          \"height\": 480,\n          \"colors\": [\n            \"#34D399\",\n            \"#FBBF24\",\n            \"#FB7185\"\n          ]\n        }\n      },\n      \"position\": {\n        \"row\": 10,\n        \"col\": 0,\n        \"rowSpan\": 7,\n        \"colSpan\": 6\n      }\n    },\n    {\n      \"id\": \"item_9\",\n      \"input\": \"input_4\",\n      \"view\": {\n        \"kind\": \"table\",\n        \"title\": \"HIGH-VALUE INVOICE WATCHLIST — ACTUAL\",\n        \"options\": {\n          \"columns\": [\n            {\n              \"field\": \"InvoiceID\",\n              \"header\": \"Invoice ID\"\n            },\n            {\n              \"field\": \"Date\",\n              \"header\": \"Date\"\n            },\n            {\n              \"field\": \"Vendor\",\n              \"header\": \"Vendor\"\n            },\n            {\n              \"field\": \"Country\",\n              \"header\": \"Country\"\n            },\n            {\n              \"field\": \"category\",\n              \"header\": \"Category\"\n            },\n            {\n              \"field\": \"Currency\",\n              \"header\": \"Currency\"\n            },\n            {\n              \"field\": \"amount_usd\",\n              \"header\": \"Normalized USD\",\n              \"format\": \"$#,##0\",\n              \"numeric\": true,\n              \"highlight\": {\n                \"above\": 14000000,\n                \"color\": \"#4C1D2F\"\n              }\n            }\n          ],\n          \"sort\": [\n            {\n              \"field\": \"amount_usd\",\n              \"desc\": true\n            }\n          ]\n        }\n      },\n      \"position\": {\n        \"row\": 17,\n        \"col\": 0,\n        \"rowSpan\": 5,\n        \"colSpan\": 12\n      }\n    },\n    {\n      \"id\": \"invoice_galaxy\",\n      \"input\": \"input_4\",\n      \"stage\": {\n        \"layout\": \"galaxy\",\n        \"title\": \"HIGH-VALUE INVOICE GALAXY — ACTUAL\",\n        \"color\": \"category\",\n        \"value\": \"amount_usd\",\n        \"size\": \"amount_usd\",\n        \"order\": \"amount_usd\",\n        \"label\": \"InvoiceID\",\n        \"key\": \"InvoiceID\",\n        \"shape\": \"orb\",\n        \"spin\": true,\n        \"tour\": {\n          \"rank\": \"amount_usd\",\n          \"top\": 5,\n          \"hold\": 3\n        }\n      }\n    },\n    {\n      \"id\": \"flow_space\",\n      \"input\": \"input_1\",\n      \"stage\": {\n        \"layout\": \"scatter\",\n        \"title\": \"SIMULATED FLOW SPACE\",\n        \"color\": \"queue_depth\",\n        \"value\": \"invoices_per_min\",\n        \"size\": \"invoices_per_min\",\n        \"x\": \"queue_depth\",\n        \"y\": \"latency_ms\",\n        \"z\": \"invoices_per_min\",\n        \"label\": \"minute\",\n        \"key\": \"minute\",\n        \"shape\": \"orb\",\n        \"spin\": true,\n        \"tour\": {\n          \"rank\": \"invoices_per_min\",\n          \"top\": 6,\n          \"hold\": 2\n        }\n      }\n    },\n    {\n      \"id\": \"vendor_clusters\",\n      \"input\": \"input_3\",\n      \"stage\": {\n        \"layout\": \"clusters\",\n        \"title\": \"VENDOR OPERATIONS CLUSTERS — STATUS SIMULATED\",\n        \"group\": \"simulated_status\",\n        \"color\": \"simulated_status\",\n        \"value\": \"spend_usd\",\n        \"size\": \"spend_usd\",\n        \"order\": \"simulated_risk\",\n        \"label\": \"Vendor\",\n        \"key\": \"Vendor\",\n        \"highlight\": {\n          \"field\": \"simulated_status\",\n          \"equals\": [\n            \"Watch\",\n            \"Elevated\"\n          ]\n        },\n        \"shape\": \"block\",\n        \"spin\": true,\n        \"tour\": {\n          \"rank\": \"simulated_risk\",\n          \"top\": 5,\n          \"hold\": 3\n        }\n      }\n    },\n    {\n      \"id\": \"vendor_towers\",\n      \"input\": \"input_3\",\n      \"stage\": {\n        \"layout\": \"columns\",\n        \"title\": \"VENDOR EXPOSURE TOWERS — ACTUAL SPEND / SIMULATED STATUS\",\n        \"group\": \"Vendor\",\n        \"color\": \"simulated_status\",\n        \"value\": \"spend_usd\",\n        \"size\": \"invoice_count\",\n        \"order\": \"spend_usd\",\n        \"label\": \"Vendor\",\n        \"key\": \"Vendor\",\n        \"cards\": true,\n        \"highlight\": {\n          \"field\": \"simulated_status\",\n          \"equals\": [\n            \"Watch\",\n            \"Elevated\"\n          ]\n        },\n        \"shape\": \"block\",\n        \"spin\": true\n      }\n    }\n  ],\n  \"theme\": {\n    \"direction\": \"nocturne\",\n    \"primaryColor\": \"#22D3EE\",\n    \"background\": \"#02040A\",\n    \"fontFamily\": \"Inter, Segoe UI, sans-serif\",\n    \"palette\": [\n      \"#22D3EE\",\n      \"#8B5CF6\",\n      \"#34D399\",\n      \"#FBBF24\",\n      \"#FB7185\",\n      \"#60A5FA\"\n    ]\n  },\n  \"mode\": \"story\",\n  \"live\": {\n    \"checkEverySeconds\": 30,\n    \"expectEverySeconds\": 180\n  },\n  \"alerts\": [\n    {\n      \"id\": \"sim-health-low\",\n      \"label\": \"Simulated health below 93\",\n      \"when\": \"max simulated_health_score in item_4\",\n      \"op\": \"<\",\n      \"value\": 93,\n      \"severity\": \"warning\"\n    },\n    {\n      \"id\": \"sim-queue-high\",\n      \"label\": \"Simulated queue above 24\",\n      \"when\": \"max simulated_queue in item_2\",\n      \"op\": \">\",\n      \"value\": 24,\n      \"severity\": \"critical\"\n    }\n  ],\n  \"autoplay\": true,\n  \"scenes\": [\n    {\n      \"id\": \"opening\",\n      \"kicker\": \"INVOICE OPERATIONS\",\n      \"title\": \"A live view of the highest-value invoice activity\",\n      \"narration\": \"The galaxy contains {{count in item_9}} actual high-value invoices across {{distinct Vendor in item_9}} vendors. Point size represents normalized USD value.\",\n      \"duration\": 8,\n      \"stage\": {\n        \"item\": \"invoice_galaxy\"\n      },\n      \"cards\": [\n        \"item_2\",\n        \"item_3\"\n      ]\n    },\n    {\n      \"id\": \"flow\",\n      \"kicker\": \"SIMULATED OPERATIONS PULSE\",\n      \"title\": \"Throughput, queue pressure, and latency are moving now\",\n      \"narration\": \"This scene is intentionally simulated for display testing. The current health score is {{max simulated_health_score in item_4 | #,##0}} and throughput is {{max simulated_throughput in item_5 | #,##0}} invoices per minute.\",\n      \"duration\": 10,\n      \"stage\": {\n        \"item\": \"flow_space\"\n      },\n      \"cards\": [\n        \"item_4\",\n        \"item_5\",\n        \"item_6\"\n      ],\n      \"steps\": [\n        {\n          \"caption\": \"Each point is one simulated minute; height is latency and depth is throughput.\"\n        },\n        {\n          \"caption\": \"The camera highlights the busiest simulated minutes.\"\n        }\n      ]\n    },\n    {\n      \"id\": \"vendors\",\n      \"kicker\": \"VENDOR COMMAND\",\n      \"title\": \"Operational status clusters shift on every refresh\",\n      \"narration\": \"Actual vendor spend determines size. Healthy, Elevated, and Watch labels are simulated and are regenerated each run.\",\n      \"duration\": 9,\n      \"stage\": {\n        \"item\": \"vendor_clusters\"\n      },\n      \"cards\": [\n        \"item_8\"\n      ],\n      \"steps\": [\n        {\n          \"caption\": \"Elevated and Watch vendors stay highlighted.\"\n        },\n        {\n          \"caption\": \"The camera tours the highest simulated risk scores.\"\n        }\n      ]\n    },\n    {\n      \"id\": \"exposure\",\n      \"kicker\": \"PORTFOLIO EXPOSURE\",\n      \"title\": \"Vendor towers show where normalized spend is concentrated\",\n      \"narration\": \"Tower values use actual normalized invoice spend, while their colors use simulated operational status.\",\n      \"duration\": 9,\n      \"stage\": {\n        \"item\": \"vendor_towers\"\n      },\n      \"cards\": [\n        \"item_7\"\n      ]\n    },\n    {\n      \"id\": \"watchlist\",\n      \"kicker\": \"ACTION BOARD\",\n      \"title\": \"The actual high-value invoice watchlist\",\n      \"narration\": \"Review the largest normalized invoices and their source currencies before the presentation loops.\",\n      \"duration\": 8,\n      \"cards\": [\n        \"item_9\"\n      ]\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "triggers": [
+      {
+        "id": "trigger_pipeline_1791925071328",
+        "type": "manual",
+        "enabled": true
+      },
+      {
+        "id": "pipeline_1791925071328-schedule",
+        "type": "cron",
+        "label": "Schedule",
+        "enabled": false,
+        "cron": "0 * * * * *",
+        "description": "Set by the Builder (schedule_pipeline)."
+      }
+    ],
+    "edges": [
+      {
+        "id": "trigger_pipeline_1791925071328-n1-execution",
+        "source": "trigger_pipeline_1791925071328",
+        "target": "n1",
+        "type": "execution",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in"
+      },
+      {
+        "id": "n1-n2-execution",
+        "source": "n1",
+        "target": "n2",
+        "type": "execution",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in"
+      },
+      {
+        "id": "n2-n3-execution",
+        "source": "n2",
+        "target": "n3",
+        "type": "execution",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in"
+      },
+      {
+        "id": "n3-n4-execution",
+        "source": "n3",
+        "target": "n4",
+        "type": "execution",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in"
+      },
+      {
+        "id": "n4-n5-execution",
+        "source": "n4",
+        "target": "n5",
+        "type": "execution",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in"
+      },
+      {
+        "id": "n5-n6-execution",
+        "source": "n5",
+        "target": "n6",
+        "type": "execution",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in"
+      },
+      {
+        "id": "n6-n7-execution",
+        "source": "n6",
+        "target": "n7",
+        "type": "execution",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in"
+      },
+      {
+        "id": "n7-n8-execution",
+        "source": "n7",
+        "target": "n8",
+        "type": "execution",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in"
+      },
+      {
+        "id": "n8-n9-execution",
+        "source": "n8",
+        "target": "n9",
+        "type": "execution",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in"
+      },
+      {
+        "id": "n9-n10-execution",
+        "source": "n9",
+        "target": "n10",
+        "type": "execution",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in"
+      },
+      {
+        "id": "n10-n11-execution",
+        "source": "n10",
+        "target": "n11",
+        "type": "execution",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in"
+      },
+      {
+        "id": "n11-n12-execution",
+        "source": "n11",
+        "target": "n12",
+        "type": "execution",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in"
+      },
+      {
+        "id": "n12-n13-execution",
+        "source": "n12",
+        "target": "n13",
+        "type": "execution",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in"
+      },
+      {
+        "id": "n13-n14-execution",
+        "source": "n13",
+        "target": "n14",
+        "type": "execution",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in"
+      },
+      {
+        "id": "n1-n3-orderedInput",
+        "source": "n1",
+        "target": "n3",
+        "type": "orderedInput",
+        "sourceHandle": "data-out",
+        "targetHandle": "input-0",
+        "inputIndex": 0
+      },
+      {
+        "id": "n2-n3-orderedInput",
+        "source": "n2",
+        "target": "n3",
+        "type": "orderedInput",
+        "sourceHandle": "data-out",
+        "targetHandle": "input-1",
+        "inputIndex": 1
+      },
+      {
+        "id": "n3-n4-orderedInput",
+        "source": "n3",
+        "target": "n4",
+        "type": "orderedInput",
+        "sourceHandle": "data-out",
+        "targetHandle": "input-0",
+        "inputIndex": 0
+      },
+      {
+        "id": "n4-n5-data",
+        "source": "n4",
+        "target": "n5",
+        "type": "data",
+        "sourceHandle": "data-out",
+        "targetHandle": "data-in"
+      },
+      {
+        "id": "n3-n6-orderedInput",
+        "source": "n3",
+        "target": "n6",
+        "type": "orderedInput",
+        "sourceHandle": "data-out",
+        "targetHandle": "input-0",
+        "inputIndex": 0
+      },
+      {
+        "id": "n6-n7-data",
+        "source": "n6",
+        "target": "n7",
+        "type": "data",
+        "sourceHandle": "data-out",
+        "targetHandle": "data-in"
+      },
+      {
+        "id": "n3-n8-orderedInput",
+        "source": "n3",
+        "target": "n8",
+        "type": "orderedInput",
+        "sourceHandle": "data-out",
+        "targetHandle": "input-0",
+        "inputIndex": 0
+      },
+      {
+        "id": "n8-n9-data",
+        "source": "n8",
+        "target": "n9",
+        "type": "data",
+        "sourceHandle": "data-out",
+        "targetHandle": "data-in"
+      },
+      {
+        "id": "n3-n10-orderedInput",
+        "source": "n3",
+        "target": "n10",
+        "type": "orderedInput",
+        "sourceHandle": "data-out",
+        "targetHandle": "input-0",
+        "inputIndex": 0
+      },
+      {
+        "id": "n10-n11-data",
+        "source": "n10",
+        "target": "n11",
+        "type": "data",
+        "sourceHandle": "data-out",
+        "targetHandle": "data-in"
+      },
+      {
+        "id": "n3-n12-orderedInput",
+        "source": "n3",
+        "target": "n12",
+        "type": "orderedInput",
+        "sourceHandle": "data-out",
+        "targetHandle": "input-0",
+        "inputIndex": 0
+      },
+      {
+        "id": "n12-n13-data",
+        "source": "n12",
+        "target": "n13",
+        "type": "data",
+        "sourceHandle": "data-out",
+        "targetHandle": "data-in"
+      },
+      {
+        "id": "n5-n14-orderedInput",
+        "source": "n5",
+        "target": "n14",
+        "type": "orderedInput",
+        "sourceHandle": "data-out",
+        "targetHandle": "input-0",
+        "inputIndex": 0
+      },
+      {
+        "id": "n13-n14-orderedInput",
+        "source": "n13",
+        "target": "n14",
+        "type": "orderedInput",
+        "sourceHandle": "data-out",
+        "targetHandle": "input-1",
+        "inputIndex": 1
+      },
+      {
+        "id": "n7-n14-orderedInput",
+        "source": "n7",
+        "target": "n14",
+        "type": "orderedInput",
+        "sourceHandle": "data-out",
+        "targetHandle": "input-2",
+        "inputIndex": 2
+      },
+      {
+        "id": "n9-n14-orderedInput",
+        "source": "n9",
+        "target": "n14",
+        "type": "orderedInput",
+        "sourceHandle": "data-out",
+        "targetHandle": "input-3",
+        "inputIndex": 3
+      },
+      {
+        "id": "n11-n14-orderedInput",
+        "source": "n11",
+        "target": "n14",
+        "type": "orderedInput",
+        "sourceHandle": "data-out",
+        "targetHandle": "input-4",
+        "inputIndex": 4
+      },
+      {
+        "id": "pipeline_1791925071328-schedule-n1-execution",
+        "source": "pipeline_1791925071328-schedule",
+        "target": "n1",
+        "type": "execution",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in"
+      }
+    ],
+    "changeVersion": 4,
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,10 @@
+# Local runtime noise, rebuilt on every start.
+*.log
+
+# Run records: a scheduled pipeline writes one per run (thousands). The latest run of each
+# pipeline is committed on purpose (git add -f) as the evidence for a published result.
+**/runs/*
+
+# Generated dashboard pages. The spec, data, history and provenance beside them are kept;
+# the rendered page is published from the gh-pages branch instead.
+**/dashboards/*/index.html

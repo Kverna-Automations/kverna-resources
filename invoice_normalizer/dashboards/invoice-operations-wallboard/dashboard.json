@@ -1,0 +1,388 @@
+{
+  "name": "Invoice Operations Wallboard",
+  "layout": {
+    "columns": 12
+  },
+  "items": [
+    {
+      "id": "item_1",
+      "view": {
+        "kind": "text",
+        "title": "INVOICE OPERATIONS CONTROL ROOM",
+        "text": "## LIVE WALLBOARD\n**Actual:** normalized invoice spend, counts, vendors, and invoice watchlist.  \n**Simulated for testing:** throughput, queue depth, latency, health, vendor risk, and status — regenerated on every refresh."
+      },
+      "position": {
+        "row": 0,
+        "col": 0,
+        "rowSpan": 2,
+        "colSpan": 12
+      }
+    },
+    {
+      "id": "item_2",
+      "input": "input_0",
+      "view": {
+        "kind": "metric",
+        "title": "ACTUAL NORMALIZED SPEND",
+        "encodings": {
+          "value": "total_spend_usd"
+        },
+        "options": {
+          "valueFormat": "$#,##0"
+        }
+      },
+      "position": {
+        "row": 2,
+        "col": 0,
+        "rowSpan": 2,
+        "colSpan": 3
+      }
+    },
+    {
+      "id": "item_3",
+      "input": "input_0",
+      "view": {
+        "kind": "metric",
+        "title": "ACTUAL INVOICES",
+        "encodings": {
+          "value": "invoice_count"
+        },
+        "options": {
+          "valueFormat": "#,##0"
+        }
+      },
+      "position": {
+        "row": 2,
+        "col": 3,
+        "rowSpan": 2,
+        "colSpan": 3
+      }
+    },
+    {
+      "id": "item_4",
+      "input": "input_0",
+      "view": {
+        "kind": "metric",
+        "title": "SIMULATED HEALTH",
+        "encodings": {
+          "value": "simulated_health_score"
+        },
+        "options": {
+          "valueFormat": "0"
+        }
+      },
+      "position": {
+        "row": 2,
+        "col": 6,
+        "rowSpan": 2,
+        "colSpan": 3
+      }
+    },
+    {
+      "id": "item_5",
+      "input": "input_0",
+      "view": {
+        "kind": "metric",
+        "title": "SIMULATED INVOICES / MIN",
+        "encodings": {
+          "value": "simulated_throughput"
+        },
+        "options": {
+          "valueFormat": "#,##0"
+        }
+      },
+      "position": {
+        "row": 2,
+        "col": 9,
+        "rowSpan": 2,
+        "colSpan": 3
+      }
+    },
+    {
+      "id": "item_6",
+      "input": "input_1",
+      "view": {
+        "kind": "line",
+        "title": "SIMULATED LIVE FLOW — LAST 60 MINUTES",
+        "encodings": {
+          "x": "minute",
+          "y": [
+            "invoices_per_min",
+            "queue_depth"
+          ]
+        },
+        "options": {
+          "marker": "circle",
+          "height": 390,
+          "colors": [
+            "#22D3EE",
+            "#FB7185"
+          ]
+        }
+      },
+      "position": {
+        "row": 4,
+        "col": 0,
+        "rowSpan": 6,
+        "colSpan": 6
+      }
+    },
+    {
+      "id": "item_7",
+      "input": "input_2",
+      "view": {
+        "kind": "area",
+        "title": "ACTUAL NORMALIZED SPEND — USD",
+        "encodings": {
+          "x": "Date",
+          "y": "spend_usd"
+        },
+        "options": {
+          "valueFormat": "$#,##0",
+          "marker": "circle",
+          "height": 350,
+          "colors": [
+            "#A78BFA"
+          ]
+        }
+      },
+      "position": {
+        "row": 4,
+        "col": 6,
+        "rowSpan": 5,
+        "colSpan": 6
+      }
+    },
+    {
+      "id": "item_8",
+      "input": "input_3",
+      "view": {
+        "kind": "bar",
+        "title": "VENDOR COMMAND BOARD — STATUS IS SIMULATED",
+        "encodings": {
+          "x": "Vendor",
+          "y": "spend_usd",
+          "series": "simulated_status"
+        },
+        "options": {
+          "horizontal": true,
+          "valueFormat": "$#,##0",
+          "height": 480,
+          "colors": [
+            "#34D399",
+            "#FBBF24",
+            "#FB7185"
+          ]
+        }
+      },
+      "position": {
+        "row": 10,
+        "col": 0,
+        "rowSpan": 7,
+        "colSpan": 6
+      }
+    },
+    {
+      "id": "item_9",
+      "input": "input_4",
+      "view": {
+        "kind": "table",
+        "title": "HIGH-VALUE INVOICE WATCHLIST — ACTUAL",
+        "options": {
+          "columns": [
+            {
+              "field": "InvoiceID",
+              "header": "Invoice ID"
+            },
+            {
+              "field": "Date",
+              "header": "Date"
+            },
+            {
+              "field": "Vendor",
+              "header": "Vendor"
+            },
+            {
+              "field": "Country",
+              "header": "Country"
+            },
+            {
+              "field": "category",
+              "header": "Category"
+            },
+            {
+              "field": "Currency",
+              "header": "Currency"
+            },
+            {
+              "field": "amount_usd",
+              "header": "Normalized USD",
+              "format": "$#,##0",
+              "numeric": true,
+              "highlight": {
+                "above": 14000000,
+                "color": "#4C1D2F"
+              }
+            }
+          ],
+          "sort": [
+            {
+              "field": "amount_usd",
+              "desc": true
+            }
+          ]
+        }
+      },
+      "position": {
+        "row": 17,
+        "col": 0,
+        "rowSpan": 5,
+        "colSpan": 12
+      }
+    },
+    {
+      "id": "invoice_galaxy",
+      "input": "input_4",
+      "stage": {
+        "layout": "galaxy",
+        "title": "HIGH-VALUE INVOICE GALAXY — ACTUAL",
+        "color": "category",
+        "value": "amount_usd",
+        "size": "amount_usd",
+        "order": "amount_usd",
+        "label": "InvoiceID",
+        "key": "InvoiceID",
+        "shape": "orb",
+        "spin": true,
+        "tour": {
+          "rank": "amount_usd",
+          "top": 5,
+          "hold": 3
+        }
+      }
+    },
+    {
+      "id": "flow_space",
+      "input": "input_1",
+      "stage": {
+        "layout": "scatter",
+        "title": "SIMULATED FLOW SPACE",
+        "color": "queue_depth",
+        "value": "invoices_per_min",
+        "size": "invoices_per_min",
+        "x": "queue_depth",
+        "y": "latency_ms",
+        "z": "invoices_per_min",
+        "label": "minute",
+        "key": "minute",
+        "shape": "orb",
+        "spin": true,
+        "tour": {
+          "rank": "invoices_per_min",
+          "top": 6,
+          "hold": 2
+        }
+      }
+    },
+    {
+      "id": "vendor_clusters",
+      "input": "input_3",
+      "stage": {
+        "layout": "clusters",
+        "title": "VENDOR OPERATIONS CLUSTERS — STATUS SIMULATED",
+        "group": "simulated_status",
+        "color": "simulated_status",
+        "value": "spend_usd",
+        "size": "spend_usd",
+        "order": "simulated_risk",
+        "label": "Vendor",
+        "key": "Vendor",
+        "highlight": {
+          "field": "simulated_status",
+          "equals": [
+            "Watch",
+            "Elevated"
+          ]
+        },
+        "shape": "block",
+        "spin": true,
+        "tour": {
+          "rank": "simulated_risk",
+          "top": 5,
+          "hold": 3
+        }
+      }
+    },
+    {
+      "id": "vendor_towers",
+      "input": "input_3",
+      "stage": {
+        "layout": "columns",
+        "title": "VENDOR EXPOSURE TOWERS — ACTUAL SPEND / SIMULATED STATUS",
+        "group": "Vendor",
+        "color": "simulated_status",
+        "value": "spend_usd",
+        "size": "invoice_count",
+        "order": "spend_usd",
+        "label": "Vendor",
+        "key": "Vendor",
+        "cards": true,
+        "highlight": {
+          "field": "simulated_status",
+          "equals": [
+            "Watch",
+            "Elevated"
+          ]
+        },
+        "shape": "block",
+        "spin": true
+      }
+    }
+  ],
+  "theme": {
+    "direction": "nocturne",
+    "primaryColor": "#22D3EE",
+    "background": "#02040A",
+    "fontFamily": "Inter, Segoe UI, sans-serif",
+    "palette": [
+      "#22D3EE",
+      "#8B5CF6",
+      "#34D399",
+      "#FBBF24",
+      "#FB7185",
+      "#60A5FA"
+    ]
+  },
+  "alerts": [
+    {
+      "id": "sim-health-low",
+      "label": "Simulated health below 93",
+      "when": "max simulated_health_score in item_4",
+      "op": "<",
+      "value": 93,
+      "severity": "warning"
+    },
+    {
+      "id": "sim-queue-high",
+      "label": "Simulated queue above 24",
+      "when": "max simulated_queue in item_2",
+      "op": ">",
+      "value": 24,
+      "severity": "critical"
+    }
+  ],
+  "shapes": {
+    "circle": {
+      "path": {
+        "d": "M12 2A10 10 0 1 0 12 22A10 10 0 1 0 12 2Z",
+        "viewBox": [
+          0,
+          0,
+          24,
+          24
+        ]
+      }
+    }
+  },
+  "generatedAt": "2026-10-17T16:33:08.369Z"
+}

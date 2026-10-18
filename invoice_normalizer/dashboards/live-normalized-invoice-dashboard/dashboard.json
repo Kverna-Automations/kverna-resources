@@ -1,0 +1,310 @@
+{
+  "name": "Live Normalized Invoice Dashboard",
+  "layout": {
+    "columns": 12
+  },
+  "items": [
+    {
+      "id": "item_1",
+      "input": "input_0",
+      "view": {
+        "kind": "line",
+        "title": "Normalized Invoice Spend by Date (USD)",
+        "encodings": {
+          "x": "Date",
+          "y": "spend_usd"
+        },
+        "options": {
+          "valueFormat": "$#,##0",
+          "marker": "circle",
+          "height": 340
+        }
+      },
+      "position": {
+        "row": 0,
+        "col": 0,
+        "rowSpan": 5,
+        "colSpan": 6
+      }
+    },
+    {
+      "id": "item_2",
+      "input": "input_1",
+      "view": {
+        "kind": "metric",
+        "title": "Normalized Spend",
+        "encodings": {
+          "value": "total_spend_usd"
+        },
+        "options": {
+          "valueFormat": "$#,##0",
+          "icon": "dollar-sign"
+        }
+      },
+      "position": {
+        "row": 0,
+        "col": 6,
+        "rowSpan": 2,
+        "colSpan": 3
+      }
+    },
+    {
+      "id": "item_3",
+      "input": "input_1",
+      "view": {
+        "kind": "metric",
+        "title": "Invoices Processed",
+        "encodings": {
+          "value": "invoice_count"
+        },
+        "options": {
+          "valueFormat": "#,##0",
+          "icon": "file-text"
+        }
+      },
+      "position": {
+        "row": 0,
+        "col": 9,
+        "rowSpan": 2,
+        "colSpan": 3
+      }
+    },
+    {
+      "id": "item_4",
+      "input": "input_1",
+      "view": {
+        "kind": "metric",
+        "title": "Average Invoice",
+        "encodings": {
+          "value": "avg_invoice_usd"
+        },
+        "options": {
+          "valueFormat": "$#,##0.00",
+          "icon": "receipt"
+        }
+      },
+      "position": {
+        "row": 5,
+        "col": 0,
+        "rowSpan": 2,
+        "colSpan": 3
+      }
+    },
+    {
+      "id": "item_5",
+      "input": "input_2",
+      "view": {
+        "kind": "bar",
+        "title": "Top Vendors by Normalized Spend",
+        "encodings": {
+          "x": "Vendor",
+          "y": "spend_usd"
+        },
+        "options": {
+          "horizontal": true,
+          "valueFormat": "$#,##0",
+          "height": 400
+        }
+      },
+      "position": {
+        "row": 5,
+        "col": 3,
+        "rowSpan": 6,
+        "colSpan": 6
+      }
+    },
+    {
+      "id": "item_6",
+      "input": "input_3",
+      "view": {
+        "kind": "bar",
+        "title": "Normalized Spend by Category",
+        "encodings": {
+          "x": "Description",
+          "y": "spend_usd"
+        },
+        "options": {
+          "horizontal": true,
+          "valueFormat": "$#,##0",
+          "height": 360
+        }
+      },
+      "position": {
+        "row": 11,
+        "col": 0,
+        "rowSpan": 5,
+        "colSpan": 6
+      }
+    },
+    {
+      "id": "item_7",
+      "input": "input_4",
+      "view": {
+        "kind": "pie",
+        "title": "Normalized Spend by Source Currency",
+        "encodings": {
+          "category": "Currency",
+          "value": "spend_usd"
+        },
+        "options": {
+          "valueFormat": "$#,##0",
+          "height": 320
+        }
+      },
+      "position": {
+        "row": 11,
+        "col": 6,
+        "rowSpan": 5,
+        "colSpan": 4
+      }
+    },
+    {
+      "id": "item_8",
+      "input": "input_5",
+      "view": {
+        "kind": "table",
+        "title": "Largest Normalized Invoices",
+        "options": {
+          "columns": [
+            {
+              "field": "InvoiceID",
+              "header": "Invoice ID"
+            },
+            {
+              "field": "Date",
+              "header": "Date"
+            },
+            {
+              "field": "Vendor",
+              "header": "Vendor"
+            },
+            {
+              "field": "Country",
+              "header": "Country"
+            },
+            {
+              "field": "Description",
+              "header": "Category"
+            },
+            {
+              "field": "Currency",
+              "header": "Source Currency"
+            },
+            {
+              "field": "original_amount",
+              "header": "Original Amount",
+              "format": "#,##0.00",
+              "numeric": true
+            },
+            {
+              "field": "amount_usd",
+              "header": "Normalized USD",
+              "format": "$#,##0.00",
+              "numeric": true
+            }
+          ],
+          "sort": [
+            {
+              "field": "amount_usd",
+              "desc": true
+            }
+          ]
+        }
+      },
+      "position": {
+        "row": 16,
+        "col": 0,
+        "rowSpan": 5,
+        "colSpan": 12
+      }
+    }
+  ],
+  "theme": {
+    "direction": "signal",
+    "primaryColor": "#22D3EE",
+    "palette": [
+      "#22D3EE",
+      "#A78BFA",
+      "#34D399",
+      "#FBBF24",
+      "#FB7185",
+      "#60A5FA",
+      "#F472B6"
+    ]
+  },
+  "filters": [
+    {
+      "id": "vendor",
+      "field": "Vendor",
+      "kind": "select",
+      "label": "Vendor"
+    },
+    {
+      "id": "currency",
+      "field": "Currency",
+      "kind": "multi",
+      "label": "Source Currency"
+    }
+  ],
+  "live": {
+    "checkEverySeconds": 30,
+    "expectEverySeconds": 180
+  },
+  "alerts": [
+    {
+      "id": "invoice-data-present",
+      "label": "Invoice feed returned no records",
+      "when": "sum invoice_count in item_3",
+      "op": "<",
+      "value": 1,
+      "severity": "critical"
+    }
+  ],
+  "shapes": {
+    "circle": {
+      "path": {
+        "d": "M12 2A10 10 0 1 0 12 22A10 10 0 1 0 12 2Z",
+        "viewBox": [
+          0,
+          0,
+          24,
+          24
+        ]
+      }
+    },
+    "dollar-sign": {
+      "path": {
+        "d": "M12 2V22M17 5.5H9.5A3.5 3.5 0 0 0 9.5 12H14.5A3.5 3.5 0 0 1 14.5 18.5H7",
+        "viewBox": [
+          0,
+          0,
+          24,
+          24
+        ]
+      }
+    },
+    "file-text": {
+      "path": {
+        "d": "M6 2H14L19 7V22H6Z M14 2V7H19 M9 12H16 M9 16H16",
+        "viewBox": [
+          0,
+          0,
+          24,
+          24
+        ]
+      }
+    },
+    "receipt": {
+      "path": {
+        "d": "M6 2L8 4L10 2L12 4L14 2L16 4L18 2V22L16 20L14 22L12 20L10 22L8 20L6 22Z M9 9H15 M9 13H15 M9 17H13",
+        "viewBox": [
+          0,
+          0,
+          24,
+          24
+        ]
+      }
+    }
+  },
+  "generatedAt": "2026-10-17T16:33:05.478Z"
+}

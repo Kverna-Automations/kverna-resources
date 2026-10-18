@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "dashboards": [
+    {
+      "slug": "invoice-operations-wallboard",
+      "name": "Invoice Operations Wallboard",
+      "folder": "C:\\repos\\kverna-resources\\invoice_normalizer\\dashboards\\invoice-operations-wallboard",
+      "itemCount": 13,
+      "updatedAt": "2026-10-17T16:33:08.369Z",
+      "mode": "summary",
+      "pipelineId": "pipeline-1791925118863",
+      "nodeId": "n14"
+    },
+    {
+      "slug": "live-normalized-invoice-dashboard",
+      "name": "Live Normalized Invoice Dashboard",
+      "folder": "C:\\repos\\kverna-resources\\invoice_normalizer\\dashboards\\live-normalized-invoice-dashboard",
+      "itemCount": 8,
+      "updatedAt": "2026-10-17T16:33:05.478Z",
+      "mode": "live",
+      "pipelineId": "pipeline-1791923627095",
+      "nodeId": "n16"
+    }
+  ]
+}
