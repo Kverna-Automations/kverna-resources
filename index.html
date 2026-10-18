@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A live, transparent northern-lights chance estimate for ten aurora destinations, using NOAA SWPC and Open-Meteo.">
+  <title>Aurora Window — where to see the northern lights tonight</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+  <main>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">LIVE NIGHT-SKY FIELD GUIDE</p>
+        <h1>Aurora <span>Window</span></h1>
+        <p class="lede">Where do clear skies, darkness and the auroral oval line up tonight?</p>
+      </div>
+      <div class="refresh-box">
+        <button id="refresh" type="button">Refresh now</button>
+        <div id="countdown">Updates every 10 minutes</div>
+      </div>
+    </header>
+
+    <section class="health" aria-label="Live source status">
+      <div id="overall" class="status-pill loading">Loading live sources…</div>
+      <div id="health-list"></div>
+    </section>
+
+    <section class="map-shell">
+      <div class="map-copy">
+        <p class="kicker">BEST WINDOW IN THE NEXT 30 HOURS</p>
+        <h2 id="headline">Checking the sky…</h2>
+        <p id="subhead">Scores disappear if a required source is unavailable or stale.</p>
+      </div>
+      <div id="map-wrap">
+        <svg id="map" viewBox="0 0 1200 600" role="img" aria-label="World map showing selected aurora viewing locations">
+          <defs>
+            <radialGradient id="oceanGlow" cx="50%" cy="10%" r="80%"><stop offset="0" stop-color="#123359"/><stop offset=".45" stop-color="#07172d"/><stop offset="1" stop-color="#020711"/></radialGradient>
+            <linearGradient id="auroraBand" x1="0" x2="1"><stop stop-color="#34f5c5" stop-opacity="0"/><stop offset=".25" stop-color="#34f5c5" stop-opacity=".14"/><stop offset=".52" stop-color="#b7ff48" stop-opacity=".22"/><stop offset=".75" stop-color="#b050ff" stop-opacity=".16"/><stop offset="1" stop-color="#34f5c5" stop-opacity="0"/></linearGradient>
+            <filter id="glow"><feGaussianBlur stdDeviation="7" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <rect width="1200" height="600" fill="url(#oceanGlow)"/>
+          <ellipse cx="600" cy="105" rx="520" ry="82" fill="none" stroke="url(#auroraBand)" stroke-width="48" filter="url(#glow)"/>
+          <g id="countries"></g>
+          <g id="markers"></g>
+        </svg>
+        <div id="map-error" hidden>Map boundaries unavailable.</div>
+      </div>
+      <aside id="selected" class="selected-card" aria-live="polite"><p>Select a glowing spot.</p></aside>
+    </section>
+</main>
+  <script src="app.js" defer></script>
+</body>
+</html>

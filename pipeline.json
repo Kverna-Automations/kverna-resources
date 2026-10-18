@@ -1,0 +1,197 @@
+{
+  "version": "2.0.0",
+  "exportedAt": "2026-10-18T17:09:09.186Z",
+  "pipeline": {
+    "id": "pipeline-1792343339174",
+    "name": "Aurora Window Live Scoring",
+    "label": "Aurora Window Live Scoring",
+    "enableDebug": true,
+    "variables": {},
+    "nodes": [
+      {
+        "id": "n1",
+        "type": "web:request",
+        "label": "NOAA Kp Forecast",
+        "position": {
+          "x": 170,
+          "y": 0
+        },
+        "config": {
+          "method": "GET",
+          "authentication": "none",
+          "timeout": 30000,
+          "enableCache": false,
+          "cacheTTL": 60,
+          "url": "https://services.swpc.noaa.gov/products/noaa-planetary-k-index-forecast.json",
+          "headers": "{}"
+        }
+      },
+      {
+        "id": "n2",
+        "type": "web:request",
+        "label": "NOAA Aurora Grid",
+        "position": {
+          "x": 85,
+          "y": 220
+        },
+        "config": {
+          "method": "GET",
+          "authentication": "none",
+          "timeout": 30000,
+          "enableCache": false,
+          "cacheTTL": 60,
+          "url": "https://services.swpc.noaa.gov/json/ovation_aurora_latest.json",
+          "headers": "{}"
+        }
+      },
+      {
+        "id": "n3",
+        "type": "web:request",
+        "label": "Spot Weather Forecasts",
+        "position": {
+          "x": 0,
+          "y": 440
+        },
+        "config": {
+          "method": "GET",
+          "authentication": "none",
+          "timeout": 30000,
+          "enableCache": false,
+          "cacheTTL": 60,
+          "url": "https://api.open-meteo.com/v1/forecast?latitude=64.83778,62.45411,58.76811,67.00876,64.13548,69.6489,68.34914,66.49897,67.85572,78.22334&longitude=-147.71638,-114.37248,-94.16674,-50.68937,-21.89541,18.95508,18.82868,25.68867,20.22513,15.64689&hourly=cloud_cover,visibility,precipitation_probability,weather_code&forecast_days=2&timezone=auto",
+          "headers": "{}"
+        }
+      },
+      {
+        "id": "n4",
+        "type": "transform:python",
+        "label": "Combined Aurora Chance",
+        "position": {
+          "x": 170,
+          "y": 660
+        },
+        "config": {
+          "code": "import json, math\nfrom datetime import datetime, timezone, timedelta\nov=json.loads(input_0); kp=json.loads(input_1); wx=json.loads(input_2)\nspots=[\n {\"name\":\"Fairbanks\",\"region\":\"Alaska, USA\",\"lat\":64.83778,\"lon\":-147.71638},\n {\"name\":\"Yellowknife\",\"region\":\"Northwest Territories, Canada\",\"lat\":62.45411,\"lon\":-114.37248},\n {\"name\":\"Churchill\",\"region\":\"Manitoba, Canada\",\"lat\":58.76811,\"lon\":-94.16674},\n {\"name\":\"Kangerlussuaq\",\"region\":\"Greenland\",\"lat\":67.00876,\"lon\":-50.68937},\n {\"name\":\"Reykjavík\",\"region\":\"Iceland\",\"lat\":64.13548,\"lon\":-21.89541},\n {\"name\":\"Tromsø\",\"region\":\"Norway\",\"lat\":69.6489,\"lon\":18.95508},\n {\"name\":\"Abisko\",\"region\":\"Sweden\",\"lat\":68.34914,\"lon\":18.82868},\n {\"name\":\"Rovaniemi\",\"region\":\"Finland\",\"lat\":66.49897,\"lon\":25.68867},\n {\"name\":\"Kiruna\",\"region\":\"Sweden\",\"lat\":67.85572,\"lon\":20.22513},\n {\"name\":\"Longyearbyen\",\"region\":\"Svalbard\",\"lat\":78.22334,\"lon\":15.64689}\n]\ndef clamp(x,a=0,b=1): return max(a,min(b,x))\ndef solar_elevation(dt,lat,lon):\n n=dt.timetuple().tm_yday; hour=dt.hour+dt.minute/60+dt.second/3600\n gamma=2*math.pi/365*(n-1+(hour-12)/24)\n eq=229.18*(0.000075+0.001868*math.cos(gamma)-0.032077*math.sin(gamma)-0.014615*math.cos(2*gamma)-0.040849*math.sin(2*gamma))\n dec=0.006918-0.399912*math.cos(gamma)+0.070257*math.sin(gamma)-0.006758*math.cos(2*gamma)+0.000907*math.sin(2*gamma)-0.002697*math.cos(3*gamma)+0.00148*math.sin(3*gamma)\n tst=(hour*60+eq+4*lon)%1440; ha=math.radians(tst/4-180); lr=math.radians(lat)\n return 90-math.degrees(math.acos(clamp(math.sin(lr)*math.sin(dec)+math.cos(lr)*math.cos(dec)*math.cos(ha),-1,1)))\ngrid={(int(round(a))%360,int(round(b))):float(c) for a,b,c in ov['coordinates']}\nkp_rows=[]\nfor r in kp:\n try: kp_rows.append((datetime.fromisoformat(r['time_tag']).replace(tzinfo=timezone.utc),float(r['kp']),r['observed']))\n except: pass\nnow=datetime.now(timezone.utc); rows=[]\nfor i,s in enumerate(spots):\n w=wx[i]; off=timedelta(seconds=w['utc_offset_seconds']); hours=[]\n aur=grid.get((int(round(s['lon']))%360,int(round(s['lat']))),0)\n for j,t in enumerate(w['hourly']['time']):\n  local_dt=datetime.fromisoformat(t).replace(tzinfo=timezone.utc); utc_dt=local_dt-off\n  if utc_dt<now-timedelta(minutes=30) or utc_dt>now+timedelta(hours=30): continue\n  sun=solar_elevation(utc_dt,s['lat'],s['lon'])\n  if sun>=-6: continue\n  dark=clamp((-sun-6)/12); cloud=float(w['hourly']['cloud_cover'][j]); vis=float(w['hourly']['visibility'][j])\n  clear=clamp(1-cloud/100); visf=clamp(vis/10000)\n  nearest=min(kp_rows,key=lambda x:abs((x[0]-utc_dt).total_seconds()))\n  kpf=clamp(nearest[1]/5)\n  space=math.sqrt(clamp(aur/100)*kpf)\n  chance=100*space*dark*clear*visf\n  hours.append({\"utc\":utc_dt,\"local\":t,\"sun\":sun,\"dark\":dark,\"cloud\":cloud,\"visibility\":vis,\"aurora\":aur,\"chance\":chance,\"kp\":nearest[1],\"kp_kind\":nearest[2]})\n if hours:\n  best=max(hours,key=lambda x:x['chance']); maxkp=max(h['kp'] for h in hours)\n  status='strong' if best['chance']>=50 else 'promising' if best['chance']>=30 else 'possible' if best['chance']>=15 else 'slim'\n  rows.append({**s,\"chance\":round(best['chance'],1),\"status\":status,\"best_local\":best['local'],\"best_utc\":best['utc'].isoformat().replace('+00:00','Z'),\"ovation_percent\":round(best['aurora'],1),\"cloud_percent\":round(best['cloud'],1),\"darkness_percent\":round(best['dark']*100,1),\"visibility_km\":round(best['visibility']/1000,1),\"kp_at_best\":round(best['kp'],2),\"kp_max\":round(maxkp,2),\"timezone\":w['timezone'],\"noaa_observation\":ov['Observation Time'],\"noaa_forecast\":ov['Forecast Time'],\"calculated_at\":now.isoformat().replace('+00:00','Z'),\"formula\":\"100 × sqrt((OVATION/100) × min(Kp/5,1)) × darkness × clear sky × min(visibility/10km,1)\",\"calibrated_probability\":False})\n else: rows.append({**s,\"chance\":None,\"status\":\"no darkness\",\"timezone\":w['timezone'],\"noaa_observation\":ov['Observation Time'],\"noaa_forecast\":ov['Forecast Time'],\"calculated_at\":now.isoformat().replace('+00:00','Z'),\"formula\":\"same formula; no qualifying dark hour\",\"calibrated_probability\":False})\njson.dumps(sorted(rows,key=lambda r:(r.get('chance') is not None,r.get('chance') or -1),reverse=True))",
+          "enableCache": false,
+          "cacheTTL": 60
+        }
+      },
+      {
+        "id": "n5",
+        "type": "dashboard:build",
+        "label": "Web dashboard",
+        "position": {
+          "x": 170,
+          "y": 880
+        },
+        "config": {
+          "name": "Aurora Window Live Scoring",
+          "publish": false,
+          "spec": "{\"name\":\"Aurora Window Live Scoring\",\"layout\":{\"columns\":12},\"items\":[{\"id\":\"item_1\",\"input\":\"input_0\",\"view\":{\"kind\":\"table\",\"title\":\"Aurora Window — Current Score Breakdown\",\"options\":{\"columns\":[{\"field\":\"name\",\"header\":\"Spot\"},{\"field\":\"region\",\"header\":\"Region\"},{\"field\":\"chance\",\"header\":\"Chance estimate\",\"format\":\"0.0\",\"numeric\":true},{\"field\":\"best_local\",\"header\":\"Best local hour\"},{\"field\":\"ovation_percent\",\"header\":\"OVATION\",\"format\":\"0.0\",\"numeric\":true},{\"field\":\"kp_at_best\",\"header\":\"Kp\",\"format\":\"0.00\",\"numeric\":true},{\"field\":\"cloud_percent\",\"header\":\"Cloud\",\"format\":\"0.0\",\"numeric\":true},{\"field\":\"darkness_percent\",\"header\":\"Darkness\",\"format\":\"0.0\",\"numeric\":true},{\"field\":\"visibility_km\",\"header\":\"Visibility km\",\"format\":\"0.0\",\"numeric\":true},{\"field\":\"noaa_forecast\",\"header\":\"NOAA forecast time\"},{\"field\":\"calculated_at\",\"header\":\"Calculated at\"}],\"sort\":[{\"field\":\"chance\",\"desc\":true}]}},\"position\":{\"row\":0,\"col\":0,\"rowSpan\":5,\"colSpan\":12}}]}"
+        }
+      }
+    ],
+    "triggers": [
+      {
+        "id": "trigger_pipeline_1792343339160",
+        "type": "manual",
+        "enabled": true
+      },
+      {
+        "id": "pipeline-1792343339174-schedule",
+        "type": "cron",
+        "label": "Schedule",
+        "enabled": true,
+        "cron": "0 */30 * * * *",
+        "description": "Set by the Builder (schedule_pipeline)."
+      }
+    ],
+    "edges": [
+      {
+        "id": "trigger_pipeline_1792343339160-n1-execution",
+        "source": "trigger_pipeline_1792343339160",
+        "target": "n1",
+        "type": "execution",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in"
+      },
+      {
+        "id": "n1-n2-execution",
+        "source": "n1",
+        "target": "n2",
+        "type": "execution",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in"
+      },
+      {
+        "id": "n2-n3-execution",
+        "source": "n2",
+        "target": "n3",
+        "type": "execution",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in"
+      },
+      {
+        "id": "n3-n4-execution",
+        "source": "n3",
+        "target": "n4",
+        "type": "execution",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in"
+      },
+      {
+        "id": "n4-n5-execution",
+        "source": "n4",
+        "target": "n5",
+        "type": "execution",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in"
+      },
+      {
+        "id": "n2-n4-orderedInput",
+        "source": "n2",
+        "target": "n4",
+        "type": "orderedInput",
+        "sourceHandle": "data-out",
+        "targetHandle": "input-0",
+        "inputIndex": 0
+      },
+      {
+        "id": "n1-n4-orderedInput",
+        "source": "n1",
+        "target": "n4",
+        "type": "orderedInput",
+        "sourceHandle": "data-out",
+        "targetHandle": "input-1",
+        "inputIndex": 1
+      },
+      {
+        "id": "n3-n4-orderedInput",
+        "source": "n3",
+        "target": "n4",
+        "type": "orderedInput",
+        "sourceHandle": "data-out",
+        "targetHandle": "input-2",
+        "inputIndex": 2
+      },
+      {
+        "id": "n4-n5-orderedInput",
+        "source": "n4",
+        "target": "n5",
+        "type": "orderedInput",
+        "sourceHandle": "data-out",
+        "targetHandle": "input-0",
+        "inputIndex": 0
+      },
+      {
+        "id": "pipeline-1792343339174-schedule-n1-execution",
+        "source": "pipeline-1792343339174-schedule",
+        "target": "n1",
+        "type": "execution",
+        "sourceHandle": "execution-out",
+        "targetHandle": "execution-in"
+      }
+    ],
+    "changeVersion": 1
+  }
+}
